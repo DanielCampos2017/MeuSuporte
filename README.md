@@ -14,7 +14,7 @@
 - [x] Limpar Lixeira
 - [x] Limpar Processos
 - [x] Remover arquivos temporários (%Temp%)
-- [x] Remover arquivos Update Windows
+- [x] Desativar Windows Update
 - [x] Remover arquivos Google Update
 - [x] Backup Registro do Windows
 - [x] Gerenciamento do arquivo Pagefile.sys
@@ -22,8 +22,7 @@
 - [x] Limpar Registros do Windows
 - [x] Cria usuário "TerraVista"
 - [x] Limpar Prefetch
-- [x] Backup do BootBCD
-- [ ] Desativar Windows Update 
+- [x] Backup do BootBCD 
 - [x] Salva Log dos processos executados 
 
 ### Requisitos
@@ -149,7 +148,7 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 
 ```
 # 
-##### Serviços do Windows que são Desativado
+##### Desativar Windows Update
 
 ``` bash
 # Serviço de Instalação da Microsoft Store
