@@ -70,9 +70,6 @@ ScaffoldingReadMe.txt
 # StyleCop
 StyleCopReport.xml
 
-#Teste
-Class_UpdateUser.cs
-
 # Files built by Visual Studio
 *_i.c
 *_p.c
