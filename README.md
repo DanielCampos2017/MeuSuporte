@@ -4,8 +4,7 @@
 
 #
 
-![Preview](https://github.com/user-attachments/assets/8eb0515e-4ec8-4f08-b660-987e0dcec43a)
-
+![Preview](https://github.com/user-attachments/assets/81130f2a-96de-4cef-987c-2047968d07b0)
 
 #
 
