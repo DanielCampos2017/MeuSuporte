@@ -154,7 +154,7 @@ namespace TaskScheduler
 
         public async Task Usuario()
         {
-            Class_Password _ClassPassword = new Class_Password();
+            Class_Password _ClassPassword = new Class_Password(); // essa é uma class simples que retorna usuários e senha 
             NameUser = _ClassPassword.GetUser();
             PasswordUser = _ClassPassword.GetPassword();
 
