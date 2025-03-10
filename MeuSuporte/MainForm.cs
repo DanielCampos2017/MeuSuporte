@@ -34,7 +34,7 @@ namespace TaskScheduler
         private void FormPreventiva_Load(object sender, EventArgs e)
         {
             Label_NameMachine.Text = Environment.MachineName;
-            testeVersao();
+            VersionUpdateNotification();
         }
             
         #region ***0° - notificacao de segurança ao usuario
@@ -189,13 +189,14 @@ namespace TaskScheduler
 
         #endregion
 
-        #region *** 5° Limpra Update Windows
+        #region *** 5° Desativar o Windows Update
 
         private async Task CleanWindows()
         {
             await Task.Run(async () =>
             {
                 Class_CleanDirectorry _Class_CleanWindows = new Class_CleanDirectorry(this);
+                Class_CleanProcess _ClassCleanProcess = new Class_CleanProcess(this);
 
                 this.Invoke((MethodInvoker)delegate
                 {
@@ -209,6 +210,7 @@ namespace TaskScheduler
 
                 string DiretorioPasta = @"C:\Windows\SoftwareDistribution\Download";
                 await _Class_CleanWindows.CleanDirectoryAsync(DiretorioPasta, "Windows Update"); // Agora aguarda sem travar a UI
+                await _ClassCleanProcess.WindowsUpdate();
 
                 this.Invoke((MethodInvoker)delegate
                 {
@@ -649,32 +651,9 @@ namespace TaskScheduler
 
         #endregion
 
+        #region Verifica Versão do GitHub
 
-
-
-        async Task inicioAsync()
-        {
-            string localVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.0.0";
-
-            string githubRepo = "DanielCampos2017/Preventiva-Oficial";
-
-            string latestVersion = await GetLatestVersionFromGitHub(githubRepo);
-            string downloadUrl = await GetDownloadUrlFromGitHub(githubRepo);
-
-            Console.WriteLine($"Versão Local: {localVersion}");
-            Console.WriteLine($"Última Versão no GitHub: {latestVersion}");
-
-            if (latestVersion != null && latestVersion != localVersion)
-            {
-                Console.WriteLine("Nova versão disponível!");
-                Console.WriteLine($"Baixe a atualização: {downloadUrl}");
-            }
-            else
-            {
-                Console.WriteLine("Seu programa está atualizado.");
-            }
-        }
-
+        //Verifica a versão mais recente do GitHub
         static async Task<string> GetLatestVersionFromGitHub(string repo)
         {
             using (HttpClient client = new HttpClient()) // Compatível com C# 7.3
@@ -698,6 +677,7 @@ namespace TaskScheduler
             }
         }
 
+        // Obtem o link de Download do GitHub
         static async Task<string> GetDownloadUrlFromGitHub(string repo)
         {
             using (HttpClient client = new HttpClient()) // Compatível com C# 7.3
@@ -730,18 +710,14 @@ namespace TaskScheduler
             }
         }
 
-
-
-
-
-        async Task testeVersao()
+        async Task VersionUpdateNotification()
         {
-            string GitHubRepo = "DanielCampos2017/Preventiva-Oficial";
+            string GitHubRepo = "DanielCampos2017/MeuSuporte";
             string latestVersion = await GetLatestVersionFromGitHub(GitHubRepo);
 
          
            string localVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.0.0";
-           localVersion = "8.2.1.0"; // Versão do seu programa
+            this.Text = $"MeuSuporte Build {localVersion}";
 
             Version vLocal = new Version(localVersion);
             Version vLatest = new Version(latestVersion);
@@ -750,7 +726,7 @@ namespace TaskScheduler
 
             if (result > 0)
             {
-
+                  //
             }
             else if (result < 0)
             {
@@ -764,30 +740,18 @@ namespace TaskScheduler
             }
         }
 
+        #endregion
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-    private async void Btn_Canselar_Click(object sender, EventArgs e)
+        private async void Btn_Canselar_Click(object sender, EventArgs e)
         {
 
             Btn_Canselar.Enabled = false;
             AbortExecution = true;
             btn_IniciarProcesso.Enabled = true;
-
-            return;
-            inicioAsync();
-        
 
         }
 

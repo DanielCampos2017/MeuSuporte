@@ -163,6 +163,19 @@ namespace TaskScheduler
 
         }
 
+        // função de parar serviço
+        private async Task WaitForServiceToStop(ServiceController service)
+        {
+            service.Stop(); // Envia o comando para parar
+
+            while (service.Status == ServiceControllerStatus.Running)
+            {
+                await Task.Delay(500); // Espera sem bloquear a thread
+                service.Refresh(); // Atualiza o status do serviço
+            }
+        }
+
+
         public async Task CleanProcess()
         {
             if (_MainForm.AbortExecution)
@@ -208,6 +221,21 @@ namespace TaskScheduler
                 }
             }
 
+            if (!ProcessFound)
+            {
+                _MainForm.Log_Mensagem("Serviço: ", "Nenhum Listado encontrado !");
+            }
+        }
+
+        public async Task WindowsUpdate()
+        {
+            if (_MainForm.AbortExecution)
+            {
+                return;
+            }
+            bool ProcessFound = false;
+            ServiceController[] services = ServiceController.GetServices();
+
             // Percorre a lista de serviços para desativar
             foreach (ServiceController service in services)
             {
@@ -243,18 +271,8 @@ namespace TaskScheduler
             }
         }
 
-        // função de parar serviço
-        private async Task WaitForServiceToStop(ServiceController service)
-        {
-            service.Stop(); // Envia o comando para parar
 
-            while (service.Status == ServiceControllerStatus.Running)
-            {
-                await Task.Delay(500); // Espera sem bloquear a thread
-                service.Refresh(); // Atualiza o status do serviço
-            }
-        }
 
-         
+
     }
 }

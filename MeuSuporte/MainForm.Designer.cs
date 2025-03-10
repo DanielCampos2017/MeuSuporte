@@ -115,7 +115,7 @@
             // progressBar1
             // 
             this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progressBar1.Location = new System.Drawing.Point(300, 69);
+            this.progressBar1.Location = new System.Drawing.Point(320, 68);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(488, 11);
             this.progressBar1.TabIndex = 0;
@@ -182,9 +182,9 @@
             this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox5.Location = new System.Drawing.Point(42, 255);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(201, 24);
+            this.checkBox5.Size = new System.Drawing.Size(233, 24);
             this.checkBox5.TabIndex = 6;
-            this.checkBox5.Text = "Limpra Update Windows";
+            this.checkBox5.Text = "Desativar o Windows Update";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // checkBox6
@@ -270,7 +270,7 @@
             this.Btn_Canselar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Canselar.Enabled = false;
             this.Btn_Canselar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Canselar.Location = new System.Drawing.Point(663, 6);
+            this.Btn_Canselar.Location = new System.Drawing.Point(681, 6);
             this.Btn_Canselar.Name = "Btn_Canselar";
             this.Btn_Canselar.Size = new System.Drawing.Size(138, 36);
             this.Btn_Canselar.TabIndex = 16;
@@ -295,16 +295,16 @@
             this.panelBoton.Controls.Add(this.btn_IniciarProcesso);
             this.panelBoton.Controls.Add(this.Btn_Canselar);
             this.panelBoton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBoton.Location = new System.Drawing.Point(0, 621);
+            this.panelBoton.Location = new System.Drawing.Point(0, 618);
             this.panelBoton.Name = "panelBoton";
-            this.panelBoton.Size = new System.Drawing.Size(957, 50);
+            this.panelBoton.Size = new System.Drawing.Size(975, 50);
             this.panelBoton.TabIndex = 52;
             // 
             // btn_IniciarProcesso
             // 
             this.btn_IniciarProcesso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_IniciarProcesso.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IniciarProcesso.Location = new System.Drawing.Point(807, 6);
+            this.btn_IniciarProcesso.Location = new System.Drawing.Point(825, 6);
             this.btn_IniciarProcesso.Name = "btn_IniciarProcesso";
             this.btn_IniciarProcesso.Size = new System.Drawing.Size(138, 36);
             this.btn_IniciarProcesso.TabIndex = 17;
@@ -315,7 +315,7 @@
             // panelDivisoria
             // 
             this.panelDivisoria.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelDivisoria.Location = new System.Drawing.Point(292, 55);
+            this.panelDivisoria.Location = new System.Drawing.Point(303, 55);
             this.panelDivisoria.Name = "panelDivisoria";
             this.panelDivisoria.Size = new System.Drawing.Size(1, 570);
             this.panelDivisoria.TabIndex = 53;
@@ -334,7 +334,7 @@
             // 
             this.labelInfoDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInfoDescricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelInfoDescricao.Location = new System.Drawing.Point(338, 559);
+            this.labelInfoDescricao.Location = new System.Drawing.Point(349, 559);
             this.labelInfoDescricao.Name = "labelInfoDescricao";
             this.labelInfoDescricao.Size = new System.Drawing.Size(610, 52);
             this.labelInfoDescricao.TabIndex = 58;
@@ -344,7 +344,7 @@
             // 
             this.labelInfoTitulo.AutoSize = true;
             this.labelInfoTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInfoTitulo.Location = new System.Drawing.Point(304, 42);
+            this.labelInfoTitulo.Location = new System.Drawing.Point(315, 42);
             this.labelInfoTitulo.Name = "labelInfoTitulo";
             this.labelInfoTitulo.Size = new System.Drawing.Size(81, 20);
             this.labelInfoTitulo.TabIndex = 59;
@@ -354,7 +354,7 @@
             // 
             this.checkBoxAll.AutoSize = true;
             this.checkBoxAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxAll.Location = new System.Drawing.Point(11, 593);
+            this.checkBoxAll.Location = new System.Drawing.Point(11, 589);
             this.checkBoxAll.Name = "checkBoxAll";
             this.checkBoxAll.Size = new System.Drawing.Size(72, 24);
             this.checkBoxAll.TabIndex = 15;
@@ -366,7 +366,7 @@
             // 
             this.panelLog.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panelLog.Controls.Add(this.txt_Log);
-            this.panelLog.Location = new System.Drawing.Point(300, 87);
+            this.panelLog.Location = new System.Drawing.Point(311, 87);
             this.panelLog.Margin = new System.Windows.Forms.Padding(2);
             this.panelLog.Name = "panelLog";
             this.panelLog.Padding = new System.Windows.Forms.Padding(1);
@@ -376,7 +376,7 @@
             // Label_NameMachine
             // 
             this.Label_NameMachine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_NameMachine.Location = new System.Drawing.Point(668, 9);
+            this.Label_NameMachine.Location = new System.Drawing.Point(689, 9);
             this.Label_NameMachine.Name = "Label_NameMachine";
             this.Label_NameMachine.Size = new System.Drawing.Size(281, 48);
             this.Label_NameMachine.TabIndex = 63;
@@ -386,7 +386,7 @@
             // pictureBoxInfoDescricao
             // 
             this.pictureBoxInfoDescricao.Image = global::MeuSuporte.Properties.Resources.iinfo;
-            this.pictureBoxInfoDescricao.Location = new System.Drawing.Point(298, 559);
+            this.pictureBoxInfoDescricao.Location = new System.Drawing.Point(309, 559);
             this.pictureBoxInfoDescricao.Name = "pictureBoxInfoDescricao";
             this.pictureBoxInfoDescricao.Size = new System.Drawing.Size(38, 35);
             this.pictureBoxInfoDescricao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -601,12 +601,12 @@
             this.panel8.Size = new System.Drawing.Size(147, 27);
             this.panel8.TabIndex = 69;
             // 
-            // FormPreventiva
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(957, 671);
+            this.ClientSize = new System.Drawing.Size(975, 668);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel0);
             this.Controls.Add(this.progressBar1);
@@ -651,10 +651,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormPreventiva";
+            this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Preventiva 8.2.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.FormPreventiva_Load);
             this.panelBoton.ResumeLayout(false);
