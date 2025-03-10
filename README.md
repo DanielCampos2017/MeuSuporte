@@ -43,128 +43,77 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
  - Cria usuário local caso não exista
  - Edita usuário, atualizar a senha e coloca no grupo administrador da máquina.
 
-##### Serviços do Windows que são apagados
-``` bash
-# Serviço da Adobe
-  - AdobeUpdateService
-  - AGSService
-  - AdobeARMservice
-  - serviço da adobe
+### 🔧 Lista de Serviços do Windows que são apagados
 
-# Microsoft Office Groove Audit Service
-  - serviço do Office
+<details>
+  <summary>🔽 Clique para expandir</summary>
 
-# serviço do google
-  - edgeupdate 
-  - edgeupdatem 
-  - gupdatem
-  - gupdate
-  - GoogleChromeElevationService
-  - gusvc
+#### **Serviço da Adobe**
+- AdobeUpdateService
+- AGSService
+- AdobeARMservice
 
-# Dropbox Service  
-  - DbxSvc
+#### **Microsoft Office Groove Audit Service**
+- serviço do Office
 
-# Pode ajudar em SSDs, mas em HDs pode ser útil
-  - SysMain
+#### **Serviço do Google**
+- edgeupdate 
+- edgeupdatem 
+- gupdatem
+- gupdate
+- GoogleChromeElevationService
+- gusvc
 
-# Atualizar o Serviço Orchestrator 
-  - UsoSvc
+#### **Dropbox Service**
+- DbxSvc
 
-# Xbox Accessory Management Service   
-  - XboxGipSvc
+#### **Serviço relacionado a desempenho**
+- SysMain //Pode ajudar em SSDs, mas em HDs pode ser útil)
 
-# Serviço Direto do Hyper-V PowerShell
-  - vmicvmsession
+#### **Outros Serviços**
+- UsoSvc - Atualização do Serviço Orchestrator)
+- XboxGipSvc - Xbox Accessory Management Service)
+- vmicvmsession - Serviço Direto do Hyper-V PowerShell
+- vmicrdv - Serviço de Virtualização de Área de Trabalho Remota do Hyper-V)
+- UevAgentService - User Experience Virtualization)
+- vmickvpexchange - Serviço de Troca de Dados do Hyper-V)
+- PhoneSvc - Serviço de Telefonia)
+- vmictimesync - Serviço de Sincronização de Data/Hora do Hyper-V)
+- perceptionsimulation - Serviço de Simulação de Percepção do Windows)
+- SensorService - Serviço de Sensor rotação automática)
+- XboxNetApiSvc - Serviço de Rede Xbox Live)
+- vmicheartbeat - Serviço de Pulsação do Hyper-V)
+- HvHost - Serviço de Host HV)
+- cloudidsvc - Serviço de identidade Microsoft Cloud)
+- icssvc - Serviço de Hotspot Móvel do Windows)
+- fhsvc - Serviço de Histórico de Arquivos)
+- lfsvc - Serviço de Geolocalização)
+- refsdedupsvc - Serviço de duplicação do ReFS)
+- vmicshutdown - Serviço de Desligamento de Convidado do Hyper-V)
+- WMPNetworkSvc - Serviço de Compartilhamento de Rede do Windows Media Player)
+- WbioSrvc - Serviço de Biometria do Windows)
+- Fax - Se você não usa fax, pode desativar)
+- SEMgrSvc - Serviço de Gerenciador de NFC/SE e Pagamentos)
+- MapsBroker - Serviço de Mapas)
+- WpnService - Serviço de Notificações Push do Windows)
+- XblAuthManager - Serviço de Autenticação Xbox Live)
 
-# Serviço de Virtualização de Área de Trabalho Remota do Hyper-V 
-  - vmicrdv
+</details>
 
-# Serviço de User Experience Virtualization
-  - UevAgentService
-
-# Serviço de Troca de Dados do Hyper-V
-  - vmickvpexchange
-
-# Serviço de Telefonia
-  - PhoneSvc
-
-# Serviço de Sincronização de Data/Hora do Hyper-V
-  - vmictimesync
-
-# Serviço de Simulação de Percepção do Windows
-  - perceptionsimulation
-
-# Serviço de Sensor rotação automática
-  - SensorService
-
-# Serviço de Rede Xbox Live
-  - XboxNetApiSvc
-
-# Serviço de Pulsação do Hyper-V 
-  - vmicheartbeat
-
-# Serviço de Host HV
-  - HvHost
-
-# Serviço de identidade Microsoft Cloud 
-  - cloudidsvc
-
-# Serviço de Hotspot Móvel do Windows 
-  - icssvc
-
-# Serviço de Histórico de Arquivos 
-  - fhsvc
-
-# Serviço de Geolocalização 
-  - lfsvc
-
-# Serviço de duplicação do ReFS 
-  - refsdedupsvc
-
-# Serviço de Desligamento de Convidado do Hyper-V 
-  - vmicshutdown
-
-# Serviço de Compartilhamento de Rede do Windows Media Player 
-  - WMPNetworkSvc
-
-# Serviço de Biometria do Windows 
-  - WbioSrvc
-
-# Se você não usa fax, pode desativar.
-  - Fax
-
-# Serviço de Gerenciador de NFC/SE e Pagamentos           
-  - SEMgrSvc
-
-# Serviço de Mapas
-  - MapsBroker
-
-# Serviço de Notificações Push do Windows
-  - WpnService
-
-# Serviço de Autenticação Xbox Live
-  - XblAuthManager
-
-```
 # 
-##### Desativar Windows Update
 
-``` bash
-# Serviço de Instalação da Microsoft Store
-  - InstallService
+### 🔧 Desativar Windows Update
 
-# Serviço de Verificador de Ponto
-  - svsvc
-
-# Serviço de Windows Update
-  - wuauserv
-
-# Pesquisa do Windows
-  - WSearch
-
-```
-# 
+<details>
+  <summary>🔽 Clique para expandir</summary>
+ 
+  #### **Serviço que serão desativados**
+- InstallService - Serviço de Instalação da Microsoft Store
+- svsvc - Serviço de Verificador de Ponto
+- wuauserv - Serviço de Windows Update
+- WSearch - Pesquisa do Windows
+  
+</details>
 
 ### Limpeza de Registros
 ``` bash
