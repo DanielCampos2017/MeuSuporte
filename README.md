@@ -119,6 +119,6 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 ``` bash
 # Chaves do Registro 
   Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
-
   Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+  Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
 ```
