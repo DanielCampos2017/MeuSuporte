@@ -115,10 +115,16 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
   
 </details>
 
-### Limpeza de Registros
+
+<details>
+
+ <summary>🔽 Limpar Registros do Windows</summary>
+ 
+
 ``` bash
-# Chaves do Registro 
+# Todas as chaves do Registro nesses diretório sera apagados
   Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
   Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
   Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
 ```
+</details>
