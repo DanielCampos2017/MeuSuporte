@@ -102,22 +102,29 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 
 # 
 
-### 🔧 Desativar Windows Update
-
 <details>
-  <summary>🔽 Clique para expandir</summary>
- 
-  #### **Serviço que serão desativados**
+  <summary>🔽 Desativar Windows Update</summary>
+
+ ``` bash
+#   Todos os Serviços abaixo sera desativado
 - InstallService - Serviço de Instalação da Microsoft Store
 - svsvc - Serviço de Verificador de Ponto
 - wuauserv - Serviço de Windows Update
 - WSearch - Pesquisa do Windows
-  
+ ``` 
 </details>
 
+<details>
+ <summary>🔽 Backup de Drivers </summary>
+ 
+ ``` bash
+#   Cria um Backup de todos os Drivers do computador
+#   O processo de criação dos Backup é semelhante a execução do comando no cmd "dism /online /export-driver /destination:C:\DriversBackup"
+#   Para restaura basta executar o comando no cmd como administrador comando: pnputil /add-driver "C:\DriversBackup\*.inf" /subdirs /install
+ ```
+</details>
 
 <details>
-
  <summary>🔽 Limpar Registros do Windows</summary>
  
 
@@ -127,4 +134,39 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
   Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
   Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
 ```
+</details>
+
+<details>
+
+ <summary>🔽 Cria usuário "Suporte"</summary>
+ 
+``` bash
+
+#   Cria o Usuario chamado "Suporte" e adiciona no grupo de adiministrador
+#   Caso exista o usuario "Suporte atualiza a senha e coloca no grupo administrador
+```
+</details>
+
+<details>
+ <summary>🔽 Limpar Prefetch</summary>
+ 
+ ``` bash
+#   Limpa a pasta do diretorio C:\Windows\Prefetch
+ ```
+</details>
+
+<details>
+ <summary>🔽 Backup do BootBCD </summary>
+ 
+ ``` bash
+#   Faz cópia de segurança da configuração de inicialização do Windows para recupera falhas no boot
+ ```
+</details>
+
+<details>
+ <summary>🔽 Salva Log dos processos executados </summary>
+ 
+ ``` bash
+#   Ao tentar fechar o programa ele cria um log dos processos realizados. O log é salvo no mesmo diretorio de execução do programa
+ ```
 </details>
