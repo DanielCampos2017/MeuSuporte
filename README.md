@@ -41,10 +41,40 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 
 ### Documentação das funcionalidade do programa
 
+
+
+
 <details>
-  <summary>🔽 Limpar Processos</summary>
+ <summary>🔽 Notificação UAC ao Usuário </summary>
+ 
+ ``` bash
+#   Ativa\Desativa mensagem UAC do Usuário atual
+ ```
+</details>
+
+
+<details>
+ <summary>🔽 Limpar tarefas Agendadas </summary>
+ 
+ ``` bash
+#   Limpar todas as Tarefas da Biblioteca do Agendador de Tarefas Usuário atual
+ ```
+</details>
+
+<details>
+ <summary>🔽 Limpar Lixeira </summary>
+ 
+ ``` bash
+#   Limpar todos os dados da Lixeira do Usuário atual
+ ```
+</details>
+
+<details>
+  <summary>🔽 Desativar Processos</summary>
  
 ``` bash
+#   Remove todos os serviços listado abaixo
+
 #   Serviço da Adobe
 - AdobeUpdateService
 - AGSService
@@ -97,8 +127,35 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
  ```
 </details>
 
+<details>
+ <summary>🔽 Limpar Pasta %Temp% </summary>
+ 
+ ``` bash
+#   Excluir todos os dados do diretório da pata %temp%
+C:\Users\"Seu Usuario"\AppData\Local\Temp
+ ```
+</details>
 
+<details>
+  <summary>🔽 Desativar o Windows Update</summary>
 
+ ``` bash
+#   Todos os Serviços abaixo sera desativado
+- InstallService - Serviço de Instalação da Microsoft Store
+- svsvc - Serviço de Verificador de Ponto
+- wuauserv - Serviço de Windows Update
+- WSearch - Pesquisa do Windows
+ ``` 
+</details>
+
+<details>
+ <summary>🔽 Limpar Google Update</summary>
+ 
+``` bash
+#   Limpa a pasta de Update do Google Chrome   
+C:\Program Files (x86)\Google\Update
+```
+</details>
 
 <details>
   <summary>🔽 Backup Registro</summary>
@@ -132,27 +189,6 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 #   O processo de criação dos Backup é semelhante a execução do comando no cmd "dism /online /export-driver /destination:C:\DriversBackup"
 #   Para restaura basta executar o comando no cmd como administrador comando: pnputil /add-driver "C:\DriversBackup\*.inf" /subdirs /install
  ```
-</details>
-
-<details>
-  <summary>🔽 Desativar o Windows Update</summary>
-
- ``` bash
-#   Todos os Serviços abaixo sera desativado
-- InstallService - Serviço de Instalação da Microsoft Store
-- svsvc - Serviço de Verificador de Ponto
-- wuauserv - Serviço de Windows Update
-- WSearch - Pesquisa do Windows
- ``` 
-</details>
-
-<details>
- <summary>🔽 Limpar Google Update</summary>
- 
-``` bash
-#   Limpa a pasta de Update do Google Chrome   
-C:\Program Files (x86)\Google\Update
-```
 </details>
 
 <details>
