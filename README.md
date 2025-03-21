@@ -4,7 +4,8 @@
 
 #
 
-![Preview](https://github.com/user-attachments/assets/81130f2a-96de-4cef-987c-2047968d07b0)
+![Screenshot_2](https://github.com/user-attachments/assets/350449fe-8cf7-4e8a-ab22-8d0138e44d46)
+
 
 #
 
@@ -20,7 +21,7 @@
 - [x] Gerenciamento do arquivo Pagefile.sys
 - [x] Backup de Drivers
 - [x] Limpar Registros do Windows
-- [x] Cria usuário "TerraVista"
+- [x] Cria usuário "Suporte"
 - [x] Limpar Prefetch
 - [x] Backup do BootBCD 
 - [x] Salva Log dos processos executados 
@@ -39,7 +40,7 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 # 
 ### Observação das funcionalidade
 
-##### Usuário "terravista"
+##### Usuário "Suporte"
  - Cria usuário local caso não exista
  - Edita usuário, atualizar a senha e coloca no grupo administrador da máquina.
 
