@@ -38,26 +38,22 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 ### Contribuição
 #### Sinta-se à vontade para sugerir melhorias ou relatar problemas abrindo uma issue no repositório.
 # 
-### Observação das funcionalidade
 
-##### Usuário "Suporte"
- - Cria usuário local caso não exista
- - Edita usuário, atualizar a senha e coloca no grupo administrador da máquina.
-
-### 🔧 Lista de Serviços do Windows que são apagados
+### Documentação das funcionalidade do programa
 
 <details>
-  <summary>🔽 Clique para expandir</summary>
-
-#### **Serviço da Adobe**
+  <summary>🔽 Lista de Serviços do Windows que são apagados</summary>
+ 
+``` bash
+#   Serviço da Adobe
 - AdobeUpdateService
 - AGSService
 - AdobeARMservice
 
-#### **Microsoft Office Groove Audit Service**
+#   Microsoft Office Groove Audit Service
 - serviço do Office
 
-#### **Serviço do Google**
+#   Serviço do Google
 - edgeupdate 
 - edgeupdatem 
 - gupdatem
@@ -65,13 +61,13 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 - GoogleChromeElevationService
 - gusvc
 
-#### **Dropbox Service**
+#   Dropbox Service
 - DbxSvc
 
-#### **Serviço relacionado a desempenho**
+#   Serviço relacionado a desempenho
 - SysMain //Pode ajudar em SSDs, mas em HDs pode ser útil)
 
-#### **Outros Serviços**
+#   Outros Serviços
 - UsoSvc - Atualização do Serviço Orchestrator)
 - XboxGipSvc - Xbox Accessory Management Service)
 - vmicvmsession - Serviço Direto do Hyper-V PowerShell
@@ -98,10 +94,9 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 - MapsBroker - Serviço de Mapas)
 - WpnService - Serviço de Notificações Push do Windows)
 - XblAuthManager - Serviço de Autenticação Xbox Live)
-
+ ```
 </details>
 
-# 
 
 <details>
   <summary>🔽 Desativar Windows Update</summary>
@@ -130,7 +125,7 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
  
 
 ``` bash
-# Todas as chaves do Registro nesses diretório sera apagados
+#   Todas as chaves do Registro nesses diretório sera apagados
   Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
   Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
   Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
