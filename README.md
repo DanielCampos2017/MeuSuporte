@@ -10,18 +10,18 @@
 #
 
 ### Funcionalidades
-- [x] Controle de Conta de Usuário (UAC)
-- [x] Limpar Agenda de tarefas do Windows
+- [x] Notificação UAC ao Usuário
+- [x] Limpar tarefas Agendadas
 - [x] Limpar Lixeira
-- [x] Limpar Processos
-- [x] Remover arquivos temporários (%Temp%)
-- [x] Desativar Windows Update
-- [x] Remover arquivos Google Update
-- [x] Backup Registro do Windows
-- [x] Gerenciamento do arquivo Pagefile.sys
-- [x] Backup de Drivers
-- [x] Limpar Registros do Windows
-- [x] Cria usuário "Suporte"
+- [x] Desativar Processos
+- [x] Limpar Pasta %Temp%
+- [x] Desativar o Windows Update
+- [x] Limpar Google Update
+- [x] Backup Registro
+- [x] Pagefile.sys
+- [x] Backup de Driver
+- [x] Limpar Registros
+- [x] Usuário "Suporte"
 - [x] Limpar Prefetch
 - [x] Backup do BootBCD 
 - [x] Salva Log dos processos executados 
@@ -42,7 +42,7 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 ### Documentação das funcionalidade do programa
 
 <details>
-  <summary>🔽 Lista de Serviços do Windows que são apagados</summary>
+  <summary>🔽 Limpar Processos</summary>
  
 ``` bash
 #   Serviço da Adobe
@@ -98,15 +98,29 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 </details>
 
 
+
+
 <details>
-  <summary>🔽 Desativar Windows Update</summary>
+  <summary>🔽 Backup Registro</summary>
 
  ``` bash
-#   Todos os Serviços abaixo sera desativado
-- InstallService - Serviço de Instalação da Microsoft Store
-- svsvc - Serviço de Verificador de Ponto
-- wuauserv - Serviço de Windows Update
-- WSearch - Pesquisa do Windows
+#   Cria um Backup das chave de registro dos diretorios
+  Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+  Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+  Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run 
+
+ ``` 
+</details>
+
+<details>
+  <summary>🔽 Pagefile.sys</summary>
+
+ ``` bash
+#   Ativa\Desativa Paginação do Windows 
+#   Alterar valor da chave de registro
+   ClearPageFileAtShutdown
+#   Local
+   SYSTEM\CurrentControlSet\Control\Session Manager\ClearPageFileAtShutdown
  ``` 
 </details>
 
@@ -121,9 +135,29 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 </details>
 
 <details>
- <summary>🔽 Limpar Registros do Windows</summary>
- 
+  <summary>🔽 Desativar o Windows Update</summary>
 
+ ``` bash
+#   Todos os Serviços abaixo sera desativado
+- InstallService - Serviço de Instalação da Microsoft Store
+- svsvc - Serviço de Verificador de Ponto
+- wuauserv - Serviço de Windows Update
+- WSearch - Pesquisa do Windows
+ ``` 
+</details>
+
+<details>
+ <summary>🔽 Limpar Google Update</summary>
+ 
+``` bash
+#   Limpa a pasta de Update do Google Chrome   
+C:\Program Files (x86)\Google\Update
+```
+</details>
+
+<details>
+ <summary>🔽 Limpar Registros</summary>
+ 
 ``` bash
 #   Todas as chaves do Registro nesses diretório sera apagados
   Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
@@ -134,7 +168,7 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 
 <details>
 
- <summary>🔽 Cria usuário "Suporte"</summary>
+ <summary>🔽 Usuário "Suporte"</summary>
  
 ``` bash
 
