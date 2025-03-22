@@ -48,7 +48,8 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
  <summary>🔽 Notificação UAC ao Usuário </summary>
  
  ``` bash
-#   Ativa\Desativa mensagem UAC do Usuário atual
+Ativa\Desativa Controle de Conta de Usuário (UAC) para Usuário.
+Garantindo que as ações do programa sejam executadas com permissões elevadas.
  ```
 </details>
 
@@ -57,7 +58,7 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
  <summary>🔽 Limpar tarefas Agendadas </summary>
  
  ``` bash
-#   Limpar todas as Tarefas da Biblioteca do Agendador de Tarefas Usuário atual
+Remove tarefas agendadas desnecessárias que podem estar consumindo recursos ou afetando o desempenho do sistema.
  ```
 </details>
 
@@ -65,7 +66,7 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
  <summary>🔽 Limpar Lixeira </summary>
  
  ``` bash
-#   Limpar todos os dados da Lixeira do Usuário atual
+Exclui permanentemente os arquivos armazenados na Lixeira do usuário atual para liberar espaço em disco.
  ```
 </details>
 
@@ -73,57 +74,41 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
   <summary>🔽 Desativar Processos</summary>
  
 ``` bash
-#   Remove todos os serviços listado abaixo
+Finaliza de Remove os processos específicos em segundo plano que podem estar consumindo recursos sem necessidade.
 
-#   Serviço da Adobe
-- AdobeUpdateService
-- AGSService
-- AdobeARMservice
-
-#   Microsoft Office Groove Audit Service
-- serviço do Office
-
-#   Serviço do Google
-- edgeupdate 
-- edgeupdatem 
-- gupdatem
-- gupdate
-- GoogleChromeElevationService
-- gusvc
-
-#   Dropbox Service
-- DbxSvc
-
-#   Serviço relacionado a desempenho
-- SysMain //Pode ajudar em SSDs, mas em HDs pode ser útil)
-
-#   Outros Serviços
-- UsoSvc - Atualização do Serviço Orchestrator)
-- XboxGipSvc - Xbox Accessory Management Service)
-- vmicvmsession - Serviço Direto do Hyper-V PowerShell
-- vmicrdv - Serviço de Virtualização de Área de Trabalho Remota do Hyper-V)
-- UevAgentService - User Experience Virtualization)
-- vmickvpexchange - Serviço de Troca de Dados do Hyper-V)
-- PhoneSvc - Serviço de Telefonia)
-- vmictimesync - Serviço de Sincronização de Data/Hora do Hyper-V)
-- perceptionsimulation - Serviço de Simulação de Percepção do Windows)
-- SensorService - Serviço de Sensor rotação automática)
-- XboxNetApiSvc - Serviço de Rede Xbox Live)
-- vmicheartbeat - Serviço de Pulsação do Hyper-V)
-- HvHost - Serviço de Host HV)
-- cloudidsvc - Serviço de identidade Microsoft Cloud)
-- icssvc - Serviço de Hotspot Móvel do Windows)
-- fhsvc - Serviço de Histórico de Arquivos)
-- lfsvc - Serviço de Geolocalização)
-- refsdedupsvc - Serviço de duplicação do ReFS)
-- vmicshutdown - Serviço de Desligamento de Convidado do Hyper-V)
-- WMPNetworkSvc - Serviço de Compartilhamento de Rede do Windows Media Player)
-- WbioSrvc - Serviço de Biometria do Windows)
-- Fax - Se você não usa fax, pode desativar)
-- SEMgrSvc - Serviço de Gerenciador de NFC/SE e Pagamentos)
-- MapsBroker - Serviço de Mapas)
-- WpnService - Serviço de Notificações Push do Windows)
-- XblAuthManager - Serviço de Autenticação Xbox Live)
+[Serviços]
+● AdobeUpdateService #Serviço da Adobe
+● AGSService #Serviço da Adobe
+● AdobeARMservice #Serviço da Adobe
+● DbxSvc #Dropbox
+● Microsoft Office Groove Audit Service #Serviço do Office
+● SysMain #Pode ajudar em SSDs, mas em HDs pode ser útil
+● UsoSvc #Atualização do Serviço Orchestrator
+● XboxGipSvc #Xbox Accessory Management Service
+● vmicvmsession #Serviço Direto do Hyper-V PowerShell
+● vmicrdv #Serviço de Virtualização de Área de Trabalho Remota do Hyper-V
+● UevAgentService #User Experience Virtualization
+● vmickvpexchange #Serviço de Troca de Dados do Hyper-V
+● PhoneSvc #Serviço de Telefonia
+● vmictimesync #Serviço de Sincronização de Data/Hora do Hyper-V
+● perceptionsimulation #Serviço de Simulação de Percepção do Windows
+● SensorService #Serviço de Sensor rotação automática
+● XboxNetApiSvc #Serviço de Rede Xbox Live
+● vmicheartbeat #Serviço de Pulsação do Hyper-V
+● HvHost #Serviço de Host HV
+● cloudidsvc #Serviço de identidade Microsoft Cloud
+● icssvc #Serviço de Hotspot Móvel do Windows
+● fhsvc #Serviço de Histórico de Arquivos
+● lfsvc #Serviço de Geolocalização
+● refsdedupsvc #Serviço de duplicação do ReFS
+● vmicshutdown #Serviço de Desligamento de Convidado do Hyper-V
+● WMPNetworkSvc #Serviço de Compartilhamento de Rede do Windows Media Player
+● WbioSrvc #Serviço de Biometria do Windows
+● Fax #Se você não usa fax, pode desativar
+● SEMgrSvc #Serviço de Gerenciador de NFC/SE e Pagamentos
+● MapsBroker #Serviço de Mapas
+● WpnService #Serviço de Notificações Push do Windows
+● XblAuthManager #Serviço de Autenticação Xbox Live
  ```
 </details>
 
@@ -131,8 +116,10 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
  <summary>🔽 Limpar Pasta %Temp% </summary>
  
  ``` bash
-#   Excluir todos os dados do diretório da pata %temp%
-C:\Users\"Seu Usuario"\AppData\Local\Temp
+Remove arquivos temporários do usuário e do sistema para liberar espaço e melhorar o desempenho.
+
+[Arquivos]
+● C:\Users\"Seu Usuario"\AppData\Local\Temp
  ```
 </details>
 
@@ -140,11 +127,16 @@ C:\Users\"Seu Usuario"\AppData\Local\Temp
   <summary>🔽 Desativar o Windows Update</summary>
 
  ``` bash
-#   Todos os Serviços abaixo sera desativado
-- InstallService - Serviço de Instalação da Microsoft Store
-- svsvc - Serviço de Verificador de Ponto
-- wuauserv - Serviço de Windows Update
-- WSearch - Pesquisa do Windows
+Desativa o serviço do Windows Update para evitar atualizações automáticas que podem impactar o desempenho ou causar reinicializações indesejadas.
+
+[Arquivos]
+● C:\Windows\SoftwareDistribution\Download\
+
+[Serviços]
+● InstallService #Serviço de Instalação da Microsoft Store
+● svsvc #Serviço de Verificador de Ponto
+● wuauserv #Serviço de Windows Update
+● WSearch #Serviço de Pesquisa do Windows
  ``` 
 </details>
 
@@ -152,8 +144,18 @@ C:\Users\"Seu Usuario"\AppData\Local\Temp
  <summary>🔽 Limpar Google Update</summary>
  
 ``` bash
-#   Limpa a pasta de Update do Google Chrome   
-C:\Program Files (x86)\Google\Update
+Remove serviços e processos relacionados ao Google Update, evitando consumo excessivo de recursos por atualizações automáticas.
+
+[Arquivos]
+● C:\Program Files (x86)\Google\Update\
+
+[Serviços]
+● edgeupdate #Serviço do google
+● edgeupdatem #Serviço do google
+● gupdatem  #Serviço do google
+● gupdate  #Serviço do google
+● GoogleChromeElevationService  #Serviço do google
+● gusvc  #Serviço do google
 ```
 </details>
 
@@ -161,23 +163,21 @@ C:\Program Files (x86)\Google\Update
   <summary>🔽 Backup Registro</summary>
 
  ``` bash
-#   Cria um Backup das chave de registro dos diretorios
-  Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
-  Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-  Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run 
+Faz uma cópia de segurança do Registro do Windows antes de aplicar otimizações, garantindo a possibilidade de restauração em caso de problemas.
+
+[Registros]
+● Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+● Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+● Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run 
 
  ``` 
 </details>
 
 <details>
-  <summary>🔽 Pagefile.sys</summary>
+  <summary>🔽 Otimizar Memória Virtual</summary>
 
  ``` bash
-#   Ativa\Desativa Paginação do Windows 
-#   Alterar valor da chave de registro
-   ClearPageFileAtShutdown
-#   Local
-   SYSTEM\CurrentControlSet\Control\Session Manager\ClearPageFileAtShutdown
+Otimiza o arquivo de paginação do Windows (Pagefile.sys), ajustando seu tamanho ou desativando-o conforme a necessidade do usuário.
  ``` 
 </details>
 
@@ -185,9 +185,10 @@ C:\Program Files (x86)\Google\Update
  <summary>🔽 Backup de Drivers </summary>
  
  ``` bash
-#   Cria um Backup de todos os Drivers do computador
-#   O processo de criação dos Backup é semelhante a execução do comando no cmd "dism /online /export-driver /destination:C:\DriversBackup"
-#   Para restaura basta executar o comando no cmd como administrador comando: pnputil /add-driver "C:\DriversBackup\*.inf" /subdirs /install
+Cria uma cópia de segurança dos drivers instalados no sistema, permitindo restaurá-los em caso de falha ou reinstalação do Windows.
+Use o comando para restaurar o Backup
+[cmd] - administrador
+ pnputil /add-driver "C:\DriversBackup\*.inf" /subdirs /install
  ```
 </details>
 
@@ -195,10 +196,12 @@ C:\Program Files (x86)\Google\Update
  <summary>🔽 Limpar Registros</summary>
  
 ``` bash
-#   Todas as chaves do Registro nesses diretório sera apagados
-  Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
-  Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-  Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
+Remove entradas desnecessárias ou obsoletas do Registro do Windows para melhorar a estabilidade e o desempenho.
+
+[Registros]
+● Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+● Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+● Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
 ```
 </details>
 
@@ -207,9 +210,7 @@ C:\Program Files (x86)\Google\Update
  <summary>🔽 Usuário "Suporte"</summary>
  
 ``` bash
-
-#   Cria o Usuario chamado "Suporte" e adiciona no grupo de adiministrador
-#   Caso exista o usuario "Suporte atualiza a senha e coloca no grupo administrador
+Cria ou gerencia uma conta de usuário chamada "Suporte" para facilitar a manutenção e resolução de problemas no sistema.
 ```
 </details>
 
@@ -217,7 +218,8 @@ C:\Program Files (x86)\Google\Update
  <summary>🔽 Limpar Prefetch</summary>
  
  ``` bash
-#   Limpa a pasta do diretorio C:\Windows\Prefetch
+Remover Arquivos de Inicialização Lenta (Prefetch)
+Remove arquivos armazenados na pasta Prefetch localizada no diretório C:\Windows\Prefetch, que podem estar desatualizados e impactar negativamente o desempenho do sistema.
  ```
 </details>
 
@@ -225,7 +227,8 @@ C:\Program Files (x86)\Google\Update
  <summary>🔽 Backup do BootBCD </summary>
  
  ``` bash
-#   Faz cópia de segurança da configuração de inicialização do Windows para recupera falhas no boot
+Faz uma cópia de segurança do Boot Configuration Data (BCD)
+Para garantir que as configurações de inicialização possam ser restauradas caso ocorram problemas.
  ```
 </details>
 
