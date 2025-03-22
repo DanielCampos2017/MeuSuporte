@@ -187,6 +187,7 @@ Otimiza o arquivo de paginação do Windows (Pagefile.sys), ajustando seu tamanh
  ``` bash
 Cria uma cópia de segurança dos drivers instalados no sistema, permitindo restaurá-los em caso de falha ou reinstalação do Windows.
 Use o comando para restaurar o Backup
+
 [cmd] - administrador
  pnputil /add-driver "C:\DriversBackup\*.inf" /subdirs /install
  ```
