@@ -23,7 +23,8 @@
 - [x] Limpar Registros
 - [x] Usuário "Suporte"
 - [x] Limpar Prefetch
-- [x] Backup do BootBCD 
+- [x] Backup do BootBCD
+- [ ] Criar Ponto de Restauração
 - [x] Salva Log dos processos executados 
 
 ### Requisitos
