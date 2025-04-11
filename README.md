@@ -241,3 +241,82 @@ Para garantir que as configurações de inicialização possam ser restauradas c
 #   Ao tentar fechar o programa ele cria um log dos processos realizados. O log é salvo no mesmo diretorio de execução do programa
  ```
 </details>
+
+<details>
+<summary>🔽 Limpar Bloatware pré instalados</summary>
+
+``` bash
+Softwares pré-instalados que nem sempre são úteis para o usuário, como alguns jogos ou versões de teste de programas pagos
+
+[Bloatware]
+• 3DBuilder #3D Builder  
+• AdobeSystemsIncorporated.AdobeExpress #Adobe Express  
+• AgeofEmpiresCastleSiege #Age of Empires Castle Siege  
+• WindowsAlarms #Alarmes  
+• AmazonAppstore #Amazon Appstore  
+• GAMELOFTSA.Asphalt8Airborne #Asphalt 8  
+• QuickAssist #Assistência Rápida  
+• Astro #Astro  
+• king.com.BubbleWitch3Saga #Bubble Witch 3  
+• Sagaking.com.BubbleWitch3Saga #Bubble Witch 3 Saga  
+• king.com.CandyCrushFriends #Candy Crush Friends Saga  
+• king.com.CandyCrushSaga #Candy Crush Saga  
+• ScreenSketch #Captura e Esboço  
+• Clipchamp #Clipchamp  
+• BingWeather #Clima  
+• Copilot #Copilot  
+• Cortana #Cortana  
+• Microsoft.Getstarted #Dicas  
+• BingFinance #Dinheiro  
+• Disney.37853FC22B2CE #Disney Magic Kingdoms  
+• Samsung.Earbuds #Earbuds  
+• windowscommunicationsapps #Email e Calendário  
+• BingSports #Esportes  
+• Facebook.Facebook #Facebook  
+• WindowsFeedbackHub #Feedback Hub  
+• ZuneVideo #Filmes & TV  
+• Windows.Photos #Fotos  
+• CommsPhone #Gerenciador de Telefone  
+• WindowsSoundRecorder #Gravador de voz  
+• G5Entertainment.HiddenCityMysteryofShadows #Hidden City Hidden Object Adventure  
+• Facebook.InstagramBeta #Instagram  
+• LinkedIn.LinkedIn #LinkedIn  
+• WindowsMaps #Mapas  
+• Gameloft.SE.MarchofEmpires #March of Empires  
+• McAfee.McAfee #McAfee  
+• Messaging #Mensagens  
+• MicrosoftOfficeHub #Microsoft 365 (Hub)  
+• Microsoft.Todos #Microsoft To Do  
+• ZuneMusic #Música (Groove)  
+• NarratorQuickStart #Narrador  
+• BingNews #News (Notícias)  
+• BingNews #Notícia  
+• MicrosoftStickyNotes #Notas autoadesivas  
+• Office.GetOffice #Obter o Office  
+• SkypeApp #Obter o Skype  
+• Office.Sway #Office Sway  
+• OneConnect #OneConnect  
+• OneDrive #OneDrive  
+• Office.OneNote #OneNote  
+• People #Pessoas  
+• PhoneCompanion #Phone Companion  
+• PowerAutomateDesktop #Power Automate Desktop  
+• Amazon.com.AmazonVideo #Prime Video  
+• Print3D #Print 3D  
+• MixedReality.Portal #Realidade Misturada Portal  
+• ROBLOXCORPORATION.ROBLOX #Roblox  
+• MicrosoftSolitaireCollection #Solitário  
+• NetworkSpeedTest #Speed Test  
+• SpotifyAB.SpotifyMusic #Spotify  
+• MicrosoftTeams #Teams  
+• BytedancePte.Ltd.TikTok #TikTok  
+• Twitter.Twitter #Twitter  
+• MixedReality.Viewer #Visualizador 3D  
+• Whiteboard #Whiteboard  
+• WindowsMediaPlayer #Windows Media Player  
+• XboxApp #Xbox  
+• XboxGamingOverlay #Xbox Game Bar  
+• XboxSpeechToTextOverlay #Xbox Game Speech Window  
+• XboxIdentityProvider #Xbox Identity Provider
+```
+</details>
