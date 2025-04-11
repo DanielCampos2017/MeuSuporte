@@ -24,7 +24,8 @@
 - [x] Usuário "Suporte"
 - [x] Limpar Prefetch
 - [x] Backup do BootBCD
-- [ ] Criar Ponto de Restauração
+- [x] Criar Ponto de Restauração
+- [ ] Remover Bloatware
 - [x] Salva Log dos processos executados 
 
 ### Requisitos
