@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskScheduler
+namespace MeuSuporte
 {
     internal class Class_Log
     {

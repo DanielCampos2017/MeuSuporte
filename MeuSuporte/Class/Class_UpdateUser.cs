@@ -3,9 +3,10 @@ using System.Collections;
 using System.DirectoryServices;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace TaskScheduler
+namespace MeuSuporte
 {
 
     internal class Class_UpdateUser
@@ -14,9 +15,9 @@ namespace TaskScheduler
         private string PasswordUser;
         private MainForm _MainForm;
 
-        public Class_UpdateUser(MainForm formPreventiva)
+        public Class_UpdateUser(MainForm Form_)
         {
-            _MainForm = formPreventiva;
+            _MainForm = Form_;
         }
 
         private async Task EnableUserAsync(DirectoryEntry de, bool tipo)
@@ -30,7 +31,7 @@ namespace TaskScheduler
             await Task.CompletedTask;
         }
 
-        private async Task<bool> IsUserTerravistaAsync()
+        private async Task<bool> IsUserAsync()
         {
 
             DirectoryEntry machine = new DirectoryEntry("WinNT://" + Environment.MachineName + ",Computer");
@@ -97,10 +98,13 @@ namespace TaskScheduler
             await Task.CompletedTask;
         }
 
-        private async Task CreateUserTerravistaAsync()
+        private async Task CreateUserAsync(CancellationToken token, int ValueUniProgressBar)
         {
             try
             {
+                _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
+                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+
                 // cria usuario
                 DirectoryEntry EntradaDiretorioGrupos = new DirectoryEntry("WinNT://" + Environment.MachineName + ",computer");
                 DirectoryEntry EntradaDiretorioUsuarios = EntradaDiretorioGrupos.Children.Add(NameUser, "user");
@@ -110,20 +114,26 @@ namespace TaskScheduler
                 await AddGroupRemotoAsync(EntradaDiretorioUsuarios);
                 await AddGroupAdministratorAsync(EntradaDiretorioUsuarios);
 
+                _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
                 _MainForm.Sucesso++;
-                _MainForm.Log_Mensagem("Usuario " + NameUser + " criado !", "  ");
+                _MainForm.Log_MensagemAsync($"Conta Local de Suporte Tecnico criado !", true);
+                _MainForm.Log_MensagemAsync($"Usuario: {NameUser}", true);
+                _MainForm.Log_MensagemAsync($"Senha {PasswordUser}", true);
             }
             catch (Exception ex)
             {
                 _MainForm.Erro++;
-                _MainForm.Log_Mensagem("Erro: ", ex.Message);
+                _MainForm.Log_MensagemAsync($"Erro: {ex.Message}", true);
             }
         }
 
-        private async Task UpdateUserAsync() // altera a senha do usuario selecionado
+        private async Task UpdateUserAsync(CancellationToken token, int ValueUniProgressBar) // altera a senha do usuario selecionado
         {
             try
             {
+                _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
+                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+
                 DirectoryEntry EntradaUsuario = new DirectoryEntry("WinNT://" + Environment.MachineName + ",Computer");
 
                 if (EntradaUsuario.Children != null)
@@ -139,7 +149,11 @@ namespace TaskScheduler
 
                             await EnableUserAsync(child, false); // abilita usuario
                             child.Invoke("SetPassword", new Object[] { PasswordUser });   // altera a senha do usuario
-                            _MainForm.Log_Mensagem("Usuario terravista atualizado !", "  ");
+
+                            _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
+                            _MainForm.Log_MensagemAsync($"Conta Local de Suporte Tecnico atualizado !", true);
+                            _MainForm.Log_MensagemAsync($"Usuario: {NameUser}", true);
+                            _MainForm.Log_MensagemAsync($"Senha {PasswordUser}", true);
                         }
                     }
                 }
@@ -147,31 +161,27 @@ namespace TaskScheduler
             catch (Exception ex)
             {
                 _MainForm.Erro++;
-                _MainForm.Log_Mensagem("Erro: ", ex.Message);
+                _MainForm.Log_MensagemAsync($"Erro:  {ex.Message}", true);
             }
         }
 
 
-        public async Task Usuario()
+        public async Task Usuario(CancellationToken token, int ValueUniProgressBar)
         {
-            Class_Password _ClassPassword = new Class_Password();
+           // Class_Password_Private _ClassPassword = new Class_Password_Private();
+            Class_Password_Public _ClassPassword = new Class_Password_Public();
             NameUser = _ClassPassword.GetUser();
             PasswordUser = _ClassPassword.GetPassword();
 
-            if (_MainForm.AbortExecution)
-            {
-                return;
-            }
-
-            if (!await IsUserTerravistaAsync())
+            if (!await IsUserAsync())
             {
                 // se não existir
-                await CreateUserTerravistaAsync();
+                await CreateUserAsync(token, ValueUniProgressBar);
             }
             else
             {
                 // se existir
-                await UpdateUserAsync();
+                await UpdateUserAsync(token, ValueUniProgressBar);
             }
         }
     }

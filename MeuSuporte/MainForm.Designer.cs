@@ -1,4 +1,4 @@
-﻿namespace TaskScheduler
+﻿namespace MeuSuporte
 {
     partial class MainForm
     {
@@ -31,28 +31,28 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.txt_Log = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.checkBox0 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.checkBox_UserUAC = new System.Windows.Forms.CheckBox();
+            this.checkBox_CleanTask = new System.Windows.Forms.CheckBox();
+            this.checkBox_CleanTrash = new System.Windows.Forms.CheckBox();
+            this.checkBox_CleanProcess = new System.Windows.Forms.CheckBox();
+            this.checkBox_CleanTemp = new System.Windows.Forms.CheckBox();
+            this.checkBox_CleanWindowsUpdate = new System.Windows.Forms.CheckBox();
+            this.checkBox_CleanGoogle = new System.Windows.Forms.CheckBox();
+            this.checkBox_DeleteRegistry = new System.Windows.Forms.CheckBox();
+            this.checkBox_CleanPageFile = new System.Windows.Forms.CheckBox();
+            this.checkBox_BackupRegistrysRun = new System.Windows.Forms.CheckBox();
+            this.checkBox_Usuario = new System.Windows.Forms.CheckBox();
+            this.checkBox_CleanPrefetch = new System.Windows.Forms.CheckBox();
+            this.checkBox_BackupBCD = new System.Windows.Forms.CheckBox();
             this.Btn_Canselar = new System.Windows.Forms.Button();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox_DriversBackup = new System.Windows.Forms.CheckBox();
             this.panelBoton = new System.Windows.Forms.Panel();
             this.btn_IniciarProcesso = new System.Windows.Forms.Button();
+            this.checkBoxAll = new System.Windows.Forms.CheckBox();
             this.panelDivisoria = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.labelInfoDescricao = new System.Windows.Forms.Label();
             this.labelInfoTitulo = new System.Windows.Forms.Label();
-            this.checkBoxAll = new System.Windows.Forms.CheckBox();
             this.panelLog = new System.Windows.Forms.Panel();
             this.Label_NameMachine = new System.Windows.Forms.Label();
             this.pictureBoxInfoDescricao = new System.Windows.Forms.PictureBox();
@@ -70,12 +70,21 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox0 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.radioButton0_Desativar = new System.Windows.Forms.RadioButton();
-            this.radioButton0_Ativar = new System.Windows.Forms.RadioButton();
-            this.radioButton8_Ativar = new System.Windows.Forms.RadioButton();
-            this.radioButton8_Desativar = new System.Windows.Forms.RadioButton();
-            this.panel0 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.radioButtonUserUAC_Desativar = new System.Windows.Forms.RadioButton();
+            this.radioButtonUserUAC_Ativar = new System.Windows.Forms.RadioButton();
+            this.radioButtonCleanPageFile_Ativar = new System.Windows.Forms.RadioButton();
+            this.radioButtonCleanPageFile_Desativar = new System.Windows.Forms.RadioButton();
+            this.panel_UserUAC = new System.Windows.Forms.Panel();
+            this.panel_CleanPageFile = new System.Windows.Forms.Panel();
+            this.checkBox_RestorePoint = new System.Windows.Forms.CheckBox();
+            this.checkBox_ConnectionRDP = new System.Windows.Forms.CheckBox();
+            this.panel_ConnectionRDP = new System.Windows.Forms.Panel();
+            this.radioButtonradioButtonConnectionRDP_Ativar = new System.Windows.Forms.RadioButton();
+            this.radioButtonConnectionRDP_Desativar = new System.Windows.Forms.RadioButton();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.checkBox_Bloatware = new System.Windows.Forms.CheckBox();
             this.panelBoton.SuspendLayout();
             this.panelLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfoDescricao)).BeginInit();
@@ -93,8 +102,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel0.SuspendLayout();
-            this.panel8.SuspendLayout();
+            this.panel_UserUAC.SuspendLayout();
+            this.panel_CleanPageFile.SuspendLayout();
+            this.panel_ConnectionRDP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_Log
@@ -103,6 +116,7 @@
             this.txt_Log.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Log.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_Log.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Log.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txt_Log.Location = new System.Drawing.Point(1, 1);
             this.txt_Log.MaxLength = 3992767;
             this.txt_Log.Multiline = true;
@@ -114,203 +128,216 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progressBar1.Location = new System.Drawing.Point(320, 68);
+            this.progressBar1.Location = new System.Drawing.Point(319, 65);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(488, 11);
             this.progressBar1.TabIndex = 0;
             // 
-            // checkBox0
+            // checkBox_UserUAC
             // 
-            this.checkBox0.AutoSize = true;
-            this.checkBox0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox0.Location = new System.Drawing.Point(42, 56);
-            this.checkBox0.Name = "checkBox0";
-            this.checkBox0.Size = new System.Drawing.Size(225, 24);
-            this.checkBox0.TabIndex = 1;
-            this.checkBox0.Text = "Notificaçõs UAC ao Usuario";
-            this.checkBox0.UseVisualStyleBackColor = true;
-            this.checkBox0.Click += new System.EventHandler(this.checkBox0_Click);
+            this.checkBox_UserUAC.AutoSize = true;
+            this.checkBox_UserUAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_UserUAC.Location = new System.Drawing.Point(43, 55);
+            this.checkBox_UserUAC.Name = "checkBox_UserUAC";
+            this.checkBox_UserUAC.Size = new System.Drawing.Size(226, 24);
+            this.checkBox_UserUAC.TabIndex = 1;
+            this.checkBox_UserUAC.Text = "Notificação UAC ao Usuario";
+            this.checkBox_UserUAC.UseVisualStyleBackColor = true;
+            this.checkBox_UserUAC.Click += new System.EventHandler(this.checkBox_UserUAC_Click);
             // 
-            // checkBox1
+            // checkBox_CleanTask
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(42, 119);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(220, 24);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Limpar Tarefas Agendadas";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox_CleanTask.AutoSize = true;
+            this.checkBox_CleanTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_CleanTask.Location = new System.Drawing.Point(43, 85);
+            this.checkBox_CleanTask.Name = "checkBox_CleanTask";
+            this.checkBox_CleanTask.Size = new System.Drawing.Size(220, 24);
+            this.checkBox_CleanTask.TabIndex = 2;
+            this.checkBox_CleanTask.Text = "Limpar Tarefas Agendadas";
+            this.checkBox_CleanTask.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBox_CleanTrash
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(42, 153);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(125, 24);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Limpar Lixeira";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox_CleanTrash.AutoSize = true;
+            this.checkBox_CleanTrash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_CleanTrash.Location = new System.Drawing.Point(43, 115);
+            this.checkBox_CleanTrash.Name = "checkBox_CleanTrash";
+            this.checkBox_CleanTrash.Size = new System.Drawing.Size(125, 24);
+            this.checkBox_CleanTrash.TabIndex = 3;
+            this.checkBox_CleanTrash.Text = "Limpar Lixeira";
+            this.checkBox_CleanTrash.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBox_CleanProcess
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(42, 187);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(173, 24);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Desativar Processos";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox_CleanProcess.AutoSize = true;
+            this.checkBox_CleanProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_CleanProcess.Location = new System.Drawing.Point(43, 145);
+            this.checkBox_CleanProcess.Name = "checkBox_CleanProcess";
+            this.checkBox_CleanProcess.Size = new System.Drawing.Size(173, 24);
+            this.checkBox_CleanProcess.TabIndex = 4;
+            this.checkBox_CleanProcess.Text = "Desativar Processos";
+            this.checkBox_CleanProcess.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBox_CleanTemp
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(42, 221);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(193, 24);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Limpar Pasta %Temp%";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox_CleanTemp.AutoSize = true;
+            this.checkBox_CleanTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_CleanTemp.Location = new System.Drawing.Point(43, 175);
+            this.checkBox_CleanTemp.Name = "checkBox_CleanTemp";
+            this.checkBox_CleanTemp.Size = new System.Drawing.Size(193, 24);
+            this.checkBox_CleanTemp.TabIndex = 5;
+            this.checkBox_CleanTemp.Text = "Limpar Pasta %Temp%";
+            this.checkBox_CleanTemp.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // checkBox_CleanWindowsUpdate
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox5.Location = new System.Drawing.Point(42, 255);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(233, 24);
-            this.checkBox5.TabIndex = 6;
-            this.checkBox5.Text = "Desativar o Windows Update";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox_CleanWindowsUpdate.AutoSize = true;
+            this.checkBox_CleanWindowsUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_CleanWindowsUpdate.Location = new System.Drawing.Point(43, 205);
+            this.checkBox_CleanWindowsUpdate.Name = "checkBox_CleanWindowsUpdate";
+            this.checkBox_CleanWindowsUpdate.Size = new System.Drawing.Size(233, 24);
+            this.checkBox_CleanWindowsUpdate.TabIndex = 6;
+            this.checkBox_CleanWindowsUpdate.Text = "Desativar o Windows Update";
+            this.checkBox_CleanWindowsUpdate.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // checkBox_CleanGoogle
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6.Location = new System.Drawing.Point(42, 289);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(189, 24);
-            this.checkBox6.TabIndex = 7;
-            this.checkBox6.Text = "Limpra Google Update";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox_CleanGoogle.AutoSize = true;
+            this.checkBox_CleanGoogle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_CleanGoogle.Location = new System.Drawing.Point(43, 235);
+            this.checkBox_CleanGoogle.Name = "checkBox_CleanGoogle";
+            this.checkBox_CleanGoogle.Size = new System.Drawing.Size(189, 24);
+            this.checkBox_CleanGoogle.TabIndex = 7;
+            this.checkBox_CleanGoogle.Text = "Limpra Google Update";
+            this.checkBox_CleanGoogle.UseVisualStyleBackColor = true;
             // 
-            // checkBox10
+            // checkBox_DeleteRegistry
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox10.Location = new System.Drawing.Point(42, 453);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(140, 24);
-            this.checkBox10.TabIndex = 8;
-            this.checkBox10.Text = "Limpar Registro";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.checkBox_DeleteRegistry.AutoSize = true;
+            this.checkBox_DeleteRegistry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_DeleteRegistry.Location = new System.Drawing.Point(43, 355);
+            this.checkBox_DeleteRegistry.Name = "checkBox_DeleteRegistry";
+            this.checkBox_DeleteRegistry.Size = new System.Drawing.Size(140, 24);
+            this.checkBox_DeleteRegistry.TabIndex = 8;
+            this.checkBox_DeleteRegistry.Text = "Limpar Registro";
+            this.checkBox_DeleteRegistry.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // checkBox_CleanPageFile
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox8.Location = new System.Drawing.Point(42, 357);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(112, 24);
-            this.checkBox8.TabIndex = 9;
-            this.checkBox8.Text = "Pagefile.sys";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            this.checkBox8.Click += new System.EventHandler(this.checkBox8_Click);
+            this.checkBox_CleanPageFile.AutoSize = true;
+            this.checkBox_CleanPageFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_CleanPageFile.Location = new System.Drawing.Point(43, 295);
+            this.checkBox_CleanPageFile.Name = "checkBox_CleanPageFile";
+            this.checkBox_CleanPageFile.Size = new System.Drawing.Size(112, 24);
+            this.checkBox_CleanPageFile.TabIndex = 9;
+            this.checkBox_CleanPageFile.Text = "Pagefile.sys";
+            this.checkBox_CleanPageFile.UseVisualStyleBackColor = true;
+            this.checkBox_CleanPageFile.Click += new System.EventHandler(this.checkBox_CleanPageFile_Click);
             // 
-            // checkBox7
+            // checkBox_BackupRegistrysRun
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox7.Location = new System.Drawing.Point(42, 321);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(146, 24);
-            this.checkBox7.TabIndex = 11;
-            this.checkBox7.Text = "Backup Registro";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox_BackupRegistrysRun.AutoSize = true;
+            this.checkBox_BackupRegistrysRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_BackupRegistrysRun.Location = new System.Drawing.Point(43, 265);
+            this.checkBox_BackupRegistrysRun.Name = "checkBox_BackupRegistrysRun";
+            this.checkBox_BackupRegistrysRun.Size = new System.Drawing.Size(146, 24);
+            this.checkBox_BackupRegistrysRun.TabIndex = 11;
+            this.checkBox_BackupRegistrysRun.Text = "Backup Registro";
+            this.checkBox_BackupRegistrysRun.UseVisualStyleBackColor = true;
             // 
-            // checkBox11
+            // checkBox_Usuario
             // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox11.Location = new System.Drawing.Point(42, 488);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(160, 24);
-            this.checkBox11.TabIndex = 12;
-            this.checkBox11.Text = "Usuario TerraVista";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkBox_Usuario.AutoSize = true;
+            this.checkBox_Usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_Usuario.Location = new System.Drawing.Point(43, 385);
+            this.checkBox_Usuario.Name = "checkBox_Usuario";
+            this.checkBox_Usuario.Size = new System.Drawing.Size(144, 24);
+            this.checkBox_Usuario.TabIndex = 12;
+            this.checkBox_Usuario.Text = "Usuario Suporte";
+            this.checkBox_Usuario.UseVisualStyleBackColor = true;
             // 
-            // checkBox12
+            // checkBox_CleanPrefetch
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox12.Location = new System.Drawing.Point(42, 522);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(140, 24);
-            this.checkBox12.TabIndex = 13;
-            this.checkBox12.Text = "Limpar Prefetch";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.checkBox_CleanPrefetch.AutoSize = true;
+            this.checkBox_CleanPrefetch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_CleanPrefetch.Location = new System.Drawing.Point(43, 415);
+            this.checkBox_CleanPrefetch.Name = "checkBox_CleanPrefetch";
+            this.checkBox_CleanPrefetch.Size = new System.Drawing.Size(140, 24);
+            this.checkBox_CleanPrefetch.TabIndex = 13;
+            this.checkBox_CleanPrefetch.Text = "Limpar Prefetch";
+            this.checkBox_CleanPrefetch.UseVisualStyleBackColor = true;
             // 
-            // checkBox13
+            // checkBox_BackupBCD
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox13.Location = new System.Drawing.Point(42, 556);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(158, 24);
-            this.checkBox13.TabIndex = 14;
-            this.checkBox13.Text = "Backup  BootBCD";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.checkBox_BackupBCD.AutoSize = true;
+            this.checkBox_BackupBCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_BackupBCD.Location = new System.Drawing.Point(43, 445);
+            this.checkBox_BackupBCD.Name = "checkBox_BackupBCD";
+            this.checkBox_BackupBCD.Size = new System.Drawing.Size(158, 24);
+            this.checkBox_BackupBCD.TabIndex = 14;
+            this.checkBox_BackupBCD.Text = "Backup  BootBCD";
+            this.checkBox_BackupBCD.UseVisualStyleBackColor = true;
             // 
             // Btn_Canselar
             // 
             this.Btn_Canselar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Canselar.Enabled = false;
             this.Btn_Canselar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Canselar.Location = new System.Drawing.Point(681, 6);
+            this.Btn_Canselar.Location = new System.Drawing.Point(675, 2);
             this.Btn_Canselar.Name = "Btn_Canselar";
-            this.Btn_Canselar.Size = new System.Drawing.Size(138, 36);
+            this.Btn_Canselar.Size = new System.Drawing.Size(138, 31);
             this.Btn_Canselar.TabIndex = 16;
             this.Btn_Canselar.Text = "Canselar";
             this.Btn_Canselar.UseVisualStyleBackColor = true;
             this.Btn_Canselar.Click += new System.EventHandler(this.Btn_Canselar_Click);
             // 
-            // checkBox9
+            // checkBox_DriversBackup
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox9.Location = new System.Drawing.Point(42, 420);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(131, 24);
-            this.checkBox9.TabIndex = 10;
-            this.checkBox9.Text = "Backup  Driver";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkBox_DriversBackup.AutoSize = true;
+            this.checkBox_DriversBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_DriversBackup.Location = new System.Drawing.Point(43, 325);
+            this.checkBox_DriversBackup.Name = "checkBox_DriversBackup";
+            this.checkBox_DriversBackup.Size = new System.Drawing.Size(131, 24);
+            this.checkBox_DriversBackup.TabIndex = 10;
+            this.checkBox_DriversBackup.Text = "Backup  Driver";
+            this.checkBox_DriversBackup.UseVisualStyleBackColor = true;
             // 
             // panelBoton
             // 
             this.panelBoton.BackColor = System.Drawing.SystemColors.Control;
             this.panelBoton.Controls.Add(this.btn_IniciarProcesso);
             this.panelBoton.Controls.Add(this.Btn_Canselar);
+            this.panelBoton.Controls.Add(this.checkBoxAll);
             this.panelBoton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBoton.Location = new System.Drawing.Point(0, 618);
+            this.panelBoton.Location = new System.Drawing.Point(0, 615);
             this.panelBoton.Name = "panelBoton";
-            this.panelBoton.Size = new System.Drawing.Size(975, 50);
+            this.panelBoton.Size = new System.Drawing.Size(969, 37);
             this.panelBoton.TabIndex = 52;
             // 
             // btn_IniciarProcesso
             // 
             this.btn_IniciarProcesso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_IniciarProcesso.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IniciarProcesso.Location = new System.Drawing.Point(825, 6);
+            this.btn_IniciarProcesso.Location = new System.Drawing.Point(819, 2);
             this.btn_IniciarProcesso.Name = "btn_IniciarProcesso";
-            this.btn_IniciarProcesso.Size = new System.Drawing.Size(138, 36);
+            this.btn_IniciarProcesso.Size = new System.Drawing.Size(138, 31);
             this.btn_IniciarProcesso.TabIndex = 17;
             this.btn_IniciarProcesso.Text = "Iniciar";
             this.btn_IniciarProcesso.UseVisualStyleBackColor = true;
             this.btn_IniciarProcesso.Click += new System.EventHandler(this.btn_IniciarProcesso_Click);
+            // 
+            // checkBoxAll
+            // 
+            this.checkBoxAll.AutoSize = true;
+            this.checkBoxAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxAll.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.checkBoxAll.Location = new System.Drawing.Point(12, 9);
+            this.checkBoxAll.Name = "checkBoxAll";
+            this.checkBoxAll.Size = new System.Drawing.Size(77, 24);
+            this.checkBoxAll.TabIndex = 15;
+            this.checkBoxAll.Text = "Todos";
+            this.checkBoxAll.UseVisualStyleBackColor = true;
+            this.checkBoxAll.Click += new System.EventHandler(this.checkBoxAll_Click);
             // 
             // panelDivisoria
             // 
@@ -324,16 +351,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 17);
+            this.label1.Location = new System.Drawing.Point(6, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 26);
+            this.label1.Size = new System.Drawing.Size(87, 26);
             this.label1.TabIndex = 54;
-            this.label1.Text = "Funções";
+            this.label1.Text = "Opções";
             // 
             // labelInfoDescricao
             // 
             this.labelInfoDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInfoDescricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelInfoDescricao.ForeColor = System.Drawing.Color.Black;
             this.labelInfoDescricao.Location = new System.Drawing.Point(349, 559);
             this.labelInfoDescricao.Name = "labelInfoDescricao";
             this.labelInfoDescricao.Size = new System.Drawing.Size(610, 52);
@@ -344,23 +371,12 @@
             // 
             this.labelInfoTitulo.AutoSize = true;
             this.labelInfoTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInfoTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelInfoTitulo.Location = new System.Drawing.Point(315, 42);
             this.labelInfoTitulo.Name = "labelInfoTitulo";
             this.labelInfoTitulo.Size = new System.Drawing.Size(81, 20);
             this.labelInfoTitulo.TabIndex = 59;
             this.labelInfoTitulo.Text = "Serviços...";
-            // 
-            // checkBoxAll
-            // 
-            this.checkBoxAll.AutoSize = true;
-            this.checkBoxAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxAll.Location = new System.Drawing.Point(11, 589);
-            this.checkBoxAll.Name = "checkBoxAll";
-            this.checkBoxAll.Size = new System.Drawing.Size(72, 24);
-            this.checkBoxAll.TabIndex = 15;
-            this.checkBoxAll.Text = "Todos";
-            this.checkBoxAll.UseVisualStyleBackColor = true;
-            this.checkBoxAll.Click += new System.EventHandler(this.checkBoxAll_Click);
             // 
             // panelLog
             // 
@@ -376,7 +392,8 @@
             // Label_NameMachine
             // 
             this.Label_NameMachine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_NameMachine.Location = new System.Drawing.Point(689, 9);
+            this.Label_NameMachine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_NameMachine.Location = new System.Drawing.Point(683, 9);
             this.Label_NameMachine.Name = "Label_NameMachine";
             this.Label_NameMachine.Size = new System.Drawing.Size(281, 48);
             this.Label_NameMachine.TabIndex = 63;
@@ -385,7 +402,7 @@
             // 
             // pictureBoxInfoDescricao
             // 
-            this.pictureBoxInfoDescricao.Image = global::MeuSuporte.Properties.Resources.iinfo;
+            this.pictureBoxInfoDescricao.Image = global::MeuSuporte.Properties.Resources.Info_Black;
             this.pictureBoxInfoDescricao.Location = new System.Drawing.Point(309, 559);
             this.pictureBoxInfoDescricao.Name = "pictureBoxInfoDescricao";
             this.pictureBoxInfoDescricao.Size = new System.Drawing.Size(38, 35);
@@ -396,7 +413,7 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(11, 418);
+            this.pictureBox9.Location = new System.Drawing.Point(10, 325);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(24, 24);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -405,8 +422,8 @@
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Image = global::MeuSuporte.Properties.Resources.BackupBootBCD;
-            this.pictureBox13.Location = new System.Drawing.Point(11, 554);
+            this.pictureBox13.Image = global::MeuSuporte.Properties.Resources.BackupBootBCD_Black;
+            this.pictureBox13.Location = new System.Drawing.Point(10, 445);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(24, 24);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -415,8 +432,8 @@
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Image = global::MeuSuporte.Properties.Resources.ClearPrefetch;
-            this.pictureBox12.Location = new System.Drawing.Point(11, 520);
+            this.pictureBox12.Image = global::MeuSuporte.Properties.Resources.ClearPrefetch_Black;
+            this.pictureBox12.Location = new System.Drawing.Point(10, 415);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(24, 24);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -425,8 +442,8 @@
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Image = global::MeuSuporte.Properties.Resources.UpdateUser;
-            this.pictureBox11.Location = new System.Drawing.Point(11, 486);
+            this.pictureBox11.Image = global::MeuSuporte.Properties.Resources.UpdateUser_Black;
+            this.pictureBox11.Location = new System.Drawing.Point(10, 385);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(24, 24);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -435,8 +452,8 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::MeuSuporte.Properties.Resources.BackupRegistrys;
-            this.pictureBox7.Location = new System.Drawing.Point(11, 319);
+            this.pictureBox7.Image = global::MeuSuporte.Properties.Resources.BackupRegistrys_Black;
+            this.pictureBox7.Location = new System.Drawing.Point(10, 265);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(24, 24);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -445,8 +462,8 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::MeuSuporte.Properties.Resources.CleanPageFile;
-            this.pictureBox8.Location = new System.Drawing.Point(11, 355);
+            this.pictureBox8.Image = global::MeuSuporte.Properties.Resources.CleanPageFile_Black;
+            this.pictureBox8.Location = new System.Drawing.Point(10, 295);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(24, 24);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -455,8 +472,8 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = global::MeuSuporte.Properties.Resources.CleanRegistry;
-            this.pictureBox10.Location = new System.Drawing.Point(11, 451);
+            this.pictureBox10.Image = global::MeuSuporte.Properties.Resources.CleanRegistry_Black;
+            this.pictureBox10.Location = new System.Drawing.Point(10, 355);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(24, 24);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -465,8 +482,8 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::MeuSuporte.Properties.Resources.CleanGoogle;
-            this.pictureBox6.Location = new System.Drawing.Point(11, 287);
+            this.pictureBox6.Image = global::MeuSuporte.Properties.Resources.CleanGoogle_Black;
+            this.pictureBox6.Location = new System.Drawing.Point(10, 235);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(24, 24);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -475,8 +492,8 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::MeuSuporte.Properties.Resources.CleanWindows;
-            this.pictureBox5.Location = new System.Drawing.Point(11, 253);
+            this.pictureBox5.Image = global::MeuSuporte.Properties.Resources.CleanWindows_Black;
+            this.pictureBox5.Location = new System.Drawing.Point(10, 205);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -485,8 +502,8 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::MeuSuporte.Properties.Resources.CleanDirectorry;
-            this.pictureBox4.Location = new System.Drawing.Point(11, 219);
+            this.pictureBox4.Image = global::MeuSuporte.Properties.Resources.CleanDirectorry_Black;
+            this.pictureBox4.Location = new System.Drawing.Point(10, 175);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -495,8 +512,8 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::MeuSuporte.Properties.Resources.CleanProcess;
-            this.pictureBox3.Location = new System.Drawing.Point(11, 185);
+            this.pictureBox3.Image = global::MeuSuporte.Properties.Resources.CleanProcess_Black;
+            this.pictureBox3.Location = new System.Drawing.Point(10, 145);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -505,8 +522,8 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::MeuSuporte.Properties.Resources.CleanTrash;
-            this.pictureBox2.Location = new System.Drawing.Point(11, 151);
+            this.pictureBox2.Image = global::MeuSuporte.Properties.Resources.CleanTrash_Black;
+            this.pictureBox2.Location = new System.Drawing.Point(10, 115);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -515,8 +532,9 @@
             // 
             // pictureBox0
             // 
-            this.pictureBox0.Image = global::MeuSuporte.Properties.Resources.UserUAC;
-            this.pictureBox0.Location = new System.Drawing.Point(11, 56);
+            this.pictureBox0.Enabled = false;
+            this.pictureBox0.Image = global::MeuSuporte.Properties.Resources.UserUAC_Black;
+            this.pictureBox0.Location = new System.Drawing.Point(10, 55);
             this.pictureBox0.Name = "pictureBox0";
             this.pictureBox0.Size = new System.Drawing.Size(24, 24);
             this.pictureBox0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -525,128 +543,236 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MeuSuporte.Properties.Resources.CleanTask;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 117);
+            this.pictureBox1.Image = global::MeuSuporte.Properties.Resources.CleanTask_Black;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // radioButton0_Desativar
+            // radioButtonUserUAC_Desativar
             // 
-            this.radioButton0_Desativar.AutoSize = true;
-            this.radioButton0_Desativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton0_Desativar.Location = new System.Drawing.Point(62, 3);
-            this.radioButton0_Desativar.Name = "radioButton0_Desativar";
-            this.radioButton0_Desativar.Size = new System.Drawing.Size(76, 19);
-            this.radioButton0_Desativar.TabIndex = 64;
-            this.radioButton0_Desativar.Text = "Desativar";
-            this.radioButton0_Desativar.UseVisualStyleBackColor = true;
+            this.radioButtonUserUAC_Desativar.AutoSize = true;
+            this.radioButtonUserUAC_Desativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonUserUAC_Desativar.Location = new System.Drawing.Point(62, 3);
+            this.radioButtonUserUAC_Desativar.Name = "radioButtonUserUAC_Desativar";
+            this.radioButtonUserUAC_Desativar.Size = new System.Drawing.Size(76, 19);
+            this.radioButtonUserUAC_Desativar.TabIndex = 64;
+            this.radioButtonUserUAC_Desativar.Text = "Desativar";
+            this.radioButtonUserUAC_Desativar.UseVisualStyleBackColor = true;
             // 
-            // radioButton0_Ativar
+            // radioButtonUserUAC_Ativar
             // 
-            this.radioButton0_Ativar.AutoSize = true;
-            this.radioButton0_Ativar.Checked = true;
-            this.radioButton0_Ativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton0_Ativar.Location = new System.Drawing.Point(3, 3);
-            this.radioButton0_Ativar.Name = "radioButton0_Ativar";
-            this.radioButton0_Ativar.Size = new System.Drawing.Size(54, 19);
-            this.radioButton0_Ativar.TabIndex = 65;
-            this.radioButton0_Ativar.TabStop = true;
-            this.radioButton0_Ativar.Text = "Ativar";
-            this.radioButton0_Ativar.UseVisualStyleBackColor = true;
+            this.radioButtonUserUAC_Ativar.AutoSize = true;
+            this.radioButtonUserUAC_Ativar.Checked = true;
+            this.radioButtonUserUAC_Ativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonUserUAC_Ativar.Location = new System.Drawing.Point(3, 3);
+            this.radioButtonUserUAC_Ativar.Name = "radioButtonUserUAC_Ativar";
+            this.radioButtonUserUAC_Ativar.Size = new System.Drawing.Size(54, 19);
+            this.radioButtonUserUAC_Ativar.TabIndex = 65;
+            this.radioButtonUserUAC_Ativar.TabStop = true;
+            this.radioButtonUserUAC_Ativar.Text = "Ativar";
+            this.radioButtonUserUAC_Ativar.UseVisualStyleBackColor = true;
             // 
-            // radioButton8_Ativar
+            // radioButtonCleanPageFile_Ativar
             // 
-            this.radioButton8_Ativar.AutoSize = true;
-            this.radioButton8_Ativar.Checked = true;
-            this.radioButton8_Ativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton8_Ativar.Location = new System.Drawing.Point(3, 5);
-            this.radioButton8_Ativar.Name = "radioButton8_Ativar";
-            this.radioButton8_Ativar.Size = new System.Drawing.Size(54, 19);
-            this.radioButton8_Ativar.TabIndex = 67;
-            this.radioButton8_Ativar.TabStop = true;
-            this.radioButton8_Ativar.Text = "Ativar";
-            this.radioButton8_Ativar.UseVisualStyleBackColor = true;
+            this.radioButtonCleanPageFile_Ativar.AutoSize = true;
+            this.radioButtonCleanPageFile_Ativar.Checked = true;
+            this.radioButtonCleanPageFile_Ativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonCleanPageFile_Ativar.Location = new System.Drawing.Point(3, 5);
+            this.radioButtonCleanPageFile_Ativar.Name = "radioButtonCleanPageFile_Ativar";
+            this.radioButtonCleanPageFile_Ativar.Size = new System.Drawing.Size(54, 19);
+            this.radioButtonCleanPageFile_Ativar.TabIndex = 67;
+            this.radioButtonCleanPageFile_Ativar.TabStop = true;
+            this.radioButtonCleanPageFile_Ativar.Text = "Ativar";
+            this.radioButtonCleanPageFile_Ativar.UseVisualStyleBackColor = true;
             // 
-            // radioButton8_Desativar
+            // radioButtonCleanPageFile_Desativar
             // 
-            this.radioButton8_Desativar.AutoSize = true;
-            this.radioButton8_Desativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton8_Desativar.Location = new System.Drawing.Point(62, 5);
-            this.radioButton8_Desativar.Name = "radioButton8_Desativar";
-            this.radioButton8_Desativar.Size = new System.Drawing.Size(76, 19);
-            this.radioButton8_Desativar.TabIndex = 66;
-            this.radioButton8_Desativar.Text = "Desativar";
-            this.radioButton8_Desativar.UseVisualStyleBackColor = true;
+            this.radioButtonCleanPageFile_Desativar.AutoSize = true;
+            this.radioButtonCleanPageFile_Desativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonCleanPageFile_Desativar.Location = new System.Drawing.Point(62, 5);
+            this.radioButtonCleanPageFile_Desativar.Name = "radioButtonCleanPageFile_Desativar";
+            this.radioButtonCleanPageFile_Desativar.Size = new System.Drawing.Size(76, 19);
+            this.radioButtonCleanPageFile_Desativar.TabIndex = 66;
+            this.radioButtonCleanPageFile_Desativar.Text = "Desativar";
+            this.radioButtonCleanPageFile_Desativar.UseVisualStyleBackColor = true;
             // 
-            // panel0
+            // panel_UserUAC
             // 
-            this.panel0.Controls.Add(this.radioButton0_Ativar);
-            this.panel0.Controls.Add(this.radioButton0_Desativar);
-            this.panel0.Enabled = false;
-            this.panel0.Location = new System.Drawing.Point(42, 86);
-            this.panel0.Name = "panel0";
-            this.panel0.Size = new System.Drawing.Size(147, 27);
-            this.panel0.TabIndex = 68;
+            this.panel_UserUAC.Controls.Add(this.radioButtonUserUAC_Ativar);
+            this.panel_UserUAC.Controls.Add(this.radioButtonUserUAC_Desativar);
+            this.panel_UserUAC.Location = new System.Drawing.Point(1034, 287);
+            this.panel_UserUAC.Name = "panel_UserUAC";
+            this.panel_UserUAC.Size = new System.Drawing.Size(147, 27);
+            this.panel_UserUAC.TabIndex = 68;
+            this.panel_UserUAC.Visible = false;
             // 
-            // panel8
+            // panel_CleanPageFile
             // 
-            this.panel8.Controls.Add(this.radioButton8_Ativar);
-            this.panel8.Controls.Add(this.radioButton8_Desativar);
-            this.panel8.Enabled = false;
-            this.panel8.Location = new System.Drawing.Point(42, 387);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(147, 27);
-            this.panel8.TabIndex = 69;
+            this.panel_CleanPageFile.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel_CleanPageFile.Controls.Add(this.radioButtonCleanPageFile_Ativar);
+            this.panel_CleanPageFile.Controls.Add(this.radioButtonCleanPageFile_Desativar);
+            this.panel_CleanPageFile.Location = new System.Drawing.Point(1034, 257);
+            this.panel_CleanPageFile.Margin = new System.Windows.Forms.Padding(8);
+            this.panel_CleanPageFile.Name = "panel_CleanPageFile";
+            this.panel_CleanPageFile.Size = new System.Drawing.Size(147, 24);
+            this.panel_CleanPageFile.TabIndex = 69;
+            this.panel_CleanPageFile.Visible = false;
+            // 
+            // checkBox_RestorePoint
+            // 
+            this.checkBox_RestorePoint.AutoSize = true;
+            this.checkBox_RestorePoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_RestorePoint.Location = new System.Drawing.Point(43, 475);
+            this.checkBox_RestorePoint.Name = "checkBox_RestorePoint";
+            this.checkBox_RestorePoint.Size = new System.Drawing.Size(218, 24);
+            this.checkBox_RestorePoint.TabIndex = 71;
+            this.checkBox_RestorePoint.Text = "Criar Ponto de restauração";
+            this.checkBox_RestorePoint.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_ConnectionRDP
+            // 
+            this.checkBox_ConnectionRDP.AutoSize = true;
+            this.checkBox_ConnectionRDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_ConnectionRDP.Location = new System.Drawing.Point(43, 505);
+            this.checkBox_ConnectionRDP.Name = "checkBox_ConnectionRDP";
+            this.checkBox_ConnectionRDP.Size = new System.Drawing.Size(180, 24);
+            this.checkBox_ConnectionRDP.TabIndex = 72;
+            this.checkBox_ConnectionRDP.Text = "Acesso Remoto RDP";
+            this.checkBox_ConnectionRDP.UseVisualStyleBackColor = true;
+            this.checkBox_ConnectionRDP.Click += new System.EventHandler(this.checkBox_ConnectionRDP_Click);
+            // 
+            // panel_ConnectionRDP
+            // 
+            this.panel_ConnectionRDP.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel_ConnectionRDP.Controls.Add(this.radioButtonradioButtonConnectionRDP_Ativar);
+            this.panel_ConnectionRDP.Controls.Add(this.radioButtonConnectionRDP_Desativar);
+            this.panel_ConnectionRDP.Location = new System.Drawing.Point(1034, 227);
+            this.panel_ConnectionRDP.Margin = new System.Windows.Forms.Padding(8);
+            this.panel_ConnectionRDP.Name = "panel_ConnectionRDP";
+            this.panel_ConnectionRDP.Size = new System.Drawing.Size(147, 24);
+            this.panel_ConnectionRDP.TabIndex = 73;
+            this.panel_ConnectionRDP.Visible = false;
+            // 
+            // radioButtonradioButtonConnectionRDP_Ativar
+            // 
+            this.radioButtonradioButtonConnectionRDP_Ativar.AutoSize = true;
+            this.radioButtonradioButtonConnectionRDP_Ativar.Checked = true;
+            this.radioButtonradioButtonConnectionRDP_Ativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonradioButtonConnectionRDP_Ativar.Location = new System.Drawing.Point(3, 4);
+            this.radioButtonradioButtonConnectionRDP_Ativar.Name = "radioButtonradioButtonConnectionRDP_Ativar";
+            this.radioButtonradioButtonConnectionRDP_Ativar.Size = new System.Drawing.Size(54, 19);
+            this.radioButtonradioButtonConnectionRDP_Ativar.TabIndex = 67;
+            this.radioButtonradioButtonConnectionRDP_Ativar.TabStop = true;
+            this.radioButtonradioButtonConnectionRDP_Ativar.Text = "Ativar";
+            this.radioButtonradioButtonConnectionRDP_Ativar.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonConnectionRDP_Desativar
+            // 
+            this.radioButtonConnectionRDP_Desativar.AutoSize = true;
+            this.radioButtonConnectionRDP_Desativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonConnectionRDP_Desativar.Location = new System.Drawing.Point(62, 4);
+            this.radioButtonConnectionRDP_Desativar.Name = "radioButtonConnectionRDP_Desativar";
+            this.radioButtonConnectionRDP_Desativar.Size = new System.Drawing.Size(76, 19);
+            this.radioButtonConnectionRDP_Desativar.TabIndex = 66;
+            this.radioButtonConnectionRDP_Desativar.Text = "Desativar";
+            this.radioButtonConnectionRDP_Desativar.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = global::MeuSuporte.Properties.Resources.restore_Black;
+            this.pictureBox14.Location = new System.Drawing.Point(10, 475);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 75;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Image = global::MeuSuporte.Properties.Resources.Remoto_Black;
+            this.pictureBox15.Location = new System.Drawing.Point(10, 505);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 76;
+            this.pictureBox15.TabStop = false;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Image = global::MeuSuporte.Properties.Resources.Store_Black;
+            this.pictureBox16.Location = new System.Drawing.Point(10, 535);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox16.TabIndex = 78;
+            this.pictureBox16.TabStop = false;
+            // 
+            // checkBox_Bloatware
+            // 
+            this.checkBox_Bloatware.AutoSize = true;
+            this.checkBox_Bloatware.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_Bloatware.Location = new System.Drawing.Point(43, 535);
+            this.checkBox_Bloatware.Name = "checkBox_Bloatware";
+            this.checkBox_Bloatware.Size = new System.Drawing.Size(167, 24);
+            this.checkBox_Bloatware.TabIndex = 77;
+            this.checkBox_Bloatware.Text = "Remover Bloatware";
+            this.checkBox_Bloatware.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(975, 668);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel0);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.Label_NameMachine);
-            this.Controls.Add(this.panelLog);
-            this.Controls.Add(this.checkBoxAll);
-            this.Controls.Add(this.labelInfoTitulo);
-            this.Controls.Add(this.labelInfoDescricao);
-            this.Controls.Add(this.pictureBoxInfoDescricao);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panelBoton);
-            this.Controls.Add(this.checkBox9);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.checkBox13);
-            this.Controls.Add(this.pictureBox13);
-            this.Controls.Add(this.checkBox12);
-            this.Controls.Add(this.pictureBox12);
-            this.Controls.Add(this.checkBox11);
-            this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.checkBox7);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.checkBox8);
-            this.Controls.Add(this.checkBox10);
-            this.Controls.Add(this.checkBox6);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox0);
+            this.ClientSize = new System.Drawing.Size(969, 652);
+            this.Controls.Add(this.pictureBox16);
+            this.Controls.Add(this.checkBox_Bloatware);
+            this.Controls.Add(this.checkBox_UserUAC);
+            this.Controls.Add(this.pictureBox15);
+            this.Controls.Add(this.panel_CleanPageFile);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.checkBox0);
+            this.Controls.Add(this.pictureBox0);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.panel_ConnectionRDP);
+            this.Controls.Add(this.pictureBox14);
+            this.Controls.Add(this.panel_UserUAC);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.Label_NameMachine);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.panelLog);
+            this.Controls.Add(this.checkBox_ConnectionRDP);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.labelInfoTitulo);
+            this.Controls.Add(this.checkBox_RestorePoint);
+            this.Controls.Add(this.labelInfoDescricao);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.pictureBoxInfoDescricao);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.panelBoton);
+            this.Controls.Add(this.checkBox_CleanTask);
             this.Controls.Add(this.panelDivisoria);
+            this.Controls.Add(this.checkBox_CleanTrash);
+            this.Controls.Add(this.pictureBox12);
+            this.Controls.Add(this.checkBox_CleanProcess);
+            this.Controls.Add(this.checkBox_Usuario);
+            this.Controls.Add(this.checkBox_CleanTemp);
+            this.Controls.Add(this.checkBox_CleanPrefetch);
+            this.Controls.Add(this.checkBox_CleanWindowsUpdate);
+            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.checkBox_CleanGoogle);
+            this.Controls.Add(this.pictureBox13);
+            this.Controls.Add(this.checkBox_DeleteRegistry);
+            this.Controls.Add(this.checkBox_BackupRegistrysRun);
+            this.Controls.Add(this.checkBox_DriversBackup);
+            this.Controls.Add(this.checkBox_BackupBCD);
+            this.Controls.Add(this.checkBox_CleanPageFile);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.pictureBox9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -654,9 +780,11 @@
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "MeuSuporte";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.FormPreventiva_Load);
             this.panelBoton.ResumeLayout(false);
+            this.panelBoton.PerformLayout();
             this.panelLog.ResumeLayout(false);
             this.panelLog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfoDescricao)).EndInit();
@@ -674,10 +802,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel0.ResumeLayout(false);
-            this.panel0.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            this.panel_UserUAC.ResumeLayout(false);
+            this.panel_UserUAC.PerformLayout();
+            this.panel_CleanPageFile.ResumeLayout(false);
+            this.panel_CleanPageFile.PerformLayout();
+            this.panel_ConnectionRDP.ResumeLayout(false);
+            this.panel_ConnectionRDP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -686,7 +819,7 @@
         #endregion
         private System.Windows.Forms.TextBox txt_Log;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.CheckBox checkBox0;
+        private System.Windows.Forms.CheckBox checkBox_UserUAC;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox0;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -696,24 +829,24 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox_CleanTask;
+        private System.Windows.Forms.CheckBox checkBox_CleanTrash;
+        private System.Windows.Forms.CheckBox checkBox_CleanProcess;
+        private System.Windows.Forms.CheckBox checkBox_CleanTemp;
+        private System.Windows.Forms.CheckBox checkBox_CleanWindowsUpdate;
+        private System.Windows.Forms.CheckBox checkBox_CleanGoogle;
+        private System.Windows.Forms.CheckBox checkBox_DeleteRegistry;
+        private System.Windows.Forms.CheckBox checkBox_CleanPageFile;
+        private System.Windows.Forms.CheckBox checkBox_BackupRegistrysRun;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox checkBox_Usuario;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.CheckBox checkBox12;
+        private System.Windows.Forms.CheckBox checkBox_CleanPrefetch;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.CheckBox checkBox13;
+        private System.Windows.Forms.CheckBox checkBox_BackupBCD;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Button Btn_Canselar;
-        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.CheckBox checkBox_DriversBackup;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Panel panelBoton;
         private System.Windows.Forms.Button btn_IniciarProcesso;
@@ -725,12 +858,21 @@
         private System.Windows.Forms.CheckBox checkBoxAll;
         private System.Windows.Forms.Panel panelLog;
         private System.Windows.Forms.Label Label_NameMachine;
-        private System.Windows.Forms.RadioButton radioButton0_Desativar;
-        private System.Windows.Forms.RadioButton radioButton0_Ativar;
-        private System.Windows.Forms.RadioButton radioButton8_Ativar;
-        private System.Windows.Forms.RadioButton radioButton8_Desativar;
-        private System.Windows.Forms.Panel panel0;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.RadioButton radioButtonUserUAC_Desativar;
+        private System.Windows.Forms.RadioButton radioButtonUserUAC_Ativar;
+        private System.Windows.Forms.RadioButton radioButtonCleanPageFile_Ativar;
+        private System.Windows.Forms.RadioButton radioButtonCleanPageFile_Desativar;
+        private System.Windows.Forms.Panel panel_UserUAC;
+        private System.Windows.Forms.Panel panel_CleanPageFile;
+        private System.Windows.Forms.CheckBox checkBox_RestorePoint;
+        private System.Windows.Forms.CheckBox checkBox_ConnectionRDP;
+        private System.Windows.Forms.Panel panel_ConnectionRDP;
+        private System.Windows.Forms.RadioButton radioButtonradioButtonConnectionRDP_Ativar;
+        private System.Windows.Forms.RadioButton radioButtonConnectionRDP_Desativar;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.CheckBox checkBox_Bloatware;
     }
 }
 

@@ -1,30 +1,26 @@
-﻿using Microsoft.Win32;
-using MeuSuporte.Properties;
-using System;
-using System.Diagnostics;
-using System.Drawing;
+﻿using System;
 using System.Threading.Tasks;
+using MeuSuporte.Properties;
+using Microsoft.Win32;
 
-namespace TaskScheduler
+namespace MeuSuporte
 {
     class Class_UserUAC
     {
         private MainForm _MainForm;
 
-        public Class_UserUAC(MainForm formPreventiva)
+        public Class_UserUAC(MainForm Form_)
         {
-            _MainForm = formPreventiva;
+            _MainForm = Form_;
         }
 
-        public async Task NotificacaoUsuario(bool valor)
+        public async Task NotificacaoUsuario(bool valor, int ValueUniProgressBar)
         {
-            if (_MainForm.AbortExecution)
-            {
-                return;
-            }
-            _MainForm.PainelInfoDescricao(Resources.UserUAC, "Notificações ao Usuário (UAC):\n\rGerencia os alertas do Controle de Conta de Usuário (UAC), que ajudam a proteger o sistema contra alterações não autorizadas.");
+            _MainForm.PainelInfoDescricao(Resources.UserUAC_Black, "Notificações ao Usuário (UAC):\n\rGerencia os alertas do Controle de Conta de Usuário (UAC), que ajudam a proteger o sistema contra alterações não autorizadas.");
 
-            if(valor)
+             _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
+
+            if (valor)
             {
                 try
                 {
@@ -35,17 +31,14 @@ namespace TaskScheduler
                         testSettings.SetValue("PromptOnSecureDesktop", 1, RegistryValueKind.DWord); // Ativa a Área de Trabalho Segura
                         testSettings.SetValue("EnableLUA", 1, RegistryValueKind.DWord); // Ativa o UAC
 
-                        _MainForm.Log_Mensagem("Notificações do Usuario UAC:", "Ativado");
+                        await _MainForm.Log_MensagemAsync("Notificações do Usuario UAC: Ativado", true);
                     }
-
-                    // Força reinício do sistema para aplicar mudanças
-                 //   Process.Start("shutdown", "/r /t 5");
-
+                     _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
                     _MainForm.Sucesso++;
                 }
                 catch (Exception)
                 {
-                    _MainForm.Log_Mensagem("Notificações do Usuario UAC:", "Erro!");
+                    _MainForm.Log_MensagemAsync("Notificações do Usuario UAC: Erro!", true);
                     _MainForm.Erro++;
                 }
             }
@@ -60,72 +53,19 @@ namespace TaskScheduler
                         testSettings.SetValue("PromptOnSecureDesktop", 0, RegistryValueKind.DWord);
                         testSettings.SetValue("EnableLUA", 0, RegistryValueKind.DWord); // Desativa o UAC
 
-                        _MainForm.Log_Mensagem("Notificações do Usuario UAC:", "Desativado");
+                        await _MainForm.Log_MensagemAsync("Notificações do Usuario UAC: Desativado", true);
                     }
-
-                    // Força reinício do sistema para aplicar mudanças
-                  //  Process.Start("shutdown", "/r /t 5");
-
+                    _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
                     _MainForm.Sucesso++;
                 }
                 catch (Exception)
                 {
-                    _MainForm.Log_Mensagem("Notificações do Usuario UAC:", "Erro!");
+                    _MainForm.Log_MensagemAsync("Notificações do Usuario UAC: Erro!", true);
                     _MainForm.Erro++;
                 }
             }
 
         }
-
-
-        void CodigoOLD()
-        {
-
-            if (true)
-            {
-                try
-                {
-                    using (RegistryKey pastaCurrentVersion = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies"))
-                    using (RegistryKey testSettings = pastaCurrentVersion.OpenSubKey("System", true))
-                    {
-                        testSettings.SetValue("ConsentPromptBehaviorAdmin", 5, RegistryValueKind.DWord);
-                        testSettings.SetValue("PromptOnSecureDesktop", 1, RegistryValueKind.DWord);
-                        //   testSettings.SetValue("EnableLUA", 1, RegistryValueKind.DWord);
-
-                        _MainForm.Log_Mensagem("Notificações do Usuario UAC:", "Desativado");
-                    }
-                    _MainForm.Sucesso++;
-                }
-                catch (Exception)
-                {
-                    _MainForm.Log_Mensagem("Notificações do Usuario UAC:", "Erro!");
-                    _MainForm.Erro++;
-                }
-            }
-            else
-            {
-                try
-                {
-                    using (RegistryKey pastaCurrentVersion = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies"))
-                    using (RegistryKey testSettings = pastaCurrentVersion.OpenSubKey("System", true))
-                    {
-                        testSettings.SetValue("ConsentPromptBehaviorAdmin", 0, RegistryValueKind.DWord);
-                        testSettings.SetValue("PromptOnSecureDesktop", 0, RegistryValueKind.DWord);
-                        //    testSettings.SetValue("EnableLUA", 0, RegistryValueKind.DWord);
-
-                        _MainForm.Log_Mensagem("Notificações do Usuario UAC:", "Ativado");
-                    }
-                    _MainForm.Sucesso++;
-                }
-                catch (Exception)
-                {
-                    _MainForm.Log_Mensagem("Notificações do Usuario UAC:", "Erro!");
-                    _MainForm.Erro++;
-                }
-            }
-        }
-
-
 
     }
 }

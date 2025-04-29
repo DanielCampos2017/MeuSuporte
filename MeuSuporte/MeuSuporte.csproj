@@ -25,7 +25,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.0.4</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -58,18 +58,30 @@
   <PropertyGroup>
     <ApplicationIcon>windows-2.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=3.3.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.3.3.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.3.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.3.0\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="Interop.TaskScheduler">
       <HintPath>dll\Interop.TaskScheduler.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.2\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.3\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=9.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.9.0.3\lib\net462\System.CodeDom.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration.Install" />
@@ -81,9 +93,10 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.IO.Pipelines, Version=9.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Pipelines.9.0.2\lib\net462\System.IO.Pipelines.dll</HintPath>
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.3\lib\net462\System.IO.Pipelines.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -125,11 +138,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ServiceProcess" />
-    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.9.0.2\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.3\lib\net462\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Json, Version=9.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.9.0.2\lib\net462\System.Text.Json.dll</HintPath>
+    <Reference Include="System.Text.Json, Version=9.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.3\lib\net462\System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -145,12 +158,19 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Class_BackupBootBCD.cs" />
+    <Compile Include="Class\Class_BuildView.cs" />
+    <Compile Include="Class\Class_ListBloatware.cs" />
+    <Compile Include="Class\Class_Password_Public.cs" />
+    <Compile Include="Class\Class_RemoteRDP.cs" />
+    <Compile Include="Class\Class_ExecutionPath.cs" />
     <Compile Include="Class\Class_GeraNomePasta.cs" />
     <Compile Include="Class\Class_Log.cs" />
-    <Compile Include="Class\Class_Password.cs" />
+    <Compile Include="Class\Class_Password_Private.cs" />
+    <Compile Include="Class\Class_RemoveBloatware.cs" />
     <Compile Include="Class\Class_UserUAC.cs" />
     <Compile Include="Class\Class_BackupRegistrys.cs" />
     <Compile Include="Class\Class_UpdateUser.cs" />
@@ -161,6 +181,13 @@
     <Compile Include="Class\Class_CleanRegistry.cs" />
     <Compile Include="Class\Class_CleanPageFile.cs" />
     <Compile Include="Class\Class_CleanDirectorry.cs" />
+    <Compile Include="Class\SystemProtection\Class_PointCreate.cs" />
+    <Compile Include="Class\SystemProtection\Class_EnableProtection.cs" />
+    <Compile Include="Class\SystemProtection\Class_IsSystemRestoreEnabled.cs" />
+    <Compile Include="Class\SystemProtection\Class_PointName.cs" />
+    <Compile Include="Class\SystemProtection\Class_PointSearch.cs" />
+    <Compile Include="Class\SystemProtection\Class_PointItem.cs" />
+    <Compile Include="Class\SystemProtection\Class_PointRestore.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,20 +210,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -221,7 +248,7 @@
     <None Include="Resources\pasta.png" />
     <None Include="Resources\process.png" />
     <None Include="Resources\registro.png" />
-    <None Include="Resources\sino.png" />
+    <None Include="Resources\UserUAC_Black.png" />
     <None Include="Resources\usuario.png" />
     <None Include="Resources\JetBrainsMono Nerd Font Regular - cod file binary.png" />
     <None Include="Resources\windows.png" />
@@ -231,6 +258,42 @@
     <None Include="Resources\GitHub.ico" />
     <None Include="Resources\windows-2.ico" />
     <None Include="Resources\github.png" />
+    <None Include="Resources\JetBrainsMono Nerd Font Regular - weather cloud down.png" />
+    <None Include="Resources\JetBrainsMono Nerd Font Regular - oct alert fill.png" />
+    <None Include="Resources\JetBrainsMono Nerd Font Regular - md security.png" />
+    <None Include="Resources\code.png" />
+    <None Include="Resources\vscode.png" />
+    <None Include="Resources\offline.png" />
+    <None Include="Resources\restore.png" />
+    <None Include="Resources\Remoto.png" />
+    <None Include="Resources\Store.png" />
+    <None Include="Resources\Alert_White.png" />
+    <None Include="Resources\BackupBootBCD_White.png" />
+    <None Include="Resources\BackupDriver_White.png" />
+    <None Include="Resources\BackupRegistrys_White.png" />
+    <None Include="Resources\CleanDirectorry_White.png" />
+    <None Include="Resources\CleanGoogle_White.png" />
+    <None Include="Resources\CleanPageFile_White.png" />
+    <None Include="Resources\CleanProcess_White.png" />
+    <None Include="Resources\CleanRegistry_White.png" />
+    <None Include="Resources\CleanTask_White.png" />
+    <None Include="Resources\CleanTrash_White.png" />
+    <None Include="Resources\CleanWindows_White.png" />
+    <None Include="Resources\ClearPrefetch_White.png" />
+    <None Include="Resources\Code_White.png" />
+    <None Include="Resources\Dawnload_White.png" />
+    <None Include="Resources\Github_White.png" />
+    <None Include="Resources\Info_White.png" />
+    <None Include="Resources\Offline_White.png" />
+    <None Include="Resources\Remoto__White.png" />
+    <None Include="Resources\restore__White.png" />
+    <None Include="Resources\Security_White.png" />
+    <None Include="Resources\Store_White.png" />
+    <None Include="Resources\UpdateUser_White.png" />
+    <None Include="Resources\UserUAC_White.png" />
+    <None Include="Resources\vscode_White.png" />
+    <None Include="Resources\abort_Black.png" />
+    <None Include="Resources\abort_White.png" />
     <Content Include="windows-2.ico" />
     <Content Include="wine-winecfg.ico" />
   </ItemGroup>

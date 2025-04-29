@@ -63,9 +63,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap alert {
+        internal static System.Drawing.Bitmap abort_Black {
             get {
-                object obj = ResourceManager.GetObject("alert", resourceCulture);
+                object obj = ResourceManager.GetObject("abort_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BackupBootBCD {
+        internal static System.Drawing.Bitmap abort_White {
             get {
-                object obj = ResourceManager.GetObject("BackupBootBCD", resourceCulture);
+                object obj = ResourceManager.GetObject("abort_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BackupDriver {
+        internal static System.Drawing.Bitmap Alert_Black {
             get {
-                object obj = ResourceManager.GetObject("BackupDriver", resourceCulture);
+                object obj = ResourceManager.GetObject("Alert_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BackupRegistrys {
+        internal static System.Drawing.Bitmap Alert_White {
             get {
-                object obj = ResourceManager.GetObject("BackupRegistrys", resourceCulture);
+                object obj = ResourceManager.GetObject("Alert_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CleanDirectorry {
+        internal static System.Drawing.Bitmap BackupBootBCD_Black {
             get {
-                object obj = ResourceManager.GetObject("CleanDirectorry", resourceCulture);
+                object obj = ResourceManager.GetObject("BackupBootBCD_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CleanGoogle {
+        internal static System.Drawing.Bitmap BackupBootBCD_White {
             get {
-                object obj = ResourceManager.GetObject("CleanGoogle", resourceCulture);
+                object obj = ResourceManager.GetObject("BackupBootBCD_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CleanPageFile {
+        internal static System.Drawing.Bitmap BackupDriver_Black {
             get {
-                object obj = ResourceManager.GetObject("CleanPageFile", resourceCulture);
+                object obj = ResourceManager.GetObject("BackupDriver_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CleanProcess {
+        internal static System.Drawing.Bitmap BackupDriver_White {
             get {
-                object obj = ResourceManager.GetObject("CleanProcess", resourceCulture);
+                object obj = ResourceManager.GetObject("BackupDriver_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CleanRegistry {
+        internal static System.Drawing.Bitmap BackupRegistrys_Black {
             get {
-                object obj = ResourceManager.GetObject("CleanRegistry", resourceCulture);
+                object obj = ResourceManager.GetObject("BackupRegistrys_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CleanTask {
+        internal static System.Drawing.Bitmap BackupRegistrys_White {
             get {
-                object obj = ResourceManager.GetObject("CleanTask", resourceCulture);
+                object obj = ResourceManager.GetObject("BackupRegistrys_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CleanTrash {
+        internal static System.Drawing.Bitmap CleanDirectorry_Black {
             get {
-                object obj = ResourceManager.GetObject("CleanTrash", resourceCulture);
+                object obj = ResourceManager.GetObject("CleanDirectorry_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CleanWindows {
+        internal static System.Drawing.Bitmap CleanDirectorry_White {
             get {
-                object obj = ResourceManager.GetObject("CleanWindows", resourceCulture);
+                object obj = ResourceManager.GetObject("CleanDirectorry_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ClearPrefetch {
+        internal static System.Drawing.Bitmap CleanGoogle_Black {
             get {
-                object obj = ResourceManager.GetObject("ClearPrefetch", resourceCulture);
+                object obj = ResourceManager.GetObject("CleanGoogle_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,199 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap closed {
+        internal static System.Drawing.Bitmap CleanGoogle_White {
             get {
-                object obj = ResourceManager.GetObject("closed", resourceCulture);
+                object obj = ResourceManager.GetObject("CleanGoogle_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanPageFile_Black {
+            get {
+                object obj = ResourceManager.GetObject("CleanPageFile_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanPageFile_White {
+            get {
+                object obj = ResourceManager.GetObject("CleanPageFile_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanProcess_Black {
+            get {
+                object obj = ResourceManager.GetObject("CleanProcess_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanProcess_White {
+            get {
+                object obj = ResourceManager.GetObject("CleanProcess_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanRegistry_Black {
+            get {
+                object obj = ResourceManager.GetObject("CleanRegistry_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanRegistry_White {
+            get {
+                object obj = ResourceManager.GetObject("CleanRegistry_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanTask_Black {
+            get {
+                object obj = ResourceManager.GetObject("CleanTask_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanTask_White {
+            get {
+                object obj = ResourceManager.GetObject("CleanTask_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanTrash_Black {
+            get {
+                object obj = ResourceManager.GetObject("CleanTrash_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanTrash_White {
+            get {
+                object obj = ResourceManager.GetObject("CleanTrash_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanWindows_Black {
+            get {
+                object obj = ResourceManager.GetObject("CleanWindows_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CleanWindows_White {
+            get {
+                object obj = ResourceManager.GetObject("CleanWindows_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ClearPrefetch_Black {
+            get {
+                object obj = ResourceManager.GetObject("ClearPrefetch_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ClearPrefetch_White {
+            get {
+                object obj = ResourceManager.GetObject("ClearPrefetch_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap closed_Black {
+            get {
+                object obj = ResourceManager.GetObject("closed_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Code_Black {
+            get {
+                object obj = ResourceManager.GetObject("Code_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Code_White {
+            get {
+                object obj = ResourceManager.GetObject("Code_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dawnload_Black {
+            get {
+                object obj = ResourceManager.GetObject("Dawnload_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dawnload_White {
+            get {
+                object obj = ResourceManager.GetObject("Dawnload_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +403,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap github1 {
+        internal static System.Drawing.Bitmap Github_Black {
             get {
-                object obj = ResourceManager.GetObject("github1", resourceCulture);
+                object obj = ResourceManager.GetObject("Github_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +413,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iinfo {
+        internal static System.Drawing.Bitmap Github_White {
             get {
-                object obj = ResourceManager.GetObject("iinfo", resourceCulture);
+                object obj = ResourceManager.GetObject("Github_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +423,9 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap UpdateUser {
+        internal static System.Drawing.Bitmap Info_Black {
             get {
-                object obj = ResourceManager.GetObject("UpdateUser", resourceCulture);
+                object obj = ResourceManager.GetObject("Info_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +433,169 @@ namespace MeuSuporte.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap UserUAC {
+        internal static System.Drawing.Bitmap Info_White {
             get {
-                object obj = ResourceManager.GetObject("UserUAC", resourceCulture);
+                object obj = ResourceManager.GetObject("Info_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Offline_Black {
+            get {
+                object obj = ResourceManager.GetObject("Offline_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Offline_White {
+            get {
+                object obj = ResourceManager.GetObject("Offline_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Remoto__White {
+            get {
+                object obj = ResourceManager.GetObject("Remoto__White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Remoto_Black {
+            get {
+                object obj = ResourceManager.GetObject("Remoto_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restore__White {
+            get {
+                object obj = ResourceManager.GetObject("restore__White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restore_Black {
+            get {
+                object obj = ResourceManager.GetObject("restore_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Security_Black {
+            get {
+                object obj = ResourceManager.GetObject("Security_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Security_White {
+            get {
+                object obj = ResourceManager.GetObject("Security_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Store_Black {
+            get {
+                object obj = ResourceManager.GetObject("Store_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Store_White {
+            get {
+                object obj = ResourceManager.GetObject("Store_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpdateUser_Black {
+            get {
+                object obj = ResourceManager.GetObject("UpdateUser_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpdateUser_White {
+            get {
+                object obj = ResourceManager.GetObject("UpdateUser_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserUAC_Black {
+            get {
+                object obj = ResourceManager.GetObject("UserUAC_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserUAC_White {
+            get {
+                object obj = ResourceManager.GetObject("UserUAC_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vscode_Black {
+            get {
+                object obj = ResourceManager.GetObject("vscode_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vscode_White {
+            get {
+                object obj = ResourceManager.GetObject("vscode_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

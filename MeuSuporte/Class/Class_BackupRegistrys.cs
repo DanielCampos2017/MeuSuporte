@@ -5,24 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskScheduler
+namespace MeuSuporte
 {
     internal class Class_BackupRegistrys
     {
         private MainForm _MainForm;
         private Class_GeraNomePasta _Class_GeraNomePasta;
 
-        public Class_BackupRegistrys(MainForm formPreventiva)
+        public Class_BackupRegistrys(MainForm Form_)
         {
-            _MainForm = formPreventiva;
+            _MainForm = Form_;
         }
 
-        public async Task BackupRegistry(string _Directory, string _Name, RegistryKey _Registry)
+        public async Task BackupRegistry(string _Directory, string _Name, RegistryKey _Registry, int ValueUniProgressBar)
         {
-            if (_MainForm.AbortExecution)
-            {
-                return;
-            }
+            _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
+
             _Class_GeraNomePasta = new Class_GeraNomePasta();
             string diretorio = _Class_GeraNomePasta.Directory();
 
@@ -46,12 +44,13 @@ namespace TaskScheduler
                 // Escreve o backup no arquivo com codificação Unicode de forma assíncrona
                 File.WriteAllText(diretorio + "\\" + _Name, regFile.ToString(), Encoding.Unicode);
                 _MainForm.Sucesso++;
-                _MainForm.Log_Mensagem("Backup concluído:", $"Backup salvo em {diretorio}");
+                _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
+                _MainForm.Log_MensagemAsync($"Backup concluído: Backup salvo em {diretorio}", true);
             }
             catch (Exception e)
             {
                 _MainForm.Erro++;
-                _MainForm.Log_Mensagem("Erro ao salvar backup:", e.Message);
+                Task task = _MainForm.Log_MensagemAsync("Erro ao salvar backup: " + e.Message, true);
             }
         }
 

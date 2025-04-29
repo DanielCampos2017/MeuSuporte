@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace TaskScheduler
+namespace MeuSuporte
 {
     internal class Class_CleanTrash
     {
@@ -10,49 +11,56 @@ namespace TaskScheduler
 
         // Importação do método nativo para limpar a lixeira
         [DllImport("Shell32.dll", CharSet = CharSet.Unicode)]
-        static extern uint SHEmptyRecycleBin(IntPtr hwnd, string pszRootPath, Binary dwFlags);
+        private static extern uint SHEmptyRecycleBin(IntPtr hwnd, string pszRootPath, RecycleBinFlags dwFlags);
+
 
         [Flags]
-        enum Binary
+        enum RecycleBinFlags
         {
-            SHERB_NOCONFIRMATION = 0x00000001, // Sem confirmação
-            SHERB_NOPROGRESSUI = 0x00000002,   // Sem barra de progresso
-            SHERB_NOSOUND = 0x00000004         // Sem som
+            NoConfirmation = 0x00000001, // Sem confirmacao
+            NoProgressUI = 0x00000002, // Sem barra de progresso
+            NoSound = 0x00000004 // Sem som
+        }
+        public Class_CleanTrash(MainForm Form_)
+        {
+            _MainForm = Form_;
         }
 
-        public Class_CleanTrash(MainForm formPreventiva)
+        public async Task CleanTrash(CancellationToken token, int ValueUniProgressBar)
         {
-            _MainForm = formPreventiva;
-        }
-
-        public async Task CleanTrash()
-        {
-            if (_MainForm.AbortExecution)
-            {
-                return;
-            }
             try
             {
-                _MainForm.Log_Mensagem("Lixeira:", "Apagando...");
+                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                _MainForm.ProgressBarADD(ValueUniProgressBar / 2);                
 
-                // Aguarda a execução para garantir que a lixeira seja esvaziada antes de continuar
+                await _MainForm.Log_MensagemAsync("Lixeira: Apagando...", true);
+                await Task.Delay(500);
 
-                uint result = SHEmptyRecycleBin(IntPtr.Zero, null, Binary.SHERB_NOCONFIRMATION | Binary.SHERB_NOPROGRESSUI | Binary.SHERB_NOSOUND);
+                uint result = await Task.Run(() =>
+                    SHEmptyRecycleBin(IntPtr.Zero, null,
+                    RecycleBinFlags.NoConfirmation | RecycleBinFlags.NoProgressUI | RecycleBinFlags.NoSound), token
+                );
 
                 if (result == 0) // Se o resultado for 0, sucesso na exclusão
                 {
                     _MainForm.Sucesso++;
-                  // _formPreventiva.Log_Mensagem("Lixeira:", "Apagada!");
+                    await _MainForm.Log_MensagemAsync("Lixeira: Apagada!", true);
+                    await Task.Delay(500);
+                    _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
                 }
-                else
+
+                if (result == 2147549183) // Lixeira já estava vazia
                 {
-                    throw new Exception($"Código de erro retornado: {result}");
-                }
+                    _MainForm.Sucesso++;
+                    await _MainForm.Log_MensagemAsync("Lixeira: Já estava vazia", true);
+                    await Task.Delay(500);
+                    _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
+                }         
             }
             catch (Exception e)
             {
                 _MainForm.Erro++;
-                _MainForm.Log_Mensagem("Lixeira:", "Erro ao apagar. Detalhes: \n" + e.Message);
+               await _MainForm.Log_MensagemAsync($"Lixeira: Erro ao apagar. Detalhes: \n  {e.Message}", true);
             }
         }
     }

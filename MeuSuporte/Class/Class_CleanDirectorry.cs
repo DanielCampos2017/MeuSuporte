@@ -1,36 +1,34 @@
-﻿using MeuSuporte;
-using System;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Security.AccessControl;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace TaskScheduler
+namespace MeuSuporte
 {
     internal class Class_CleanDirectorry
     {
         string DiretorioPasta = @"";
-        int NumFiles = 0;
-        int NumFolder = 0;
-        FileInfo _Arquivo;
-        System.IO.DirectoryInfo _Pasta;
-        string _User = "PCs";
+        private int NumFiles = 0;
+        private int NumFolder = 0;
+        private FileInfo _Arquivo;
+        private DirectoryInfo _Pasta;
+        private string _User = "PCs";
         private MainForm _MainForm;
-        FileSecurity _FileSecurity = new FileSecurity();
-        DirectorySecurity _DirectorySecurity = new DirectorySecurity();
-        System.Windows.Forms.Form _FormList;
+        private FileSecurity _FileSecurity = new FileSecurity();
+        private DirectorySecurity _DirectorySecurity = new DirectorySecurity();
 
-        public Class_CleanDirectorry(MainForm formPreventiva)
+        public Class_CleanDirectorry(MainForm Form_)
         {
-            _MainForm = formPreventiva;
+            _MainForm = Form_;
         }
+
+        #region Funcoes internas
 
         private async Task DeleteFileAsync(string txt) // deleta o arquivo de forma assíncrona
         {
-            if (_MainForm.AbortExecution)
-            {
-                return;
-            }
             try
             {
                 _Arquivo = new FileInfo(txt); // atribui o arquivo
@@ -40,7 +38,7 @@ namespace TaskScheduler
             }
             catch
             {
-                // _formPreventiva.Log_Mensagem("Erro ao Apagar arquivo: ", txt);
+                // não vou querer mensagem de erro devido ser centenas de arquivos para apagar então não quero entopir o log com erro
             }
         }
 
@@ -50,7 +48,7 @@ namespace TaskScheduler
             _Pasta.SetAccessControl(_DirectorySecurity); // atribui o acesso para a pasta
             try
             {
-                _Pasta.Delete(true); // deleta a pasta
+               _Pasta.Delete(true); // deleta a pasta
                 NumFolder++;
             }
             catch
@@ -59,7 +57,7 @@ namespace TaskScheduler
             }
         }
 
-        private async Task<bool> UserSecurityAsync() // atribui as permissões de segurança de forma assíncrona
+        private async Task<bool> UserSecurityAsync() // atribui as permissões de segurança
         {
             bool retorno = false;
 
@@ -73,79 +71,111 @@ namespace TaskScheduler
             }
             catch (Exception e)
             {
-                _MainForm.Erro++;
                 retorno = false;
-                _MainForm.Log_Mensagem("Erro ao fazer atribuição de Segurança nos Arquivos", " !");
+                await _MainForm.Log_MensagemAsync("Erro ao fazer atribuição de Segurança nos Arquivos", true);
             }
             return retorno;
         }
 
-        private async Task ListFilesAsync() // lista e deleta arquivos e pastas de forma assíncrona
+        private async Task ListFilesAsync(int ValueUniProgressBar, string _NameFolder, CancellationToken token)
         {
             try
             {
-                DirectoryInfo DiretorioRaiz = new DirectoryInfo(DiretorioPasta);
-                DirectoryInfo[] Array_Pastas = DiretorioRaiz.GetDirectories();
-                FileInfo[] Diret = new DirectoryInfo(DiretorioPasta).GetFiles("*.*", SearchOption.AllDirectories);
+                DirectoryInfo diretorio = new DirectoryInfo(DiretorioPasta);
+                var files = diretorio.EnumerateFiles("*.*", SearchOption.AllDirectories);
+                var pastas = diretorio.EnumerateDirectories();
 
-                foreach (FileInfo Dir in Diret)
+                int ValueUniBar = ValueUniProgressBar;
+                int total = diretorio.EnumerateFiles("*.*", SearchOption.AllDirectories).Count() + pastas.Count();// + pastas.Count;
+                float valorUnidade = (float)ValueUniBar / total;
+                float valorAcumulado = 0f;
+                int loop = 0;
+
+                foreach (var file in files)
                 {
-                    await DeleteFileAsync(Dir.FullName); // Exclui os arquivos de forma assíncrona
+                    token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                    
+                    loop++;
+                    valorAcumulado += valorUnidade;
+                    if (valorAcumulado >= 1)
+                    {
+                        _MainForm.ProgressBarADD(1);
+                        valorAcumulado -= 1;
+                        await _MainForm.Log_MensagemAsyncSobrescrever($"Apagando arquivos {total} / {loop} da Pasta {{{_NameFolder}}}");
+
+                        await Task.Delay(20);
+                    }
+                    await DeleteFileAsync(file.FullName);   // deleta o arquivo                 
+                }
+                                
+
+                foreach (var pasta in pastas)
+                {
+                    token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+
+                    loop++;
+                    valorAcumulado += valorUnidade;
+                    if (valorAcumulado >= 1)
+                    {
+                        _MainForm.ProgressBarADD(1);
+                        valorAcumulado -= 1;
+                        await _MainForm.Log_MensagemAsyncSobrescrever($"Apagando arquivos {total} / {loop} da Pasta {{{_NameFolder}}}");
+                        await Task.Delay(20);
+                    }
+                    await DeleteFolderAsync(pasta.FullName); // deleta a pasta
                 }
 
-                foreach (DirectoryInfo Dir in Array_Pastas)
-                {
-                    await DeleteFolderAsync(Dir.FullName); // Exclui as pastas de forma assíncrona
-                }
+                _MainForm.Sucesso++;
+                await Task.Delay(1000);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                _MainForm.Log_Mensagem("Erro ao listar os Arquivos de SoftwareDistribution", "\r\n" + e.Message);
+                _MainForm.Erro++;
             }
         }
 
-        public async Task CleanDirectoryAsync(string _DiretorioPasta, string _NameFolder) // Método principal assíncrono
+        // verifica se o diretorio existe
+        private bool checkPath(string Path)
+        {
+            return Directory.Exists(Path);
+        }
+
+        #endregion
+
+     
+        #region Tarefas Plublicas
+
+        public async Task CleanDirectoryAsync(string _DiretorioPasta, string _NameFolder, int ValueUniProgressBar, CancellationToken token) // Método principal assíncrono
         {
             DiretorioPasta = _DiretorioPasta;
             NumFiles = 0;
             NumFolder = 0;
-
             _User = Environment.UserName.ToString(); // atribui o nome do usuário
 
-            if (DiretorioPasta != null)
-            {
-                if (await UserSecurityAsync()) // Usa a versão assíncrona do método UserSecurity
-                {
-                    await ListFilesAsync(); // Usa a versão assíncrona do método ListFiles
-                    _MainForm.Sucesso++;
-                    _MainForm.Log_Mensagem("Limpeza da pasta " + _NameFolder + " : " + NumFolder + " Pasta(s) Apagada(s) e " + NumFiles + " Arquivo(s) Apagado(s)", "");
-                }
-            }
-            else
+            // verifica se o diretorio existe
+            if (checkPath(DiretorioPasta) == false)
             {
                 _MainForm.Erro++;
-                _MainForm.Log_Mensagem("Ocorreu um erro ao tentar obter o diretório da pasta", "");
+                await _MainForm.Log_MensagemAsync($"Ocorreu um erro ao tentar acessa o diretório {_NameFolder}", true);
                 return;
             }
+              
+            // atribui as permissões de segurança
+            if (await UserSecurityAsync() == false)
+            {
+                _MainForm.Erro++;
+                await _MainForm.Log_MensagemAsync("Erro ao fazer atribuição de Segurança nos Arquivos", true);
+            }
+
+            // funcao de apagar os arquivos
+            await ListFilesAsync(ValueUniProgressBar, _NameFolder, token);
+
+            await _MainForm.Log_MensagemAsync("\r\n", true);
+            await _MainForm.Log_MensagemAsync($"Limpeza da pasta {_NameFolder} : {NumFolder} Pasta(s) Apagada(s) e {NumFiles} Arquivo(s) Apagado(s)", false);
+          
         }
 
-        void AtribuiUsuario()
-        {
-            if (MessageBox.Show("Deseja permanecer com o acesso desse Usuário para essa tarefa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                _User = Environment.UserName.ToString();
-            }
-            else
-            {
-                _FormList = new FormSelecaoUsuario();
-                _FormList.ShowDialog();
-                _User = (_FormList as FormSelecaoUsuario).Nome;
-            }
-        }
-
-
-
-
+        #endregion
 
     }
 }
