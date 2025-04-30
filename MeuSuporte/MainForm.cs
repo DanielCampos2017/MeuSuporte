@@ -105,7 +105,6 @@ namespace MeuSuporte
         //Evento Load do Formulario
         private void FormPreventiva_Load(object sender, EventArgs e)
         {
-
             Label_NameMachine.Text = Environment.MachineName;
             ExecutionPath(); // verifica o local da execução do programa
             CheckBuild();   // verifica a versão do programa
@@ -649,43 +648,6 @@ namespace MeuSuporte
             // Atualiza a UI após a execução assíncrona  
             checkBox_DriversBackup.Font = new Font(checkBox_DriversBackup.Font.FontFamily, checkBox_DriversBackup.Font.Size, FontStyle.Strikeout);
         }
-
-        public async Task DriverBackup_ExtractProgress(string valor)
-        {
-            // Verifica se a string contém a palavra "Exportando"
-            //valor esperado = Exportando 10 de 74 - oem.inf: O pacote de driver foi exportado com sucesso."
-
-            if (!valor.Contains("Exportando"))
-            {
-                return;
-            }
-
-            // Expressão regular para capturar números
-            MatchCollection matches = Regex.Matches(valor, @"\d+");
-
-            int valorMaximo = (matches.Count > 1) ? Convert.ToInt32(matches[1].Value) : 100;
-
-            float unidade = (float)ValueUniProgressBar / (float)valorMaximo;
-
-            ProgressBarADD(await ValueUnit(unidade));
-        }
-
-        private static float accumulator = 0f; // Variável para armazenar o valor acumulado    
-        static async Task<int> ValueUnit(float valor)
-        {
-            accumulator += valor;
-
-            // Extrai a parte inteira e armazena na ProgressBar
-            int parteInteira = (int)accumulator;
-
-            if (parteInteira > 0)
-            {
-                accumulator -= parteInteira;
-                return parteInteira;
-            }
-            return 0;
-        }
-
         #endregion
 
         #region Limpar Registro Run
@@ -1039,12 +1001,13 @@ namespace MeuSuporte
         }
 
 
+
+
+
+
+
         #endregion
 
-
-
-
-
-
+      
     }
 }

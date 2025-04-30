@@ -31,6 +31,7 @@ namespace MeuSuporte
             await Task.CompletedTask;
         }
 
+        // verifica se existe o usuario
         private async Task<bool> IsUserAsync()
         {
 
@@ -168,21 +169,18 @@ namespace MeuSuporte
 
         public async Task Usuario(CancellationToken token, int ValueUniProgressBar)
         {
-           // Class_Password_Private _ClassPassword = new Class_Password_Private();
+            // Class_Password_Private _ClassPassword = new Class_Password_Private();
             Class_Password_Public _ClassPassword = new Class_Password_Public();
             NameUser = _ClassPassword.GetUser();
             PasswordUser = _ClassPassword.GetPassword();
 
-            if (!await IsUserAsync())
+            if (await IsUserAsync())
             {
-                // se não existir
-                await CreateUserAsync(token, ValueUniProgressBar);
-            }
-            else
-            {
-                // se existir
                 await UpdateUserAsync(token, ValueUniProgressBar);
+                return;
             }
+                                   
+            await CreateUserAsync(token, ValueUniProgressBar);
         }
     }
 }

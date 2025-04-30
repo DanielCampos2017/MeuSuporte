@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration.Install;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.ServiceProcess;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using TimeoutException = System.TimeoutException;
@@ -37,13 +39,16 @@ namespace MeuSuporte
         #region Lista de Processos
 
         private readonly string[] ListProcessGoogle = {
-            "edgeupdate", // serviço do google
-            "edgeupdatem", // serviço do google
-             "gupdatem",  // serviço do google
-            "gupdate",  // serviço do google
-            "GoogleChromeElevationService",  // serviço do google
-            "gusvc",  // serviço do google
+            "GoogleUpdateService",  //Atualizações do Google em versões antigas
+            "GoogleUpdateServiceGlobal",  //Versão global do serviço de atualização
+            "gupdate",  //Agendadores de atualização do Chrome
+            "gupdatem",  //Agendadores de atualização do Chrome
+            "GoogleChromeElevationService", //Permite ações elevadas no Chrome  atualizações silenciosas
+            "GoogleCrashHandler",  //Envio de falhas do Chrome/Drive para o Google
+            "GoogleCrashHandler64",  //Envio de falhas do Chrome/Drive para o Google
+            "gusvc",  //Google Update Service legados
         };
+
 
         private readonly string[] ListProcessWindowsUpdate =
         {
@@ -88,44 +93,44 @@ namespace MeuSuporte
             "WpnService", // Serviço de Notificações Push do Windows
             "XblAuthManager", // Serviço de Autenticação Xbox Live
             "vmicvss" // Solicitante de Cópia de Sombra de Volume do Hyper-V
+
         };
 
         #endregion
 
 
-        #region Tarefas Plublicas
-          
-        public async Task CleanProcess(int ValueUniProgressBar, CancellationToken token)
-        {
-            int ValueProgress = ValueUniProgressBar / ListProcessDelete.Length;
-            int totalItens = ValueUniProgressBar / ListProcessDelete.Length;
+            #region Tarefas Plublicas
 
+        public async Task CleanProcess(int ValueUniProgressBar, CancellationToken token)
+        {    
             token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
-            int ValueUniBar = ValueUniProgressBar;
             int total = ListProcessDelete.Length;
-            float valorUnidade = (float)ValueUniBar / total;
-            float valorAcumulado = 0f;
+            float valorUnidade = (float)ValueUniProgressBar / total;
+            bool foundServices = false;
 
-
-            //filtrar os serviços que estão na lista ListProcessDelete   
-            var services = ServiceController.GetServices().Where(s => ListProcessDelete.Contains(s.ServiceName));
-
-            foreach (ServiceController service in services)
+            foreach (string serviceName in ListProcessDelete)
             {
-                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
-                
-                valorAcumulado += valorUnidade;
-                if (valorAcumulado >= 1)
+                token.ThrowIfCancellationRequested();
+
+                var service = ServiceController.GetServices().FirstOrDefault(s => s.ServiceName == serviceName);
+
+                int NewValor = await ValueUnit(valorUnidade);
+
+                if (NewValor >= 1)
                 {
-                    _MainForm.ProgressBarADD(1);
-                    valorAcumulado -= 1;
+                    _MainForm.ProgressBarADD(NewValor);
                     await Task.Delay(20);
                 }
-                await UninstallProcess(service, totalItens);
+
+                if (service != null)
+                {
+                    await UninstallProcess(service);
+                    foundServices = true;
+                }         
             }
 
-            if (!services.Any())
+            if (!foundServices)
             {
                 _MainForm.ProgressBarADD(ValueUniProgressBar);
                 _MainForm.Log_MensagemAsync("Serviço: No listings found!", true);
@@ -133,50 +138,89 @@ namespace MeuSuporte
             }
         }
 
+
+        // Funcao que envia a porcentagem para ProgressBar
+        private static float accumulator = 0f; // Variável para armazenar o valor acumulado    
+        private static async Task<int> ValueUnit(float valor)
+        {
+            accumulator += valor;
+
+            // Extrai a parte inteira e armazena na ProgressBar
+            int parteInteira = (int)accumulator;
+
+            if (parteInteira > 0)
+            {
+                accumulator -= parteInteira;
+                return parteInteira;
+            }
+            return 0;
+        }
+
         public async Task CleanProcessGoogle(int ValueUniProgressBar, CancellationToken token)
         {
-            int ValueProgress = ValueUniProgressBar / ListProcessGoogle.Length;
-            int totalItens = ValueUniProgressBar / ListProcessGoogle.Length;
+            int total = ListProcessGoogle.Length;
+            float valorUnidade = (float)ValueUniProgressBar / total;
+            bool foundServices = false;
 
-            token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
-
-            //filtrar os serviços que estão na lista ListProcessGoogle   
-            var services = ServiceController.GetServices().Where(s => ListProcessGoogle.Contains(s.ServiceName));
-
-            foreach (ServiceController service in services)
+            foreach (string serviceName in ListProcessGoogle)
             {
-                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
-                await UninstallProcess(service, totalItens);
+                token.ThrowIfCancellationRequested();
+                var service = ServiceController.GetServices().FirstOrDefault(s => s.ServiceName == serviceName);
+
+                int NewValor = await ValueUnit(valorUnidade);
+
+                if (NewValor >= 1)
+                {
+                    _MainForm.ProgressBarADD(NewValor);
+                    await Task.Delay(20);
+                }
+
+                if (service != null)
+                {
+                    await UninstallProcess(service);
+                    foundServices = true;
+                }
             }
 
-            if (!services.Any())
+            if (!foundServices)
             {
                 _MainForm.ProgressBarADD(ValueUniProgressBar);
-                _MainForm.Log_MensagemAsync("Serviço: Nenhum Listado encontrado !", true);
+                _MainForm.Log_MensagemAsync("Serviço: No listings found!", true);
                 await Task.Delay(500);
             }
         }
 
         public async Task WindowsUpdate(int ValueUniProgressBar, CancellationToken token)
         {
-            int ValueProgress = ValueUniProgressBar / ListProcessWindowsUpdate.Length;
-            int totalItens = ValueUniProgressBar / ListProcessWindowsUpdate.Length;
+            int total = ListProcessWindowsUpdate.Length;
+            float valorUnidade = (float)ValueUniProgressBar / total;
+            bool foundServices = false;
 
-            token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
-
-            //filtrar os serviços que estão na lista ListProcessWindowsUpdate   
-            var services = ServiceController.GetServices().Where(s => ListProcessWindowsUpdate.Contains(s.ServiceName));
-
-            foreach (ServiceController service in services)
+            foreach (string serviceName in ListProcessWindowsUpdate)
             {
-                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
-                await WaitForServiceToDisabled(service, totalItens); // coloca o serviço com o status como desativado.
+                token.ThrowIfCancellationRequested();
+
+                var service = ServiceController.GetServices().FirstOrDefault(s => s.ServiceName == serviceName);
+
+                int NewValor = await ValueUnit(valorUnidade);
+
+                if (NewValor >= 1)
+                {
+                    _MainForm.ProgressBarADD(NewValor);
+                    await Task.Delay(20);
+                }
+
+                if (service != null)
+                {
+                    await WaitForServiceToDisabled(service); // coloca o serviço com o status como desativado.
+                    foundServices = true;
+                }
             }
 
-            if (!services.Any())
+            if (!foundServices)
             {
                 _MainForm.ProgressBarADD(ValueUniProgressBar);
-                _MainForm.Log_MensagemAsync("Serviço: Nenhum Listado encontrado !", true);
+                _MainForm.Log_MensagemAsync("Serviço: No listings found!", true);
                 await Task.Delay(500);
             }
         }
@@ -187,7 +231,7 @@ namespace MeuSuporte
         #region Funcoes internas
 
         //Metodo de desinstalacao de processos
-        private async Task UninstallProcess(ServiceController service, int totalItens)
+        private async Task UninstallProcess(ServiceController service)
         {
             bool serviceStopped = await WaitForServiceToStop(service);
 
@@ -206,8 +250,7 @@ namespace MeuSuporte
                     serviceInstaller.ServiceName = service.ServiceName;
                     serviceInstaller.Uninstall(null);
                     _MainForm.Log_MensagemAsync($"Serviço: {service.DisplayName} - Deleted", true);
-                    await Task.Delay(500);
-                    _MainForm.ProgressBarADD(totalItens);                   
+                    await Task.Delay(500);                 
                 }
             }
             catch (InvalidOperationException ex)
@@ -225,7 +268,7 @@ namespace MeuSuporte
         }
 
         // funcao de desabilitar o servico
-        private async Task WaitForServiceToDisabled(ServiceController service, int totalItens)
+        private async Task WaitForServiceToDisabled(ServiceController service)
         {
             bool ServiceStatus = await WaitForServiceToStop(service); // Para o serviço   
 
@@ -259,7 +302,6 @@ namespace MeuSuporte
 
                     _MainForm.Log_MensagemAsync($"Serviço:  {service.DisplayName} - Disabled", true);
                     await Task.Delay(500);
-                    _MainForm.ProgressBarADD(totalItens);
                     _MainForm.Sucesso++;
                 }
                 catch (Exception ex)
