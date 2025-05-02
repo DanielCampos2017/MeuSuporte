@@ -172,6 +172,9 @@
     <Compile Include="Class\Class_Log.cs" />
     <Compile Include="Class\Class_Password_Private.cs" />
     <Compile Include="Class\Class_RemoveBloatware.cs" />
+    <Compile Include="Class\Class_ServiceDisabled.cs" />
+    <Compile Include="Class\Class_ServiceStop.cs" />
+    <Compile Include="Class\Class_UninstallService.cs" />
     <Compile Include="Class\Class_UserUAC.cs" />
     <Compile Include="Class\Class_BackupRegistrys.cs" />
     <Compile Include="Class\Class_UpdateUser.cs" />
