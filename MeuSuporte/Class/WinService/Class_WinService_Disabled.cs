@@ -5,31 +5,24 @@ using System.Runtime.InteropServices;
 
 namespace MeuSuporte
 {
-    internal class Class_ServiceDisabled
+    internal class Class_WinService_Disabled
     {
         private readonly MainForm _MainForm;
-        private readonly Class_ServiceStop _serviceStopper;
+        private readonly Class_WinService_Stop _serviceStopper;
 
         [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         private static extern bool ChangeServiceConfig(
-    IntPtr hService,
-    uint nServiceType,
-    uint nStartType,
-    uint nErrorControl,
-    string lpBinaryPathName,
-    string lpLoadOrderGroup,
-    IntPtr lpdwTagId,
-    [In] char[] lpDependencies,
-    string lpServiceStartName,
-    string lpPassword,
-    string lpDisplayName);
+        IntPtr hService, uint nServiceType, uint nStartType,
+        uint nErrorControl, string lpBinaryPathName, string lpLoadOrderGroup,
+        IntPtr lpdwTagId, [In] char[] lpDependencies, string lpServiceStartName,
+        string lpPassword, string lpDisplayName);
 
         private const uint SERVICE_NO_CHANGE = 0xFFFFFFFF;
 
-        public Class_ServiceDisabled(MainForm mainForm)
+        public Class_WinService_Disabled(MainForm mainForm)
         {
             _MainForm = mainForm;
-            _serviceStopper = new Class_ServiceStop(mainForm); // criada apenas uma vez
+            _serviceStopper = new Class_WinService_Stop(mainForm); // criada apenas uma vez
         }
 
         public async Task WaitForServiceToDisabled(ServiceController service)
@@ -52,16 +45,10 @@ namespace MeuSuporte
                     {
                         ChangeServiceConfig(
                             serviceHandle.DangerousGetHandle(),
-                            SERVICE_NO_CHANGE,
-                            (uint)ServiceStartMode.Disabled,
-                            SERVICE_NO_CHANGE,
-                            null,
-                            null,
-                            IntPtr.Zero,
-                            null,
-                            null,
-                            null,
-                            null);
+                            SERVICE_NO_CHANGE, (uint)ServiceStartMode.Disabled,
+                            SERVICE_NO_CHANGE, null, null,
+                            IntPtr.Zero, null, null, null, null
+                            );
                     }
 
                     _MainForm.Log_MensagemAsync($"Serviço:  {service.DisplayName} - Disabled", true);

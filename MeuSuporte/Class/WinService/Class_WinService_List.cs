@@ -1,6 +1,6 @@
 ﻿namespace MeuSuporte
 {
-    internal class Class_ListService
+    internal class Class_WinService_List
     {
         public readonly string[] Google = {
             "GoogleUpdateService",  //Atualizações do Google em versões antigas

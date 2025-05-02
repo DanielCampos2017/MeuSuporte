@@ -504,14 +504,14 @@ namespace MeuSuporte
 
         private async Task CleanProcess()
         {
-            Class_CleanService _ClassCleanProcess = new Class_CleanService(this);
-            Class_ListService _ListService = new Class_ListService();
+            Class_WinService WinService = new Class_WinService(this);
+            Class_WinService_List _ListService = new Class_WinService_List();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Process", checkBox_CleanProcess, Resources.CleanProcess_Black, "Desativar Processos:\n\rEncerra processos desnecessários em execução para reduzir o consumo de memória e CPU.");
             await Task.Delay(800);
 
-            await Task.Run(() => _ClassCleanProcess.CleanProcess(_ListService.Full,ValueUniProgressBar, false, token), token); // Executa a tarefa async em uma nova thread
+            await Task.Run(() => WinService.CleanProcess(_ListService.Full,ValueUniProgressBar, false, token), token); // Executa a tarefa async em uma nova thread
             await Task.Delay(1000);
 
             // Atualiza a UI após a execução assíncrona  
@@ -545,8 +545,8 @@ namespace MeuSuporte
         private async Task CleanWindowsUpdate()
         {
             Class_CleanDirectorry _Class_CleanWindows = new Class_CleanDirectorry(this);
-            Class_CleanService _ClassCleanProcess = new Class_CleanService(this);
-            Class_ListService _ListService = new Class_ListService();
+            Class_WinService _ClassCleanProcess = new Class_WinService(this);
+            Class_WinService_List _ListService = new Class_WinService_List();
 
 
             // Atualiza a UI antes da execução assíncrona
@@ -570,14 +570,14 @@ namespace MeuSuporte
         private async Task CleanGoogle()
         {
             Class_CleanDirectorry _Class_CleanGoogle = new Class_CleanDirectorry(this);
-            Class_CleanService _ClassCleanProcess = new Class_CleanService(this);
-            Class_ListService _ListService = new Class_ListService();
+            Class_WinService WinService = new Class_WinService(this);
+            Class_WinService_List WinService_List = new Class_WinService_List();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Google", checkBox_CleanGoogle, Resources.CleanGoogle_Black, "Limpra Google Update:\n\rApaga caches e dados temporários do navegador para melhorar o desempenho.");
             await Task.Delay(800);
 
-            await Task.Run(() => _ClassCleanProcess.CleanProcess(_ListService.Google, ValueUniProgressBar /2, true, token), token); // Executa a tarefa async em uma nova thread
+            await Task.Run(() => WinService.CleanProcess(WinService_List.Google, ValueUniProgressBar /2, true, token), token); // Executa a tarefa async em uma nova thread
             await Task.Delay(1000);
 
             string DiretorioPasta = @"C:\Program Files (x86)\Google\Update";

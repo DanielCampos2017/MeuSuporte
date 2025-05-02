@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace MeuSuporte
 {
-    internal class Class_ServiceStop
+    internal class Class_WinService_Stop
     {
         private readonly MainForm _mainForm;
 
-        public Class_ServiceStop(MainForm mainForm)
+        public Class_WinService_Stop(MainForm mainForm)
         {
             _mainForm = mainForm;
         }

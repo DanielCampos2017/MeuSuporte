@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 
 namespace MeuSuporte
 {
-    internal class Class_UninstallService
+    internal class Class_WinService_Uninstall
     {
         private readonly MainForm _mainForm;
-        private readonly Class_ServiceStop _serviceStopper;
+        private readonly Class_WinService_Stop _serviceStopper;
 
-        public Class_UninstallService(MainForm mainForm)
+        public Class_WinService_Uninstall(MainForm mainForm)
         {
             _mainForm = mainForm;
-            _serviceStopper = new Class_ServiceStop(mainForm); // criada apenas uma vez
+            _serviceStopper = new Class_WinService_Stop(mainForm); // criada apenas uma vez
         }
 
         public async Task<bool> TryUninstallAsync(ServiceController service)
