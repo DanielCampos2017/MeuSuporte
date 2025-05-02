@@ -8,11 +8,13 @@ namespace MeuSuporte
 {
     internal class Class_BackupBootBCD
     {
-        private MainForm _MainForm;    
+        private MainForm _MainForm;
+        Class_WinDirectory_Path _WinDirectory_Path;
 
         public Class_BackupBootBCD(MainForm Form_)
         {
             _MainForm = Form_;
+            _WinDirectory_Path = new Class_WinDirectory_Path();
         }
 
         public async Task Backup(CancellationToken token, int ValueUniProgressBar)
@@ -27,10 +29,12 @@ namespace MeuSuporte
                 _directory += "Backup Boot BCD";
                 _MainForm.ProgressBarADD(ValueUniProgressBar / 2);
 
-                if (!Directory.Exists(_directory))
+                //Cria o diretorio
+                if(!_WinDirectory_Path.CreatePath(_directory))
                 {
-                    Directory.CreateDirectory(_directory);
+                    return;
                 }
+                              
 
                 string _arguments = "bcdedit /export " + '"' + _directory + "\\BCD_Backup.bcd" + '"';
 

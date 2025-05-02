@@ -466,13 +466,13 @@ namespace MeuSuporte
 
         private async Task CleanTask()
         {
-            Class_CleanTask _ClassCleanTask = new Class_CleanTask(this);
+            Class_WinTask_Manager WinTask_Manager = new Class_WinTask_Manager(this);
 
             // Atualiza a UI antes da execução assíncrona            
             await UpdateIfonUI("Clean Task", checkBox_CleanTask, Resources.CleanTask_Black, "Limpar Tarefas Agendadas:\n\rRemove tarefas desnecessárias programadas no sistema, melhorando o desempenho.");
 
             await Task.Delay(800);
-            await Task.Run(() => _ClassCleanTask.DeletaTarefa(token, ValueUniProgressBar), token); // Executa a tarefa async em uma nova thread
+            await Task.Run(() => WinTask_Manager.Manager(token, ValueUniProgressBar), token); // Executa a tarefa async em uma nova thread
 
             await Task.Delay(1000);
             checkBox_CleanTask.Font = new Font(checkBox_CleanTask.Font.FontFamily, checkBox_CleanTask.Font.Size, FontStyle.Strikeout);
@@ -485,14 +485,14 @@ namespace MeuSuporte
 
         private async Task CleanTrash()
         {
-            Class_CleanTrash _ClassCleanTrash = new Class_CleanTrash(this);
+            Class_WinTrash WinTrash = new Class_WinTrash(this);
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Trash", checkBox_CleanTrash, Resources.CleanTrash_Black, "Limpar Lixeira:\n\rEsvazia arquivos excluídos permanentemente para liberar espaço no disco.");
             await Task.Delay(800);
 
 
-            await Task.Run(() => _ClassCleanTrash.CleanTrash(token, ValueUniProgressBar), token); // Executa a tarefa async em uma nova thread
+            await Task.Run(() => WinTrash.Clear(token, ValueUniProgressBar), token); // Executa a tarefa async em uma nova thread
             await Task.Delay(1000);
                         
             checkBox_CleanTrash.Font = new Font(checkBox_CleanTrash.Font.FontFamily, checkBox_CleanTrash.Font.Size, FontStyle.Strikeout);
@@ -504,14 +504,14 @@ namespace MeuSuporte
 
         private async Task CleanProcess()
         {
-            Class_WinService WinService = new Class_WinService(this);
+            Class_WinService_Manager WinService_Manager = new Class_WinService_Manager(this);
             Class_WinService_List _ListService = new Class_WinService_List();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Process", checkBox_CleanProcess, Resources.CleanProcess_Black, "Desativar Processos:\n\rEncerra processos desnecessários em execução para reduzir o consumo de memória e CPU.");
             await Task.Delay(800);
 
-            await Task.Run(() => WinService.CleanProcess(_ListService.Full,ValueUniProgressBar, false, token), token); // Executa a tarefa async em uma nova thread
+            await Task.Run(() => WinService_Manager.Manager(_ListService.Full,ValueUniProgressBar, false, token), token); // Executa a tarefa async em uma nova thread
             await Task.Delay(1000);
 
             // Atualiza a UI após a execução assíncrona  
@@ -524,7 +524,7 @@ namespace MeuSuporte
 
         private async Task CleanTemp()
         {
-            Class_CleanDirectorry _Class_CleanTemp = new Class_CleanDirectorry(this);
+            Class_WinDirectory_Manange _Class_CleanTemp = new Class_WinDirectory_Manange(this);
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Temp", checkBox_CleanTemp, Resources.CleanDirectorry_Black, "Limpar Pasta %Temp%:\n\rApaga arquivos temporários do sistema e dos aplicativos para liberar espaço.");
@@ -544,8 +544,8 @@ namespace MeuSuporte
 
         private async Task CleanWindowsUpdate()
         {
-            Class_CleanDirectorry _Class_CleanWindows = new Class_CleanDirectorry(this);
-            Class_WinService _ClassCleanProcess = new Class_WinService(this);
+            Class_WinDirectory_Manange _Class_CleanWindows = new Class_WinDirectory_Manange(this);
+            Class_WinService_Manager WinService_Manager = new Class_WinService_Manager(this);
             Class_WinService_List _ListService = new Class_WinService_List();
 
 
@@ -556,7 +556,7 @@ namespace MeuSuporte
 
             string DiretorioPasta = @"C:\Windows\SoftwareDistribution\Download";
             await Task.Run(() => _Class_CleanWindows.CleanDirectoryAsync(DiretorioPasta, "Windows Update", ValueUniProgressBar / 2, token), token); // Executa a tarefa async em uma nova thread
-            await Task.Run(() => _ClassCleanProcess.CleanProcess(_ListService.WindowsUpdate, ValueUniProgressBar /2, false, token), token); // Executa a tarefa async em uma nova thread
+            await Task.Run(() => WinService_Manager.Manager(_ListService.WindowsUpdate, ValueUniProgressBar /2, true, token), token); // Executa a tarefa async em uma nova thread
             await Task.Delay(1000);
 
             // Atualiza a UI após a execução assíncrona
@@ -569,19 +569,19 @@ namespace MeuSuporte
 
         private async Task CleanGoogle()
         {
-            Class_CleanDirectorry _Class_CleanGoogle = new Class_CleanDirectorry(this);
-            Class_WinService WinService = new Class_WinService(this);
+            Class_WinDirectory_Manange WinService_Manager = new Class_WinDirectory_Manange(this);
+            Class_WinService_Manager WinService = new Class_WinService_Manager(this);
             Class_WinService_List WinService_List = new Class_WinService_List();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Google", checkBox_CleanGoogle, Resources.CleanGoogle_Black, "Limpra Google Update:\n\rApaga caches e dados temporários do navegador para melhorar o desempenho.");
             await Task.Delay(800);
 
-            await Task.Run(() => WinService.CleanProcess(WinService_List.Google, ValueUniProgressBar /2, true, token), token); // Executa a tarefa async em uma nova thread
+            await Task.Run(() => WinService.Manager(WinService_List.Google, ValueUniProgressBar /2, false, token), token); // Executa a tarefa async em uma nova thread
             await Task.Delay(1000);
 
             string DiretorioPasta = @"C:\Program Files (x86)\Google\Update";
-            await Task.Run(() => _Class_CleanGoogle.CleanDirectoryAsync(DiretorioPasta, "Google Update", ValueUniProgressBar / 2, token), token); // Executa a tarefa async em uma nova thread
+            await Task.Run(() => WinService_Manager.CleanDirectoryAsync(DiretorioPasta, "Google Update", ValueUniProgressBar / 2, token), token); // Executa a tarefa async em uma nova thread
             await Task.Delay(1000);
 
             // Atualiza a UI após a execução assíncrona
@@ -675,13 +675,13 @@ namespace MeuSuporte
 
         private async Task UsuarioSuporte()
         {
-            Class_UpdateUser _ClassUpdateUser = new Class_UpdateUser(this);
+            Class_WinUser_Manager WinUser_Manager = new Class_WinUser_Manager(this);
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI($"Manutenção de usuario {UserName}", checkBox_Usuario, Resources.UpdateUser_Black, $"Usuario {UserName}:\r\nConfiguração do usuário \"{UserName}\" para eventuais manutenção preventiva das estações gerenciados pela empresa. ");
             await Task.Delay(800);
 
-            await Task.Run(() => _ClassUpdateUser.Usuario(token, ValueUniProgressBar), token); // Executa a tarefa async em uma nova thread
+            await Task.Run(() => WinUser_Manager.Manager(token, ValueUniProgressBar), token); // Executa a tarefa async em uma nova thread
             await Task.Delay(1000);
 
             checkBox_Usuario.Font = new Font(checkBox_Usuario.Font.FontFamily, checkBox_Usuario.Font.Size, FontStyle.Strikeout);
@@ -693,7 +693,7 @@ namespace MeuSuporte
 
         private async Task CleanPrefetch()
         {
-            Class_CleanDirectorry _Class_CleanPrefetch = new Class_CleanDirectorry(this);
+            Class_WinDirectory_Manange _Class_CleanPrefetch = new Class_WinDirectory_Manange(this);
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Prefetch", checkBox_CleanPrefetch, Resources.ClearPrefetch_Black, "Limpar Prefetch:\r\nExclui arquivos de pré-carregamento do sistema para otimizar o tempo de inicialização.");

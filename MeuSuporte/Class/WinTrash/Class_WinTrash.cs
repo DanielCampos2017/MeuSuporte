@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MeuSuporte
 {
-    internal class Class_CleanTrash
+    internal class Class_WinTrash
     {
         private MainForm _MainForm;
 
@@ -21,12 +21,12 @@ namespace MeuSuporte
             NoProgressUI = 0x00000002, // Sem barra de progresso
             NoSound = 0x00000004 // Sem som
         }
-        public Class_CleanTrash(MainForm Form_)
+        public Class_WinTrash(MainForm Form_)
         {
             _MainForm = Form_;
         }
 
-        public async Task CleanTrash(CancellationToken token, int ValueUniProgressBar)
+        public async Task Clear(CancellationToken token, int ValueUniProgressBar)
         {
             try
             {

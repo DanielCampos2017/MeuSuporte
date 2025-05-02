@@ -5,20 +5,24 @@ using System.Threading.Tasks;
 
 namespace MeuSuporte
 {
-    internal class Class_WinService
+    internal class Class_WinService_Manager
     {
         private MainForm _MainForm;
-        public Class_WinService(MainForm Form_)
+        Class_WinService_Uninstall WinService_Uninstall;
+        Class_WinService_Disabled WinService_Disabled;
+        public Class_WinService_Manager(MainForm Form_)
         {
             _MainForm = Form_;
+            WinService_Uninstall = new Class_WinService_Uninstall(_MainForm);
+            WinService_Disabled = new Class_WinService_Disabled(_MainForm);
         }
 
-        public async Task CleanProcess(string[] ListService, int ValueUniProgressBar, bool isDisableService, CancellationToken token)
+        public async Task Manager(string[] ListService, int ValueUniProgressBar, bool isDisableService, CancellationToken token)
         {    
             token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
-            var uninstallService = new Class_WinService_Uninstall(_MainForm);
-            var serviceDisabled = new Class_WinService_Disabled(_MainForm);
+            //var uninstallService = new Class_WinService_Uninstall(_MainForm);
+            //var serviceDisabled = new Class_WinService_Disabled(_MainForm);
 
             int total = ListService.Length;
             float valorUnidade = (float)ValueUniProgressBar / total;
@@ -39,13 +43,13 @@ namespace MeuSuporte
 
                 if (!isDisableService & service != null)
                 {
-                    await serviceDisabled.WaitForServiceToDisabled(service);                   
+                    await WinService_Uninstall.TryUninstallAsync(service);
                     foundServices = true;
                 }
 
                 if (isDisableService & service != null)
                 {
-                    await uninstallService.TryUninstallAsync(service);
+                    await WinService_Disabled.WaitForServiceToDisabled(service);
                     foundServices = true;
                 }
             }
