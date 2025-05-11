@@ -9,8 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-Class_Password.cs
-Class_Password_Private.cs
+Password_Private.cs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

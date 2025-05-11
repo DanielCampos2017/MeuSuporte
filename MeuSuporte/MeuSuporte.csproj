@@ -62,12 +62,6 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DocumentFormat.OpenXml, Version=3.3.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.3.3.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
-    </Reference>
-    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.3.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.3.0\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="Interop.TaskScheduler">
       <HintPath>dll\Interop.TaskScheduler.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -161,68 +155,97 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Class_BackupBootBCD.cs" />
-    <Compile Include="Class\Class_BuildView.cs" />
-    <Compile Include="Class\Class_ListBloatware.cs" />
-    <Compile Include="Class\WinDirectory\Class_WinDirectory_File.cs" />
-    <Compile Include="Class\WinDirectory\Class_WinDirectory_Folder.cs" />
-    <Compile Include="Class\WinDirectory\Class_WinDirectory_ListFiles.cs" />
-    <Compile Include="Class\WinDirectory\Class_WinDirectory_Path.cs" />
-    <Compile Include="Class\WinDirectory\Class_WinDirectory_Security.cs" />
-    <Compile Include="Class\WinService\Class_WinService_List.cs" />
-    <Compile Include="Class\WinUser\Class_Password_Public.cs" />
-    <Compile Include="Class\Class_RemoteRDP.cs" />
-    <Compile Include="Class\Class_ExecutionPath.cs" />
-    <Compile Include="Class\Class_GeraNomePasta.cs" />
-    <Compile Include="Class\Class_Log.cs" />
-    <Compile Include="Class\WinUser\Class_Password_Private.cs" />
-    <Compile Include="Class\Class_RemoveBloatware.cs" />
-    <Compile Include="Class\WinService\Class_WinService_Disabled.cs" />
-    <Compile Include="Class\WinService\Class_WinService_Stop.cs" />
-    <Compile Include="Class\WinService\Class_WinService_Uninstall.cs" />
-    <Compile Include="Class\Class_UserUAC.cs" />
-    <Compile Include="Class\Class_BackupRegistrys.cs" />
-    <Compile Include="Class\WinUser\Class_WinUser_Account.cs" />
-    <Compile Include="Class\WinUser\Class_WinUser_AccountCreate.cs" />
-    <Compile Include="Class\WinUser\Class_WinUser_AccountUpdate.cs" />
-    <Compile Include="Class\WinUser\Class_WinUser_GroupAdministrators.cs" />
-    <Compile Include="Class\WinUser\Class_WinUser_GroupRemote.cs" />
-    <Compile Include="Class\WinUser\Class_WinUser_Manager.cs" />
-    <Compile Include="Class\Class_BackupDriver.cs" />
-    <Compile Include="Class\WinTask\Class_WinTask_Connection.cs" />
-    <Compile Include="Class\WinTask\Class_WinTask_Manager.cs" />
-    <Compile Include="Class\WinTrash\Class_WinTrash.cs" />
-    <Compile Include="Class\WinService\Class_WinService_Manager.cs" />
-    <Compile Include="Class\Class_CleanRegistry.cs" />
-    <Compile Include="Class\Class_CleanPageFile.cs" />
-    <Compile Include="Class\WinDirectory\Class_WinDirectory_Manange.cs" />
-    <Compile Include="Class\SystemProtection\Class_PointCreate.cs" />
-    <Compile Include="Class\SystemProtection\Class_EnableProtection.cs" />
-    <Compile Include="Class\SystemProtection\Class_IsSystemRestoreEnabled.cs" />
-    <Compile Include="Class\SystemProtection\Class_PointName.cs" />
-    <Compile Include="Class\SystemProtection\Class_PointSearch.cs" />
-    <Compile Include="Class\SystemProtection\Class_PointItem.cs" />
-    <Compile Include="Class\SystemProtection\Class_PointRestore.cs" />
-    <Compile Include="Class\WinTask\Class_WinTask_Bin.cs" />
-    <Compile Include="Class\WinUser\Class_WinUser_State.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Class\WinBackupBCD\WinBackupBCD_Mananger.cs" />
+    <Compile Include="Class\WinApp\WinApp_BuildView.cs" />
+    <Compile Include="Class\WinBloatware\WinBloatware_CheckInstallation.cs" />
+    <Compile Include="Class\WinBloatware\WinBloatware_Format.cs" />
+    <Compile Include="Class\WinBloatware\WinBloatware_List.cs" />
+    <Compile Include="Class\WinBackupBCD\WinBackupBCD_ProcessInfo.cs" />
+    <Compile Include="Class\WinBackupDriver\WinBackupDriver_ExtractData.cs" />
+    <Compile Include="Class\WinBackupDriver\WinBackupDriver_ProcessInfo.cs" />
+    <Compile Include="Class\WinBackupDriver\WinBackupDriver_DataReceived.cs" />
+    <Compile Include="Class\WinBackupDriver\WinBackupDriver_ValueUnit.cs" />
+    <Compile Include="Class\WinBloatware\WinBloatware_MessageErroList.cs" />
+    <Compile Include="Class\WinBloatware\WinBloatware_RenoveAllUser.cs" />
+    <Compile Include="Class\WinBloatware\WinBloatware_RenoveNewUser.cs" />
+    <Compile Include="Class\WinBloatware\WinBloatware_SearchInstallation.cs" />
+    <Compile Include="Class\WinGlobal\WinGlobal_UIService.cs" />
+    <Compile Include="Class\WinDirectory\WinDirectory_File.cs" />
+    <Compile Include="Class\WinDirectory\WinDirectory_Folder.cs" />
+    <Compile Include="Class\WinDirectory\WinDirectory_ListFiles.cs" />
+    <Compile Include="Class\WinGlobal\WinGlobal_DirectoryCheck.cs" />
+    <Compile Include="Class\WinGlobal\WinGlobal_DirectoryCreate.cs" />
+    <Compile Include="Class\WinGlobal\WinGlobal_DirectoryMananger.cs" />
+    <Compile Include="Class\WinDirectory\WinDirectory_Security.cs" />
+    <Compile Include="Class\WinGlobal\WinGlobal_ValidNameFolde.cs" />
+    <Compile Include="Class\WinPageFile\WinPageFile_KeyRegistry.cs" />
+    <Compile Include="Class\WinRegistry\Backup\WinRegistryBackup_FormatRegister.cs" />
+    <Compile Include="Class\WinRegistry\Backup\WinRegistryBackup_Key.cs" />
+    <Compile Include="Class\WinRegistry\Backup\WinRegistryBackup_RegistryFile.cs" />
+    <Compile Include="Class\WinRegistry\Backup\WinRegistryBackup_ProcessSubkey.cs" />
+    <Compile Include="Class\WinRegistry\Bin\WinRegistryBin_MACHINE.cs" />
+    <Compile Include="Class\WinRegistry\Bin\WinRegistryBin_User.cs" />
+    <Compile Include="Class\WinRegistry\Bin\WinRegistryBin_WOW6432Node.cs" />
+    <Compile Include="Class\WinRemoteRDP\WinRemoteRDP_Disable.cs" />
+    <Compile Include="Class\WinRemoteRDP\WinRemoteRDP_Enable.cs" />
+    <Compile Include="Class\WinRemoteRDP\WinRemoteRDP_Firewall.cs" />
+    <Compile Include="Class\WinRemoteRDP\WinRemoteRDP_Registry.cs" />
+    <Compile Include="Class\WinRemoteRDP\WinRemoteRDP_Service.cs" />
+    <Compile Include="Class\WinService\WinService_List.cs" />
+    <Compile Include="Class\WinUserUAC\WinUserUAC_State.cs" />
+    <Compile Include="Class\WinUser\Password_Public.cs" />
+    <Compile Include="Class\WinRemoteRDP\WinRemoteRDP_Mananger.cs" />
+    <Compile Include="Class\WinApp\WinApp_ExecutionPath.cs" />
+    <Compile Include="Class\WinGlobal\WinGlobal_CreateNameFolde.cs" />
+    <Compile Include="Class\WinApp\WinApp_Log.cs" />
+    <Compile Include="Class\WinUser\Password_Private.cs" />
+    <Compile Include="Class\WinBloatware\WinBloatware_Mananger.cs" />
+    <Compile Include="Class\WinService\WinService_Disabled.cs" />
+    <Compile Include="Class\WinService\WinService_Stop.cs" />
+    <Compile Include="Class\WinService\WinService_Uninstall.cs" />
+    <Compile Include="Class\WinUserUAC\WinUserUAC_Mananger.cs" />
+    <Compile Include="Class\WinRegistry\Backup\WinRegistryBackup_Mananger.cs" />
+    <Compile Include="Class\WinUser\WinUser_Account.cs" />
+    <Compile Include="Class\WinUser\WinUser_AccountCreate.cs" />
+    <Compile Include="Class\WinUser\WinUser_AccountUpdate.cs" />
+    <Compile Include="Class\WinUser\WinUser_GroupAdministrators.cs" />
+    <Compile Include="Class\WinUser\WinUser_GroupRemote.cs" />
+    <Compile Include="Class\WinUser\WinUser_Mananger.cs" />
+    <Compile Include="Class\WinBackupDriver\WinBackupDriver_Mananger.cs" />
+    <Compile Include="Class\WinTask\WinTask_Connection.cs" />
+    <Compile Include="Class\WinTask\WinTask_Mananger.cs" />
+    <Compile Include="Class\WinTrash\WinTrash_Mananger.cs" />
+    <Compile Include="Class\WinService\WinService_Mananger.cs" />
+    <Compile Include="Class\WinRegistry\Bin\WinRegistryBin_Mananger.cs" />
+    <Compile Include="Class\WinPageFile\WinPageFile_Mananger.cs" />
+    <Compile Include="Class\WinDirectory\WinDirectory_Mananger.cs" />
+    <Compile Include="Class\WinRestorePoint\WinRestorePoint_Create.cs" />
+    <Compile Include="Class\WinRestorePoint\WinRestorePoint_EnableProtection.cs" />
+    <Compile Include="Class\WinRestorePoint\WinRestorePoint_IsSystemRestoreEnabled.cs" />
+    <Compile Include="Class\WinRestorePoint\WinRestorePoint_PointName.cs" />
+    <Compile Include="Class\WinRestorePoint\WinRestorePoint_PointSearch.cs" />
+    <Compile Include="Class\WinRestorePoint\WinRestorePoint_Item.cs" />
+    <Compile Include="Class\WinRestorePoint\WinRestorePoint_SystemPoints.cs" />
+    <Compile Include="Class\WinTask\WinTask_Bin.cs" />
+    <Compile Include="Class\WinUser\WinUser_State.cs" />
+    <Compile Include="Formulario\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Formulario\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSelecaoUsuario.cs">
+    <Compile Include="Formulario\FormSelecaoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSelecaoUsuario.Designer.cs">
+    <Compile Include="Formulario\FormSelecaoUsuario.Designer.cs">
       <DependentUpon>FormSelecaoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Formulario\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSelecaoUsuario.resx">
+    <EmbeddedResource Include="Formulario\FormSelecaoUsuario.resx">
       <DependentUpon>FormSelecaoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -251,39 +274,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\alert.png" />
-    <None Include="Resources\closed.png" />
-    <None Include="Resources\iinfo.png" />
-    <None Include="Resources\Image1.bmp" />
-    <None Include="Resources\agenda.png" />
     <None Include="Resources\backup.png" />
-    <None Include="Resources\download.png" />
-    <None Include="Resources\downloadRegistro.png" />
-    <None Include="Resources\Google.png" />
-    <None Include="Resources\lixeira.png" />
-    <None Include="Resources\Pagefile.png" />
-    <None Include="Resources\pasta.png" />
-    <None Include="Resources\process.png" />
-    <None Include="Resources\registro.png" />
     <None Include="Resources\UserUAC_Black.png" />
-    <None Include="Resources\usuario.png" />
-    <None Include="Resources\JetBrainsMono Nerd Font Regular - cod file binary.png" />
     <None Include="Resources\windows.png" />
-    <None Include="Resources\windows 2.png" />
-    <None Include="Resources\ClearPrefetch.png" />
-    <Content Include="JetBrainsMono-Nerd-Font-Regular-fa-screwdriver-wrench2.ico" />
     <None Include="Resources\GitHub.ico" />
     <None Include="Resources\windows-2.ico" />
-    <None Include="Resources\github.png" />
-    <None Include="Resources\JetBrainsMono Nerd Font Regular - weather cloud down.png" />
     <None Include="Resources\JetBrainsMono Nerd Font Regular - oct alert fill.png" />
-    <None Include="Resources\JetBrainsMono Nerd Font Regular - md security.png" />
-    <None Include="Resources\code.png" />
-    <None Include="Resources\vscode.png" />
-    <None Include="Resources\offline.png" />
-    <None Include="Resources\restore.png" />
-    <None Include="Resources\Remoto.png" />
-    <None Include="Resources\Store.png" />
     <None Include="Resources\Alert_White.png" />
     <None Include="Resources\BackupBootBCD_White.png" />
     <None Include="Resources\BackupDriver_White.png" />
@@ -326,6 +322,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
