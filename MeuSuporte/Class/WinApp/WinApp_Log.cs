@@ -7,7 +7,7 @@ namespace MeuSuporte
 {
     internal class WinApp_Log
     {
-        WinGlobal_DirectoryMananger DirectoryManange;
+        private WinGlobal_DirectoryMananger DirectoryManange;
         public WinApp_Log()
         {
             DirectoryManange = new WinGlobal_DirectoryMananger();

@@ -7,7 +7,7 @@ namespace MeuSuporte
 {
     internal class WinService_Disabled
     {
-        private readonly WinGlobal_UIService UIService;
+
         private readonly WinService_Stop _serviceStopper;
 
         [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
@@ -19,10 +19,9 @@ namespace MeuSuporte
 
         private const uint SERVICE_NO_CHANGE = 0xFFFFFFFF;
 
-        public WinService_Disabled(WinGlobal_UIService ui)
+        public WinService_Disabled()
         {
-            UIService = ui;
-            _serviceStopper = new WinService_Stop(UIService); // criada apenas uma vez
+            _serviceStopper = new WinService_Stop(); // criada apenas uma vez
         }
 
         public async Task WaitForServiceToDisabled(ServiceController service)
@@ -31,9 +30,9 @@ namespace MeuSuporte
 
             if (!isServiceStopped)
             {
-                UIService.Log_MensagemAsync($"Serviço: {service.DisplayName} não pode ser desabilitado devido ainda está em execução ", true);
+                WinGlobal_UIService2.Instance.Log_MensagemAsync($"Serviço: {service.DisplayName} não pode ser desabilitado devido ainda está em execução ", true);
                 await Task.Delay(500);
-                UIService.Erro++;
+                WinGlobal_UIService2.Instance.Erro++;
                 return;
             }
 
@@ -51,15 +50,15 @@ namespace MeuSuporte
                             );
                     }
 
-                    UIService.Log_MensagemAsync($"Serviço:  {service.DisplayName} - Disabled", true);
+                    WinGlobal_UIService2.Instance.Log_MensagemAsync($"Serviço:  {service.DisplayName} - Disabled", true);
                     await Task.Delay(500);
-                    UIService.Sucesso++;
+                    WinGlobal_UIService2.Instance.Sucesso++;
                 }
                 catch (Exception ex)
                 {
-                    UIService.Log_MensagemAsync($"Erro ao Tentar mudar o Modo de Inicialização do Serviço: {service.DisplayName} " + ex.Message, true);
+                    WinGlobal_UIService2.Instance.Log_MensagemAsync($"Erro ao Tentar mudar o Modo de Inicialização do Serviço: {service.DisplayName} " + ex.Message, true);
                     await Task.Delay(500);
-                    UIService.Erro++;
+                    WinGlobal_UIService2.Instance.Erro++;
                 }
             }
 

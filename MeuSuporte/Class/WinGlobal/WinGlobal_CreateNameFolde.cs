@@ -5,7 +5,7 @@ namespace MeuSuporte
 {
     internal class WinGlobal_CreateNameFolde
     {
-        WinGlobal_ValidNameFolde ValidNameFolde;
+        private WinGlobal_ValidNameFolde ValidNameFolde;
 
         public WinGlobal_CreateNameFolde()
         {

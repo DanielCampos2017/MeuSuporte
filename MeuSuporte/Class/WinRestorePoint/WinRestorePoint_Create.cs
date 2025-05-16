@@ -7,13 +7,6 @@ namespace MeuSuporte
 {
     internal class WinRestorePoint_Create
     {
-        private readonly WinGlobal_UIService UIService;
-
-        public WinRestorePoint_Create(WinGlobal_UIService ui)
-        {
-            UIService = ui;
-        }
-
         public async Task CreatePoint(string description, int ValueUniProgressBar, CancellationToken token)
         {
             await Task.Run(async () =>
@@ -43,20 +36,20 @@ namespace MeuSuporte
                     int returnValue = Convert.ToInt32(oOutParams["ReturnValue"]);
                     if (returnValue != 0)
                     {
-                        await UIService.Log_MensagemAsync("Erro ao criar ponto de restauração. Código: " + returnValue, true);
-                        UIService.Erro++;
+                        await WinGlobal_UIService2.Instance.Log_MensagemAsync("Erro ao criar ponto de restauração. Código: " + returnValue, true);
+                        WinGlobal_UIService2.Instance.Erro++;
                     }
                     else
                     {
-                        UIService.Sucesso++;
-                        UIService.ProgressBarADD(ValueUniProgressBar);
-                        await UIService.Log_MensagemAsync($"Ponto de restauração [{description}] Criado com sucesso.", true);
+                        WinGlobal_UIService2.Instance.Sucesso++;
+                        WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
+                        await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Ponto de restauração [{description}] Criado com sucesso.", true);
                     }
                 }     
                 catch (Exception ex)
                 {
-                    UIService.Erro++;
-                    await UIService.Log_MensagemAsync($"Erro ao criar ponto de restauração Código:" + ex.Message, true);
+                    WinGlobal_UIService2.Instance.Erro++;
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Erro ao criar ponto de restauração Código:" + ex.Message, true);
                 }
             });
         }

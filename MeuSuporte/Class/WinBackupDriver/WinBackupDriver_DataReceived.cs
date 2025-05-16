@@ -6,13 +6,11 @@ namespace MeuSuporte
 {
     internal class WinBackupDriver_DataReceived
     {
-        private readonly WinGlobal_UIService UIService;
-        WinBackupDriver_ExtractData WinBackupDriver_ExtractProgress;
+        private WinBackupDriver_ExtractData WinBackupDriver_ExtractProgress;
 
-        public WinBackupDriver_DataReceived(WinGlobal_UIService ui)
+        public WinBackupDriver_DataReceived()
         {
-            UIService = ui;
-            WinBackupDriver_ExtractProgress = new WinBackupDriver_ExtractData(UIService);
+            WinBackupDriver_ExtractProgress = new WinBackupDriver_ExtractData();
         }
 
         //Trata a saida do Processo
@@ -30,8 +28,8 @@ namespace MeuSuporte
             {
                 if (!string.IsNullOrEmpty(e.Data))
                 {
-                    UIService.Erro++;
-                    Task task = UIService.Log_MensagemAsync("Erro DISM: " + e.Data, true);
+                    WinGlobal_UIService2.Instance.Erro++;
+                    Task task = WinGlobal_UIService2.Instance.Log_MensagemAsync("Erro DISM: " + e.Data, true);
                 }
             };
         }

@@ -7,14 +7,13 @@ namespace MeuSuporte
 {
     internal class WinService_Mananger
     {
-        private readonly WinGlobal_UIService UIService;
-        WinService_Uninstall WinService_Uninstall;
-        WinService_Disabled WinService_Disabled;
-        public WinService_Mananger(WinGlobal_UIService ui)
+        private WinService_Uninstall WinService_Uninstall;
+        private WinService_Disabled WinService_Disabled;
+
+        public WinService_Mananger()
         {
-            UIService = ui;
-            WinService_Uninstall = new WinService_Uninstall(UIService);
-            WinService_Disabled = new WinService_Disabled(UIService);
+            WinService_Uninstall = new WinService_Uninstall();
+            WinService_Disabled = new WinService_Disabled();
         }
 
         public async Task Mananger(string[] ListService, int ValueUniProgressBar, bool isDisableService, CancellationToken token)
@@ -34,7 +33,7 @@ namespace MeuSuporte
                 int NewValor = await ValueUnit(valorUnidade);
                 if (NewValor >= 1)
                 {
-                    UIService.ProgressBarADD(NewValor);
+                    WinGlobal_UIService2.Instance.ProgressBarADD(NewValor);
                     await Task.Delay(20);
                 }
 
@@ -53,8 +52,8 @@ namespace MeuSuporte
 
             if (!foundServices)
             {
-                UIService.ProgressBarADD(ValueUniProgressBar);
-                UIService.Log_MensagemAsync("Serviço: No listings found!", true);
+                WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
+                WinGlobal_UIService2.Instance.Log_MensagemAsync("Serviço: No listings found!", true);
                 await Task.Delay(500);
             }
         }

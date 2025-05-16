@@ -6,14 +6,12 @@ namespace MeuSuporte
 {
     internal class WinBloatware_RenoveNewUser
     {
-        private readonly WinGlobal_UIService UIService;
         private readonly WinBloatware_MessageErroList MessageErroList;
         private readonly WinBloatware_SearchInstallation SearchInstallation;
 
-        public WinBloatware_RenoveNewUser(WinGlobal_UIService ui)
+        public WinBloatware_RenoveNewUser()
         {
-            UIService = ui;
-            MessageErroList = new WinBloatware_MessageErroList(ui);
+            MessageErroList = new WinBloatware_MessageErroList();
             SearchInstallation = new WinBloatware_SearchInstallation();
         }
 
@@ -46,11 +44,11 @@ namespace MeuSuporte
                 bool isInstalled = await SearchInstallation.Search(BloatApp);
                 if (!isInstalled)
                 {
-                    await UIService.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} New User - uninstall success", true);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} New User - uninstall success", true);
                 }
                 else
                 {
-                    await UIService.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} New User - uninstall failed", true);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} New User - uninstall failed", true);
                 }
             }
             await Task.Delay(1000);

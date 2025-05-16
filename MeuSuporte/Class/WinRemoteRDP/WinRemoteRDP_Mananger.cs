@@ -1,6 +1,5 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms.Design;
 
 namespace MeuSuporte
 {
@@ -9,10 +8,10 @@ namespace MeuSuporte
         private WinRemoteRDP_Disable RemoteRDP_Disable;
         private WinRemoteRDP_Enable RemoteRDP_Enable;
 
-        public WinRemoteRDP_Mananger(WinGlobal_UIService ui)
+        public WinRemoteRDP_Mananger()
         {
-            RemoteRDP_Disable = new WinRemoteRDP_Disable(ui);
-            RemoteRDP_Enable = new WinRemoteRDP_Enable(ui);
+            RemoteRDP_Disable = new WinRemoteRDP_Disable();
+            RemoteRDP_Enable = new WinRemoteRDP_Enable();
         }
 
         public async Task Mananger(bool valor, CancellationToken token, int ValueUniProgressBar)

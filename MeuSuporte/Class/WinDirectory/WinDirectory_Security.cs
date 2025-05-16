@@ -6,27 +6,16 @@ namespace MeuSuporte
 {
     internal class WinDirectory_Security
     {
-        private FileSecurity _FileSecurity;   
-        private DirectorySecurity _DirectorySecurity;
-        private string _User = "PCs";
-     
-        public WinDirectory_Security(FileSecurity fileSecurity, DirectorySecurity directorySecurity, string User)
-        {
-            _FileSecurity = fileSecurity;
-            _DirectorySecurity = directorySecurity;
-            _User = User;
-        }
-
-        public async Task<bool> SecurityAsync() // atribui as permissões de segurança
+        public async Task<bool> SecurityAsync(FileSecurity fileSecurity, DirectorySecurity directorySecurity, string User) // atribui as permissões de segurança
         {
             bool retorno = false;
 
             try
             {
-                _DirectorySecurity.AddAccessRule(new FileSystemAccessRule(_User, FileSystemRights.Modify, AccessControlType.Allow));
-                _DirectorySecurity.SetAccessRuleProtection(false, false);
-                _FileSecurity.AddAccessRule(new FileSystemAccessRule(_User, FileSystemRights.Modify, AccessControlType.Allow));
-                _FileSecurity.SetAccessRuleProtection(false, false);
+                directorySecurity.AddAccessRule(new FileSystemAccessRule(User, FileSystemRights.Modify, AccessControlType.Allow));
+                directorySecurity.SetAccessRuleProtection(false, false);
+                directorySecurity.AddAccessRule(new FileSystemAccessRule(User, FileSystemRights.Modify, AccessControlType.Allow));
+                directorySecurity.SetAccessRuleProtection(false, false);
                 retorno = true;
             }
             catch (Exception e)

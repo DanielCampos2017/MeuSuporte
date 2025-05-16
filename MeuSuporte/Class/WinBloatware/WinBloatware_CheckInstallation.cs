@@ -5,16 +5,14 @@ namespace MeuSuporte
 {
     internal class WinBloatware_CheckInstallation
     {
-        private readonly WinGlobal_UIService UIService;
-        WinBloatware_RenoveNewUser RenoveNewUser;
-        WinBloatware_RenoveAllUser RenoveAllUser;
+        private WinBloatware_RenoveNewUser RenoveNewUser;
+        private WinBloatware_RenoveAllUser RenoveAllUser;
         private readonly WinBloatware_SearchInstallation SearchInstallation;
 
-        public WinBloatware_CheckInstallation(WinGlobal_UIService ui)
+        public WinBloatware_CheckInstallation()
         {
-            UIService = ui;
-            RenoveAllUser = new WinBloatware_RenoveAllUser(ui);
-            RenoveNewUser = new WinBloatware_RenoveNewUser(ui);
+            RenoveAllUser = new WinBloatware_RenoveAllUser();
+            RenoveNewUser = new WinBloatware_RenoveNewUser();
             SearchInstallation = new WinBloatware_SearchInstallation();
         }
 
@@ -24,7 +22,7 @@ namespace MeuSuporte
 
             if (!isInstalled)
             {
-                await UIService.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} - not found", true); // Bloatware não instalado
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} - not found", true); // Bloatware não instalado
                 return;
             }
             await RenoveAllUser.Renove(BloatApp, token);

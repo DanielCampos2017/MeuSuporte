@@ -155,8 +155,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\WinApp\CheckBuild\CheckBuild_BuildView.cs" />
+    <Compile Include="Class\WinApp\CheckBuild\CheckBuild_CheckNetwork.cs" />
+    <Compile Include="Class\WinApp\CheckBuild\CheckBuild_GetGitHub.cs" />
+    <Compile Include="Class\WinApp\CheckBuild\CheckBuild_GetVersion.cs" />
+    <Compile Include="Class\WinApp\CheckBuild\CheckBuild_Process.cs" />
     <Compile Include="Class\WinBackupBCD\WinBackupBCD_Mananger.cs" />
-    <Compile Include="Class\WinApp\WinApp_BuildView.cs" />
+    <Compile Include="Class\WinApp\CheckBuild\CheckBuild_Mananger.cs" />
+    <Compile Include="Class\WinBackupBCD\WinBackupBCD_ProcessController.cs" />
     <Compile Include="Class\WinBloatware\WinBloatware_CheckInstallation.cs" />
     <Compile Include="Class\WinBloatware\WinBloatware_Format.cs" />
     <Compile Include="Class\WinBloatware\WinBloatware_List.cs" />
@@ -177,6 +183,7 @@
     <Compile Include="Class\WinGlobal\WinGlobal_DirectoryCreate.cs" />
     <Compile Include="Class\WinGlobal\WinGlobal_DirectoryMananger.cs" />
     <Compile Include="Class\WinDirectory\WinDirectory_Security.cs" />
+    <Compile Include="Class\WinGlobal\WinGlobal_UIService2.cs" />
     <Compile Include="Class\WinGlobal\WinGlobal_ValidNameFolde.cs" />
     <Compile Include="Class\WinPageFile\WinPageFile_KeyRegistry.cs" />
     <Compile Include="Class\WinRegistry\Backup\WinRegistryBackup_FormatRegister.cs" />

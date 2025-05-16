@@ -8,14 +8,13 @@ namespace MeuSuporte
 {
     internal class WinUser_AccountUpdate
     {
-        private readonly WinGlobal_UIService UIService;
-        WinUser_GroupAdministrators WinUser_GroupAdministrators;
-        WinUser_GroupRemote WinUser_GroupRemote;
-        WinUser_State WinUser_State;
 
-        public WinUser_AccountUpdate(WinGlobal_UIService ui)
+        private WinUser_GroupAdministrators WinUser_GroupAdministrators;
+        private WinUser_GroupRemote WinUser_GroupRemote;
+        private WinUser_State WinUser_State;
+
+        public WinUser_AccountUpdate()
         {
-            UIService = ui;
             WinUser_GroupAdministrators = new WinUser_GroupAdministrators();
             WinUser_GroupRemote = new WinUser_GroupRemote();
             WinUser_State = new WinUser_State();
@@ -25,7 +24,7 @@ namespace MeuSuporte
         {
             try
             {
-                UIService.ProgressBarADD(ValueUniProgressBar / 2);
+                WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar / 2);
                 token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
                 DirectoryEntry EntradaUsuario = new DirectoryEntry("WinNT://" + Environment.MachineName + ",Computer");
@@ -44,18 +43,18 @@ namespace MeuSuporte
                             await WinUser_State.State(child, false); // abilita usuario
                             child.Invoke("SetPassword", new Object[] { PasswordUser });   // altera a senha do usuario
 
-                            UIService.ProgressBarADD(ValueUniProgressBar / 2);
-                            UIService.Log_MensagemAsync($"Conta Local de Suporte Tecnico atualizado !", true);
-                            UIService.Log_MensagemAsync($"Usuario: {NameUser}", true);
-                            UIService.Log_MensagemAsync($"Senha: {PasswordUser}", true);
+                            WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar / 2);
+                            WinGlobal_UIService2.Instance.Log_MensagemAsync($"Conta Local de Suporte Tecnico atualizado !", true);
+                            WinGlobal_UIService2.Instance.Log_MensagemAsync($"Usuario: {NameUser}", true);
+                            WinGlobal_UIService2.Instance.Log_MensagemAsync($"Senha: {PasswordUser}", true);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                UIService.Erro++;
-                UIService.Log_MensagemAsync($"Erro:  {ex.Message}", true);
+                WinGlobal_UIService2.Instance.Erro++;
+                WinGlobal_UIService2.Instance.Log_MensagemAsync($"Erro:  {ex.Message}", true);
             }
         }
 

@@ -9,19 +9,16 @@ namespace MeuSuporte
 {
     internal class WinRemoteRDP_Firewall
     {
-        private readonly WinGlobal_UIService UIService;
-        int ValueUniProgressBar = 0;
-        public WinRemoteRDP_Firewall(WinGlobal_UIService ui, int Value)
+        private int ValueUniProgressBar = 0;
+        public WinRemoteRDP_Firewall(int Value)
         {
-            UIService = ui;
             ValueUniProgressBar = Value;
         }
-
 
         public async Task Rule()
         {
             await Task.Delay(200);
-            UIService.ProgressBarADD(ValueUniProgressBar);
+            WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
             ProcessStartInfo psi = new ProcessStartInfo("netsh", $"advfirewall firewall add rule name=\"Remote Desktop - TCP\" dir=in action=allow protocol=TCP localport=3389 profile=Domain,Private,Public")
             {
                 CreateNoWindow = true,
@@ -37,11 +34,11 @@ namespace MeuSuporte
 
                 if (processo.ExitCode == 0)
                 {
-                    await UIService.Log_MensagemAsync($"Regra [Remote Desktop - TCP] adicionada com sucesso.", true);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Regra [Remote Desktop - TCP] adicionada com sucesso.", true);
                 }
                 else
                 {
-                    await UIService.Log_MensagemAsync($"Erro ao tentar adicionar a regra [Remote Desktop - TCP] no firewall.", true);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Erro ao tentar adicionar a regra [Remote Desktop - TCP] no firewall.", true);
                 }
             }
         }

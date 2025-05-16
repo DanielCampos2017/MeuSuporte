@@ -6,13 +6,6 @@ namespace MeuSuporte
 {
     internal class WinRestorePoint_PointSearch
     {
-        private readonly WinGlobal_UIService UIService;
-
-        public WinRestorePoint_PointSearch(WinGlobal_UIService ui)
-        {
-            UIService = ui;
-        }
-
         private readonly string[] TypePoint = {
             "Install", "Modified", "Uninstall", "Driver Install",
             "Checkpoint", "Critical Update", "Security Update",
@@ -55,7 +48,6 @@ namespace MeuSuporte
                         break;
                     }
                 }
-
                 return pontoValido;
             });
         }
@@ -65,13 +57,13 @@ namespace MeuSuporte
             // Procura pelo Ponto de Restauração recém-criado
             if (await Task.Run(() => IsPointCreatedAsync(NamePoint, token)))
             {
-                UIService.ProgressBarADD(ValueUniProgressBar);
-                await UIService.Log_MensagemAsync($"Ponto [{NamePoint}] validado com sucesso.", true);
+                WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Ponto [{NamePoint}] validado com sucesso.", true);
             }
             else
             {
-                UIService.Erro++;
-                await UIService.Log_MensagemAsync($"Ponto [{NamePoint}] não validado.", true);                
+                WinGlobal_UIService2.Instance.Erro++;
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Ponto [{NamePoint}] não validado.", true);                
             }
         }
 

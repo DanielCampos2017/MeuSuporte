@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 namespace MeuSuporte
 {
     internal class WinService_Stop
-    {
-        private readonly WinGlobal_UIService UIService;
-
-        public WinService_Stop(WinGlobal_UIService ui)
-        {
-            UIService = ui;
-        }
-
+    {     
         public async Task<bool> WaitForServiceToStop(ServiceController service)
         {
             bool isServiceStopped = false;
@@ -22,7 +15,7 @@ namespace MeuSuporte
             {
                 if (service.Status == ServiceControllerStatus.Running)
                 {
-                    await UIService.Log_MensagemAsync($"Serviço: {service.DisplayName} - Stopping", true);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Serviço: {service.DisplayName} - Stopping", true);
                     await Task.Delay(500);
                     service.Stop(); // Envia o comando para parar
                     await Task.Delay(4000); // Espera 4 segundos
@@ -30,9 +23,9 @@ namespace MeuSuporte
             }
             catch (Exception ex)
             {
-                await UIService.Log_MensagemAsync($"Serviço: {service.DisplayName} - Stop failed.", true);
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Serviço: {service.DisplayName} - Stop failed.", true);
                 await Task.Delay(500);
-                UIService.Erro++;
+                WinGlobal_UIService2.Instance.Erro++;
                 return false;
             }
 
@@ -43,7 +36,7 @@ namespace MeuSuporte
                 service.Refresh(); // Atualiza o status do serviço                
             }
 
-            await UIService.Log_MensagemAsync($"Serviço: {service.DisplayName} - {service.Status}.", true);
+            await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Serviço: {service.DisplayName} - {service.Status}.", true);
             await Task.Delay(500);
 
             // atribui como true a variavel isServiceStopped se o resultado for Stopped   

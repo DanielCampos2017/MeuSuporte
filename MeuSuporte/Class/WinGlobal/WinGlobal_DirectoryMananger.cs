@@ -1,10 +1,11 @@
 ﻿namespace MeuSuporte
 {
     internal class WinGlobal_DirectoryMananger
-    {    
-        WinGlobal_DirectoryCheck DirectoryCheck;
-        WinGlobal_DirectoryCreate DirectoryCreate;
-        WinGlobal_CreateNameFolde CreateNameFolde;
+    {
+        private WinGlobal_DirectoryCheck DirectoryCheck;
+        private WinGlobal_DirectoryCreate DirectoryCreate;
+        private WinGlobal_CreateNameFolde CreateNameFolde;
+
         public WinGlobal_DirectoryMananger()
         {
             DirectoryCreate = new WinGlobal_DirectoryCreate();

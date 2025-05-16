@@ -8,9 +8,9 @@ namespace MeuSuporte
     {      
         private WinBloatware_CheckInstallation CheckInstallation;
 
-        public WinBloatware_Mananger(WinGlobal_UIService ui)
+        public WinBloatware_Mananger()
         {
-            CheckInstallation = new WinBloatware_CheckInstallation(ui);
+            CheckInstallation = new WinBloatware_CheckInstallation();
         }
 
         public async Task Mananger(CancellationToken token)

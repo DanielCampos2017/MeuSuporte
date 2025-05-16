@@ -4,8 +4,8 @@ namespace MeuSuporte
 {
     internal class WinGlobal_DirectoryCreate
     {
-        WinGlobal_DirectoryCheck DirectoryCheck;
-        WinGlobal_CreateNameFolde CreateNameFolde;
+        private WinGlobal_DirectoryCheck DirectoryCheck;
+        private WinGlobal_CreateNameFolde CreateNameFolde;
 
         public WinGlobal_DirectoryCreate()
         {

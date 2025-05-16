@@ -6,13 +6,6 @@ namespace MeuSuporte
 {
     internal class WinRestorePoint_IsSystemRestoreEnabled
     {
-        private readonly WinGlobal_UIService UIService;
-
-        public WinRestorePoint_IsSystemRestoreEnabled(WinGlobal_UIService ui)
-        {
-            UIService = ui;
-        }
-
         public async Task<bool> IsSystemRestoreEnabledAsync()
         {
             return await Task.Run(async () =>
@@ -35,13 +28,13 @@ namespace MeuSuporte
                         }
                         else
                         {
-                            await UIService.Log_MensagemAsync($"Não foi possivel ler a configuração", true);
+                            await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Não foi possivel ler a configuração", true);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    await UIService.Log_MensagemAsync($"Erro ao acessar o registro: [{ex.Message}", true);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Erro ao acessar o registro: [{ex.Message}", true);
                 }
                 return ServicoHabilitado;
             });

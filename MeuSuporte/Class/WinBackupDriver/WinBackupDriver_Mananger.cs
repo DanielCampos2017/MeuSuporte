@@ -7,24 +7,22 @@ namespace MeuSuporte
 {
     internal class WinBackupDriver_Mananger
     {
-        private readonly WinGlobal_UIService UIService;
-        WinGlobal_DirectoryMananger DirectoryManange;
-        WinBackupDriver_ProcessInfo  WinBackupDriver_ProcessInfo;        
-        WinBackupDriver_DataReceived _DataReceived;
+        private WinGlobal_DirectoryMananger DirectoryManange;
+        private WinBackupDriver_ProcessInfo WinBackupDriver_ProcessInfo;
+        private WinBackupDriver_DataReceived _DataReceived;
                 
-        public WinBackupDriver_Mananger(WinGlobal_UIService ui)
+        public WinBackupDriver_Mananger()
         {
-            UIService = ui;
             DirectoryManange = new WinGlobal_DirectoryMananger();
             WinBackupDriver_ProcessInfo = new WinBackupDriver_ProcessInfo();
-            _DataReceived = new WinBackupDriver_DataReceived(UIService);
+            _DataReceived = new WinBackupDriver_DataReceived();
         }
 
         public async Task Mananger(CancellationToken token)
         {
             string NameFolder = "DriversBackup";
 
-            await UIService.Log_MensagemAsync("Backup Driver: executando...", true);         
+            await WinGlobal_UIService2.Instance.Log_MensagemAsync("Backup Driver: executando...", true);         
 
             try
             {
@@ -33,7 +31,7 @@ namespace MeuSuporte
                 // Cria o diretorio
                 if (DirectoryManange.Create(NameFolder) == false)
                 {
-                    await UIService.Log_MensagemAsync($"Ocorreu um erro ao tentar criar Pasta {NameFolder}", true);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Ocorreu um erro ao tentar criar Pasta {NameFolder}", true);
                     return;
                 }
                                 
@@ -53,13 +51,13 @@ namespace MeuSuporte
                     await WaitForExitAsync(process);
                 }
 
-                UIService.Sucesso++;
-                await UIService.Log_MensagemAsync("Backup Driver: Criado com Sucesso", true);
+                WinGlobal_UIService2.Instance.Sucesso++;
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync("Backup Driver: Criado com Sucesso", true);
             }
             catch (Exception ex)
             {
-                UIService.Erro++;
-                await UIService.Log_MensagemAsync("Backup Driver: Erro - " + ex.Message, true);
+                WinGlobal_UIService2.Instance.Erro++;
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync("Backup Driver: Erro - " + ex.Message, true);
             }
         }
 

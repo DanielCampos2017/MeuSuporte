@@ -4,11 +4,11 @@ namespace MeuSuporte
 {
     class WinUserUAC_Mananger
     {
-        WinUserUAC_State UAC_State;
+        private WinUserUAC_State UAC_State;
 
-        public WinUserUAC_Mananger(WinGlobal_UIService ui)
+        public WinUserUAC_Mananger()
         {
-            UAC_State = new WinUserUAC_State(ui);
+            UAC_State = new WinUserUAC_State();
         }
                
         public async Task Mananger(bool State, int ValueUniProgressBar)

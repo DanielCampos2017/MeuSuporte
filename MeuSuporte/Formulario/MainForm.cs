@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 using MeuSuporte.Properties;
 using Microsoft.Win32;
 using Control = System.Windows.Forms.Control;
@@ -33,6 +34,8 @@ namespace MeuSuporte
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             UIService = new WinGlobal_UIService(this, txt_Log, progressBar1, ValueUniProgressBar); // envia os componete para interface
+            
+            WinGlobal_UIService2.Initialize(this, txt_Log, progressBar1, ValueUniProgressBar);
         }
 
         #region Funçoes de UI
@@ -349,7 +352,8 @@ namespace MeuSuporte
                 Btn_Canselar.Enabled = true;
                 btn_IniciarProcesso.Enabled = false;
                 await ExecuteProcesses();
-                InfoDescricaoConclusao(UIService.Erro, UIService.Sucesso);
+                //InfoDescricaoConclusao(UIService.Erro, UIService.Sucesso);
+                InfoDescricaoConclusao(WinGlobal_UIService2.Instance.Erro, WinGlobal_UIService2.Instance.Sucesso);
                 btn_IniciarProcesso.Enabled = true;
             }
             else
@@ -374,7 +378,7 @@ namespace MeuSuporte
         //Verifica Versão do GitHub
         async Task CheckBuild()
         {
-            WinApp_BuildView _Class_BuildView = new WinApp_BuildView(UIService);
+            CheckBuild_Mananger _Class_BuildView = new CheckBuild_Mananger();
             _Class_BuildView.Build();
         }
 
@@ -422,7 +426,7 @@ namespace MeuSuporte
 
         private async Task UserUAC()
         {
-            WinUserUAC_Mananger UAC_Mananger = new WinUserUAC_Mananger(UIService);           
+            WinUserUAC_Mananger UAC_Mananger = new WinUserUAC_Mananger();           
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Segurança do Usuario UAC", checkBox_UserUAC, Resources.UserUAC_Black, "Notificações ao Usuário (UAC):\r\nGerencia os alertas do Controle de Conta de Usuário (UAC), que ajudam a proteger o sistema contra alterações não autorizadas.");
@@ -441,7 +445,7 @@ namespace MeuSuporte
 
         private async Task CleanTask()
         {
-            WinTask_Mananger Task_Mananger = new WinTask_Mananger(UIService);
+            WinTask_Mananger Task_Mananger = new WinTask_Mananger();
 
             // Atualiza a UI antes da execução assíncrona            
             await UpdateIfonUI("Clean Task", checkBox_CleanTask, Resources.CleanTask_Black, "Limpar Tarefas Agendadas:\n\rRemove tarefas desnecessárias programadas no sistema, melhorando o desempenho.");
@@ -460,7 +464,7 @@ namespace MeuSuporte
 
         private async Task CleanTrash()
         {
-            WinTrash_Mananger Trash_Mananger = new WinTrash_Mananger(UIService);
+            WinTrash_Mananger Trash_Mananger = new WinTrash_Mananger();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Trash", checkBox_CleanTrash, Resources.CleanTrash_Black, "Limpar Lixeira:\n\rEsvazia arquivos excluídos permanentemente para liberar espaço no disco.");
@@ -478,7 +482,7 @@ namespace MeuSuporte
 
         private async Task CleanProcess()
         {
-            WinService_Mananger Service_Mananger = new WinService_Mananger(UIService);
+            WinService_Mananger Service_Mananger = new WinService_Mananger();
             WinService_List Service_List = new WinService_List();
 
             // Atualiza a UI antes da execução assíncrona
@@ -499,7 +503,7 @@ namespace MeuSuporte
         
         private async Task CleanTemp()
         {
-            WinDirectory_Mananger Directory_Mananger = new WinDirectory_Mananger(UIService);
+            WinDirectory_Mananger Directory_Mananger = new WinDirectory_Mananger();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Temp", checkBox_CleanTemp, Resources.CleanDirectorry_Black, "Limpar Pasta %Temp%:\n\rApaga arquivos temporários do sistema e dos aplicativos para liberar espaço.");
@@ -519,8 +523,8 @@ namespace MeuSuporte
 
         private async Task CleanWindowsUpdate()
         {
-            WinDirectory_Mananger Directory_Mananger = new WinDirectory_Mananger(UIService);
-            WinService_Mananger Service_Mananger = new WinService_Mananger(UIService);
+            WinDirectory_Mananger Directory_Mananger = new WinDirectory_Mananger();
+            WinService_Mananger Service_Mananger = new WinService_Mananger();
             WinService_List Service_List = new WinService_List();
 
             // Atualiza a UI antes da execução assíncrona
@@ -542,8 +546,8 @@ namespace MeuSuporte
 
         private async Task CleanGoogle()
         {
-            WinDirectory_Mananger Directory_Mananger = new WinDirectory_Mananger(UIService);
-            WinService_Mananger Service_Mananger = new WinService_Mananger(UIService);
+            WinDirectory_Mananger Directory_Mananger = new WinDirectory_Mananger();
+            WinService_Mananger Service_Mananger = new WinService_Mananger();
             WinService_List Service_List = new WinService_List();
 
             // Atualiza a UI antes da execução assíncrona
@@ -567,7 +571,7 @@ namespace MeuSuporte
 
         private async Task BackupRegistrysRun()
         {
-            WinRegistryBackup_Mananger RegistryBackup_Mananger = new WinRegistryBackup_Mananger(UIService);
+            WinRegistryBackup_Mananger RegistryBackup_Mananger = new WinRegistryBackup_Mananger();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Backup Registrys Run", checkBox_BackupRegistrysRun, Resources.BackupRegistrys_Black, "Backup Registro:\r\nSalva uma cópia dos registro, para facilitar a restauração em caso de problemas.");
@@ -585,7 +589,7 @@ namespace MeuSuporte
 
         private async Task CleanPageFile()
         {
-            WinPageFile_Mananger PageFile_Mananger = new WinPageFile_Mananger(UIService);
+            WinPageFile_Mananger PageFile_Mananger = new WinPageFile_Mananger();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean PageFile", checkBox_CleanPageFile, Resources.CleanPageFile_Black, "Pagefile.sys:\n\rApaga o arquivo de paginação do Windows ao desligar, garantindo segurança e desempenho.");
@@ -604,7 +608,7 @@ namespace MeuSuporte
 
         private async Task DriversBackup()
         {
-            WinBackupDriver_Mananger BackupDriver_Mananger = new WinBackupDriver_Mananger(UIService);
+            WinBackupDriver_Mananger BackupDriver_Mananger = new WinBackupDriver_Mananger();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Drivers Backup", checkBox_DriversBackup, Resources.BackupDriver_Black, "Backup Drivers:\n\rSalva uma cópia dos drivers instalados para facilitar a restauração em caso de problemas.");
@@ -623,7 +627,7 @@ namespace MeuSuporte
 
         private async Task DeleteRegistry()
         {
-            WinRegistryBin_Mananger _ClassCleanRegistry = new WinRegistryBin_Mananger(UIService);
+            WinRegistryBin_Mananger _ClassCleanRegistry = new WinRegistryBin_Mananger();
       
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Delete Registry", checkBox_DeleteRegistry, Resources.CleanRegistry_Black, "Limpar Registro:\n\rRemove entradas inválidas do registro, ajudando na estabilidade do sistema.");
@@ -641,7 +645,7 @@ namespace MeuSuporte
 
         private async Task UsuarioSuporte()
         {
-            WinUser_Mananger User_Mananger = new WinUser_Mananger(UIService);
+            WinUser_Mananger User_Mananger = new WinUser_Mananger();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI($"Manutenção de usuario {UserName}", checkBox_Usuario, Resources.UpdateUser_Black, $"Usuario {UserName}:\r\nConfiguração do usuário \"{UserName}\" para eventuais manutenção preventiva das estações gerenciados pela empresa. ");
@@ -659,7 +663,7 @@ namespace MeuSuporte
 
         private async Task CleanPrefetch()
         {
-            WinDirectory_Mananger Directory_Mananger = new WinDirectory_Mananger(UIService);
+            WinDirectory_Mananger Directory_Mananger = new WinDirectory_Mananger();
 
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Clean Prefetch", checkBox_CleanPrefetch, Resources.ClearPrefetch_Black, "Limpar Prefetch:\r\nExclui arquivos de pré-carregamento do sistema para otimizar o tempo de inicialização.");
@@ -680,7 +684,7 @@ namespace MeuSuporte
 
         private async Task BackupBCD()
         {
-            WinBackupBCD_Mananger BackupBCD_Mananger = new WinBackupBCD_Mananger(UIService);
+            WinBackupBCD_Mananger BackupBCD_Mananger = new WinBackupBCD_Mananger();
           
             // Atualiza a UI antes da execução assíncrona
             await UpdateIfonUI("Backup BCD", checkBox_BackupBCD, Resources.BackupBootBCD_Black, "Backup BootBCD:\r\nFaz cópia de segurança da configuração de inicialização do Windows para evitar falhas no boot.");
@@ -720,13 +724,13 @@ namespace MeuSuporte
 
         private async Task CreateSystemPoint(string State)
         {
-            WinRestorePoint_IsSystemRestoreEnabled _IsSystemRestoreEnabled = new WinRestorePoint_IsSystemRestoreEnabled(UIService);
+            WinRestorePoint_IsSystemRestoreEnabled _IsSystemRestoreEnabled = new WinRestorePoint_IsSystemRestoreEnabled();
 
             //1° verifica se a configuração esta ativa
             if (!await _IsSystemRestoreEnabled.IsSystemRestoreEnabledAsync())
             {
                 // ativa a configuração
-                WinRestorePoint_EnableProtection _Class_EnableProtection = new WinRestorePoint_EnableProtection(UIService);
+                WinRestorePoint_EnableProtection _Class_EnableProtection = new WinRestorePoint_EnableProtection();
                 await _Class_EnableProtection.EnableProtection(ValueUniProgressBar / 3);
                 await Task.Delay(1000);
             }
@@ -737,12 +741,12 @@ namespace MeuSuporte
             await Task.Delay(200);
 
             //2° Cria Ponto de Restauração
-            WinRestorePoint_Create _PointCreate = new WinRestorePoint_Create(UIService);
+            WinRestorePoint_Create _PointCreate = new WinRestorePoint_Create();
             await Task.Run(() => _PointCreate.CreatePoint(NamePoint, ValueUniProgressBar / 3, token), token); // Executa a tarefa async em uma nova thread
             await Task.Delay(1000);
 
             //3° Procura pelo Ponto de Restauração recém-criado
-            WinRestorePoint_PointSearch _PointSearch = new WinRestorePoint_PointSearch(UIService);
+            WinRestorePoint_PointSearch _PointSearch = new WinRestorePoint_PointSearch();
             await Task.Run(() => _PointSearch.PointSearch(NamePoint, ValueUniProgressBar / 3, token), token); // Executa a tarefa async em uma nova thread                 
         }
 
@@ -752,7 +756,7 @@ namespace MeuSuporte
 
         private async Task RemoteRDP()
         {
-            WinRemoteRDP_Mananger RemoteRDP_Mananger = new WinRemoteRDP_Mananger(UIService);
+            WinRemoteRDP_Mananger RemoteRDP_Mananger = new WinRemoteRDP_Mananger();
             ProgressBarADD(ValueUniProgressBar / 2);
 
             // Atualiza a UI antes da execução assíncrona
@@ -778,7 +782,7 @@ namespace MeuSuporte
               
         async Task check()
         {
-            WinBloatware_Mananger RemoveBloatware = new WinBloatware_Mananger(UIService);  
+            WinBloatware_Mananger RemoveBloatware = new WinBloatware_Mananger();  
             await UpdateIfonUI("Remover Bloatware", checkBox_Bloatware, Resources.Store_Black, "Bloatware:\r\nSoftwares pré-instalados que nem sempre são úteis para o usuário, como alguns jogos ou versões de teste de programas pagos.");
             await Task.Delay(800);
 

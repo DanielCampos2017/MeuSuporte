@@ -6,13 +6,6 @@ namespace MeuSuporte
 {
     internal class WinRestorePoint_EnableProtection
     {
-        private readonly WinGlobal_UIService UIService;
-
-        public WinRestorePoint_EnableProtection(WinGlobal_UIService ui)
-        {
-            UIService = ui;
-        }
-
         public async Task EnableProtection(int ValueUniProgressBar )
         {
             try
@@ -23,14 +16,14 @@ namespace MeuSuporte
                 // Redimensiona o espaço de armazenamento da sombra para 10%
                 await RunCommandAsync("powershell", "-Command \"& 'C:\\Windows\\System32\\vssadmin.exe' resize shadowstorage /for=C: /on=C: /maxsize=10%\"");
                
-                await UIService.Log_MensagemAsync(@"Configuração de proteção do sistema foi ativado", true);
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync(@"Configuração de proteção do sistema foi ativado", true);
 
-                UIService.ProgressBarADD(ValueUniProgressBar);
+                WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
             }      
             catch (Exception ex)
             {
-                UIService.Erro++;
-                await UIService.Log_MensagemAsync(@"Ocorreu um erro ao tentar ativar a configuração de Proteção do sistema", true);
+                WinGlobal_UIService2.Instance.Erro++;
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync(@"Ocorreu um erro ao tentar ativar a configuração de Proteção do sistema", true);
             }
         }
 

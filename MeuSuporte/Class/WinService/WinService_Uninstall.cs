@@ -7,13 +7,11 @@ namespace MeuSuporte
 {
     internal class WinService_Uninstall
     {
-        private readonly WinGlobal_UIService UIService;
         private readonly WinService_Stop _serviceStopper;
 
-        public WinService_Uninstall(WinGlobal_UIService ui)
+        public WinService_Uninstall()
         {
-            UIService = ui;
-            _serviceStopper = new WinService_Stop(UIService); // criada apenas uma vez
+            _serviceStopper = new WinService_Stop(); // criada apenas uma vez
         }
 
         public async Task<bool> TryUninstallAsync(ServiceController service)
@@ -23,7 +21,7 @@ namespace MeuSuporte
 
             if (!isServiceStopped)
             {
-                await UIService.Log_MensagemAsync($"Serviço: {service.DisplayName} não pode ser removido pois ainda está em execução.", true);
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Serviço: {service.DisplayName} não pode ser removido pois ainda está em execução.", true);
                 return false;
             }
 
@@ -35,14 +33,14 @@ namespace MeuSuporte
                     serviceInstaller.ServiceName = service.ServiceName;
                     serviceInstaller.Uninstall(null);
 
-                    await UIService.Log_MensagemAsync($"Serviço: {service.DisplayName} - Deleted", true);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Serviço: {service.DisplayName} - Deleted", true);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                UIService.Erro++;
-                await UIService.Log_MensagemAsync($"Erro ao desinstalar o Serviço: {service.DisplayName}\n{ex.Message}", true);
+                WinGlobal_UIService2.Instance.Erro++;
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Erro ao desinstalar o Serviço: {service.DisplayName}\n{ex.Message}", true);
                 return false;
             }
         }

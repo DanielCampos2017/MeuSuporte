@@ -5,13 +5,6 @@ namespace MeuSuporte
 {
     internal class WinBloatware_MessageErroList
     {
-        private readonly WinGlobal_UIService UIService;
-
-        public WinBloatware_MessageErroList(WinGlobal_UIService ui)
-        {
-            UIService = ui;
-        }
-
         public async Task MessageError(string outputError, string AppTitulo, string AppComando)
         {
             // Dicionário de erros conhecidos com suas mensagens explicativas
@@ -73,7 +66,7 @@ namespace MeuSuporte
             {
                 if (outputError.Contains(erro.Key))
                 {
-                    await UIService.Log_MensagemAsync($"{AppTitulo} {{{AppComando}}} - uninstall failed \nCodigo Erro: {erro.Key} \nMensagem: {erro.Value}  ", true);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"{AppTitulo} {{{AppComando}}} - uninstall failed \nCodigo Erro: {erro.Key} \nMensagem: {erro.Value}  ", true);
                     break;
                 }
             }

@@ -10,7 +10,6 @@ namespace MeuSuporte
         // verifica se existe o usuario
         public async Task<bool> IsEnabled(string NameUser)
         {
-
             DirectoryEntry machine = new DirectoryEntry("WinNT://" + Environment.MachineName + ",Computer");
 
             if (machine.Children != null)

@@ -7,14 +7,13 @@ namespace MeuSuporte
 {
     internal class WinTask_Mananger
     {
-        private readonly WinGlobal_UIService UIService;
+     
         private WinTask_Bin WinTask_Bin;
         private WinTask_Connection WinTask_Connection;
 
-        public WinTask_Mananger(WinGlobal_UIService ui)
+        public WinTask_Mananger()
         {
-            UIService = ui;
-            WinTask_Bin = new WinTask_Bin(UIService);
+            WinTask_Bin = new WinTask_Bin();
             WinTask_Connection = new WinTask_Connection();
         }
               
@@ -29,8 +28,8 @@ namespace MeuSuporte
                 // verifica se existe tarefas
                 if (WinTask_Connection.tasks.Count == 0)
                 {
-                    await UIService.Log_MensagemAsync("Nenhuma Tarefa foi encontrada ", true);
-                    UIService.ProgressBarADD(ValueUniProgressBar);
+                    await WinGlobal_UIService2.Instance.Log_MensagemAsync("Nenhuma Tarefa foi encontrada ", true);
+                    WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
                     return;
                 }
 
@@ -40,12 +39,12 @@ namespace MeuSuporte
                 {
                     await WinTask_Bin.Delete(WinTask_Connection.rootFolder, task, token, valor); // apaga a tarefa
                 }
-                UIService.Sucesso++;
+                WinGlobal_UIService2.Instance.Sucesso++;
             }
             catch (Exception ex)
             {
-                UIService.Erro++;
-                await UIService.Log_MensagemAsync($"Gerou um erro na execução Clean Task\r\n: {ex.Message}", true);
+                WinGlobal_UIService2.Instance.Erro++;
+                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Gerou um erro na execução Clean Task\r\n: {ex.Message}", true);
             }
         }
     }
