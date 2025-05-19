@@ -1,38 +1,32 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace MeuSuporte
 {
     internal class WinBackupBCD_ProcessController
     {
-        private WinGlobal_DirectoryMananger DirectoryManange;
-        private WinBackupBCD_ProcessInfo BCD_ProcessInfo;
+        private  WinGlobal_DirectoryMananger DirectoryManange;
+        private  WinBackupBCD_ProcessInfo BCD_ProcessInfo;
 
-        public WinBackupBCD_ProcessController()
+        public async Task Create(int ValueUniProgressBar)
         {
             DirectoryManange = new WinGlobal_DirectoryMananger();
             BCD_ProcessInfo = new WinBackupBCD_ProcessInfo();
-        }
-
-        public async Task Create(CancellationToken token, int ValueUniProgressBar)
-        {
             string NameFolder = "BCD_Backup";
 
             try
             {
-                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
                 // Cria o diretorio
                 if (DirectoryManange.Create(NameFolder) == false)
                 {
-                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Ocorreu um erro ao tentar criar Pasta {NameFolder}", true);
+                    await WinGlobal_UIService.Instance.Log_MensagemAsync($"Ocorreu um erro ao tentar criar Pasta {NameFolder}", true);
                     return;
                 }
 
-                WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar / 2);
+                WinGlobal_UIService.Instance.ProgressBarADD(ValueUniProgressBar / 2);
 
                 //Cria um processo para executar
                 var processStartInfo = BCD_ProcessInfo.Create(DirectoryManange.GetDirectory(NameFolder));
@@ -41,16 +35,17 @@ namespace MeuSuporte
                 {
                     process.Start();
                     await WaitForExitAsync(process);
-                    await Task.Delay(500);
-                    WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar / 2);
-                    await WinGlobal_UIService2.Instance.Log_MensagemAsync("Backup Boot BCD: Criado com Sucesso", true);
+                    await Task.Delay(500);                    
+                    await WinGlobal_UIService.Instance.Log_MensagemAsync("Backup Boot BCD: Criado com Sucesso", true);
                 }
-                WinGlobal_UIService2.Instance.Sucesso++;
+
+                WinGlobal_UIService.Instance.Sucesso++;
+                WinGlobal_UIService.Instance.ProgressBarADD(ValueUniProgressBar / 2);
             }
             catch (Exception ex)
             {
-                WinGlobal_UIService2.Instance.Erro++;
-                await WinGlobal_UIService2.Instance.Log_MensagemAsync("Backup Boot BCD: Erro - " + ex.Message, true);
+                WinGlobal_UIService.Instance.Erro++;
+                await WinGlobal_UIService.Instance.Log_MensagemAsync("Backup Boot BCD: Erro - " + ex.Message, true);
                 await Task.Delay(500);
             }
         }
@@ -60,6 +55,8 @@ namespace MeuSuporte
         {
             await Task.Run(() => process.WaitForExit());
         }
+
+
 
         //Abra as Opções avançadas de inicialização
         //Execute o comando Bootrec /ScanOS para verificar os sistemas instalados

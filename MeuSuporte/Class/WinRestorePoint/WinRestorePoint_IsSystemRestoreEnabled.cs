@@ -28,13 +28,13 @@ namespace MeuSuporte
                         }
                         else
                         {
-                            await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Não foi possivel ler a configuração", true);
+                            await WinGlobal_UIService.Instance.Log_MensagemAsync($"Não foi possivel ler a configuração", true);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Erro ao acessar o registro: [{ex.Message}", true);
+                    await WinGlobal_UIService.Instance.Log_MensagemAsync($"Erro ao acessar o registro: [{ex.Message}", true);
                 }
                 return ServicoHabilitado;
             });

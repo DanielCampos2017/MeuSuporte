@@ -6,17 +6,14 @@ namespace MeuSuporte
 {
     internal class WinBloatware_RenoveAllUser
     {
-        private readonly WinBloatware_MessageErroList MessageErroList;
-        private readonly WinBloatware_SearchInstallation SearchInstallation;
+        private  WinBloatware_MessageErroList MessageErroList;
+        private  WinBloatware_SearchInstallation SearchInstallation;
 
-        public WinBloatware_RenoveAllUser()
+        public async Task Renove(WinBloatware_Format BloatApp)
         {
             MessageErroList = new WinBloatware_MessageErroList();
             SearchInstallation = new WinBloatware_SearchInstallation();
-        }
 
-        public async Task Renove(WinBloatware_Format BloatApp, CancellationToken token)
-        {
             ProcessStartInfo psi = new ProcessStartInfo()
             {
                 FileName = "powershell",
@@ -44,11 +41,11 @@ namespace MeuSuporte
 
                 if (!isInstalled)
                 {
-                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} All User - uninstall success", true);
+                   // await WinGlobal_UIService.Instance.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} All User - uninstall success", true);
                 }
                 else
                 {
-                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} All User - uninstall failed", true);
+                   // await WinGlobal_UIService.Instance.Log_MensagemAsync($"{BloatApp.Title} {{{BloatApp.Command}}} All User - uninstall failed", true);
                 }
             }
             await Task.Delay(1000);

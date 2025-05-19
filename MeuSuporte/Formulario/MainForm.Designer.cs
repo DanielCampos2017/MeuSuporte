@@ -208,7 +208,7 @@
             this.checkBox_CleanGoogle.Name = "checkBox_CleanGoogle";
             this.checkBox_CleanGoogle.Size = new System.Drawing.Size(189, 24);
             this.checkBox_CleanGoogle.TabIndex = 7;
-            this.checkBox_CleanGoogle.Text = "Limpra Google Update";
+            this.checkBox_CleanGoogle.Text = "Limpar Google Update";
             this.checkBox_CleanGoogle.UseVisualStyleBackColor = true;
             // 
             // checkBox_DeleteRegistry

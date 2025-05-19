@@ -5,12 +5,13 @@ namespace MeuSuporte
 {
     internal class WinGlobal_CreateNameFolde
     {
-        private WinGlobal_ValidNameFolde ValidNameFolde;
+        private readonly WinGlobal_ValidNameFolde ValidNameFolde;
 
         public WinGlobal_CreateNameFolde()
         {
             ValidNameFolde = new WinGlobal_ValidNameFolde();
         }
+
         public string Folder(string NameFolder)
         {
             string _Directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + $@"Backup-{DateTime.Now.ToString("dd-MM-yyyy")}");

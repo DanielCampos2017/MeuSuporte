@@ -12,7 +12,7 @@ namespace MeuSuporte
             "Manual", "System"
         };
 
-        public async Task<bool> IsPointCreatedAsync(string NamePoint, CancellationToken token)
+        public async Task<bool> IsPointCreatedAsync(string NamePoint )
         {
             return await Task.Run(() =>
             {
@@ -23,18 +23,18 @@ namespace MeuSuporte
                 // Gera as descrições esperadas
                 foreach (string tipo in TypePoint)
                 {
-                    token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                    WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
                     ListaNamePoint.Add($"{tipo}: {NamePoint}");
                 }
 
                 // Procura se já existe um ponto com essas descrições
                 foreach (WinRestorePoint_Item sri in systemRestorePoints)
                 {
-                    token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                    WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
                     foreach (string descricao in ListaNamePoint)
                     {
-                        token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                        WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
                         if (sri.Description == descricao)
                         {
@@ -52,18 +52,18 @@ namespace MeuSuporte
             });
         }
 
-        public async Task PointSearch(string NamePoint, int ValueUniProgressBar, CancellationToken token)
+        public async Task PointSearch(string NamePoint, int ValueUniProgressBar )
         {
             // Procura pelo Ponto de Restauração recém-criado
-            if (await Task.Run(() => IsPointCreatedAsync(NamePoint, token)))
+            if (await Task.Run(() => IsPointCreatedAsync(NamePoint)))
             {
-                WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
-                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Ponto [{NamePoint}] validado com sucesso.", true);
+                WinGlobal_UIService.Instance.ProgressBarADD(ValueUniProgressBar);
+                await WinGlobal_UIService.Instance.Log_MensagemAsync($"Ponto [{NamePoint}] validado com sucesso.", true);
             }
             else
             {
-                WinGlobal_UIService2.Instance.Erro++;
-                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Ponto [{NamePoint}] não validado.", true);                
+                WinGlobal_UIService.Instance.Erro++;
+                await WinGlobal_UIService.Instance.Log_MensagemAsync($"Ponto [{NamePoint}] não validado.", true);                
             }
         }
 

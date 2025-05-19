@@ -6,8 +6,8 @@ namespace MeuSuporte
 {
     internal class CheckBuild_BuildView
     {
-        private CheckBuild_GetGitHub GetGitHub;
-        private CheckBuild_Process Build_Process;
+        private readonly CheckBuild_GetGitHub GetGitHub;
+        private readonly CheckBuild_Process Build_Process;
       
         public CheckBuild_BuildView()
         {
@@ -18,9 +18,9 @@ namespace MeuSuporte
         public async Task VersionBuild(string GitHubRepo)
         {
             // Usando Invoke para atualizar a interface do usuário a partir da thread de segundo plano
-            WinGlobal_UIService2.Instance.InterfaceGUI.Invoke(new Action(() =>
+            WinGlobal_UIService.Instance.InterfaceGUI.Invoke(new Action(() =>
             {
-                WinGlobal_UIService2.Instance.InterfaceGUI.Text = $"MeuSuporte Build Checking...";
+                WinGlobal_UIService.Instance.InterfaceGUI.Text = $"MeuSuporte Build Checking...";
             }));
 
             string BuildLocal = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.0.0"; // Obtem a versão local

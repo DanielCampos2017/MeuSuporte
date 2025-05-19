@@ -5,24 +5,25 @@ using System.Threading.Tasks;
 namespace MeuSuporte
 {
     internal class WinBloatware_Mananger
-    {      
-        private WinBloatware_CheckInstallation CheckInstallation;
+    {
+        private  WinBloatware_CheckInstallation CheckInstallation;
 
-        public WinBloatware_Mananger()
+        public async Task Mananger()
         {
             CheckInstallation = new WinBloatware_CheckInstallation();
-        }
 
-        public async Task Mananger(CancellationToken token)
-        {
             var Bloatware_List = new WinBloatware_List();
             List<WinBloatware_Format> Bloatware_Format = Bloatware_List.List(); // carrega a lista para struct
+            int loop = 0;
 
             foreach (var bloat in Bloatware_Format)
             {
-                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
-                await CheckInstallation.Check(bloat, token); // Executa o a função Async em uma nova thread
-            }            
+                WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested();  // Checa se o cancelamento foi solicitado antes de começar
+                               
+                await CheckInstallation.Check(bloat); // Executa o a função Async em uma nova thread
+                loop++;
+                await WinGlobal_UIService.Instance.Log_MensagemAsyncSobrescrever($"Removendo Bloatware {loop} / {Bloatware_Format.Count} ");
+            } 
         }
 
         

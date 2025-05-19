@@ -2,9 +2,9 @@
 {
     internal class WinGlobal_DirectoryMananger
     {
-        private WinGlobal_DirectoryCheck DirectoryCheck;
-        private WinGlobal_DirectoryCreate DirectoryCreate;
-        private WinGlobal_CreateNameFolde CreateNameFolde;
+        private readonly WinGlobal_DirectoryCheck DirectoryCheck;
+        private readonly WinGlobal_DirectoryCreate DirectoryCreate;
+        private readonly WinGlobal_CreateNameFolde CreateNameFolde;
 
         public WinGlobal_DirectoryMananger()
         {

@@ -1,26 +1,66 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
+using Microsoft.VisualBasic.Logging;
 
 namespace MeuSuporte
 {
     internal class WinGlobal_UIService
     {
-        private readonly System.Windows.Forms.TextBox _logTextBox;
-        private readonly System.Windows.Forms.ProgressBar _progressBar;
-
         public MainForm InterfaceGUI;
+        private TextBox _logTextBox;
+        private static WinGlobal_UIService _instance;
+               
+        private ProgressBar _progressBar;
+        
         public int ValueUniProgressBar;
         public int Sucesso;
         public int Erro;
+        public string UserName;
 
-        public WinGlobal_UIService(MainForm Form_, System.Windows.Forms.TextBox logTextBox, System.Windows.Forms.ProgressBar progressBar, int _ValueUniProgressBar)
+        public CancellationToken token;
+
+        private PictureBox pictureBoxInfoDescricao;
+        private Label labelInfoTitulo;
+        private Label labelInfoDescricao;
+        private CheckBox checkBox_UserUAC;
+
+
+        // Inicialização (chame no MainForm no início)
+        public static void Initialize(MainForm form, TextBox logTextBox, ProgressBar progressBar, Label _labelInfoTitulo, CheckBox _checkBox_UserUAC, Label _labelInfoDescricao, PictureBox _pictureBoxInfoDescricao, CancellationToken _token)
         {
-            InterfaceGUI = Form_;
-            _logTextBox = logTextBox;
-            _progressBar = progressBar;
-            ValueUniProgressBar = _ValueUniProgressBar;
+            if (_instance == null)
+            {
+                _instance = new WinGlobal_UIService
+                {
+                    InterfaceGUI = form,
+                    _logTextBox = logTextBox,
+                    _progressBar = progressBar,
+                    labelInfoTitulo = _labelInfoTitulo,
+                    checkBox_UserUAC = _checkBox_UserUAC,
+                    labelInfoDescricao = _labelInfoDescricao,
+                    pictureBoxInfoDescricao = _pictureBoxInfoDescricao,
+                    token = _token
+
+                };
+            }
+        }
+
+        // Acesso à instância
+        public static WinGlobal_UIService Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    throw new Exception("WinGlobal_UIService não foi inicializado. Chame Initialize() antes de usar.");
+
+                return _instance;
+            }
         }
 
         public void ProgressBarADD(int valor)
@@ -65,7 +105,6 @@ namespace MeuSuporte
             }
         }
 
-        // Adiciona Informações na TextBox Log, sobrescrevendo a linha atual   
         public async Task Log_MensagemAsyncSobrescrever(string mensagem)
         {
             if (_logTextBox.InvokeRequired)
@@ -85,6 +124,58 @@ namespace MeuSuporte
                 _logTextBox.Text = string.Join("\n", linhas.Take(linhas.Length - 1).Concat(new[] { mensagem }));
             }
         }
+
+        public async Task UpdateIfonUI(string _Log, CheckBox _CheckBox, Image _icon, string _description)
+        {
+            await Log_MensagemAsync("\r\n", true);
+            await Log_MensagemAsync($"======= {_Log} =======", true);
+            await Log_MensagemAsync(" ", false);
+           labelInfoTitulo.Text = _CheckBox.Text;
+            
+            _CheckBox.Font = new Font(checkBox_UserUAC.Font.FontFamily, checkBox_UserUAC.Font.Size, FontStyle.Bold);
+            pictureBoxInfoDescricao.Image = _icon;
+            labelInfoDescricao.Text = _description;
+        }
+
+
+
+        //Adiciona informaçoes do progresso Abortado na interface
+        public string CurrentProcess; // Processo atual em execução
+        public List<string> ProcessoSelecionados = new List<string>(); // lista de processo para ser executado
+        //Exibe um log com todos os Processos que foram executadoes e os que foram canselado
+        public async Task MensagemAbortedAsync()
+        {
+            bool executed = true;
+
+            foreach (string _Porecesso in ProcessoSelecionados)
+            {
+                if (executed == true)
+                {
+                    await Log_MensagemAsync($" • {_Porecesso}   {{executed}}", true);
+
+                    if (_Porecesso == CurrentProcess)
+                    {
+                        await Log_MensagemAsync($" • {_Porecesso}   {{aborted}}", true);
+                        executed = false;
+                    }
+                }
+                else
+                {
+                    await Log_MensagemAsync($" • {_Porecesso}   {{canceled}}", true);
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

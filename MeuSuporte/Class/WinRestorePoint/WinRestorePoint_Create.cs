@@ -7,13 +7,13 @@ namespace MeuSuporte
 {
     internal class WinRestorePoint_Create
     {
-        public async Task CreatePoint(string description, int ValueUniProgressBar, CancellationToken token)
+        public async Task CreatePoint(string description, int ValueUniProgressBar)
         {
             await Task.Run(async () =>
             {
                 try
                 {
-                    token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                    WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
                     ManagementScope oScope = new ManagementScope("\\\\localhost\\root\\default");
                     ManagementPath oPath = new ManagementPath("SystemRestore");
@@ -36,20 +36,20 @@ namespace MeuSuporte
                     int returnValue = Convert.ToInt32(oOutParams["ReturnValue"]);
                     if (returnValue != 0)
                     {
-                        await WinGlobal_UIService2.Instance.Log_MensagemAsync("Erro ao criar ponto de restauração. Código: " + returnValue, true);
-                        WinGlobal_UIService2.Instance.Erro++;
+                        await WinGlobal_UIService.Instance.Log_MensagemAsync("Erro ao criar ponto de restauração. Código: " + returnValue, true);
+                        WinGlobal_UIService.Instance.Erro++;
                     }
                     else
                     {
-                        WinGlobal_UIService2.Instance.Sucesso++;
-                        WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
-                        await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Ponto de restauração [{description}] Criado com sucesso.", true);
+                        WinGlobal_UIService.Instance.Sucesso++;
+                        WinGlobal_UIService.Instance.ProgressBarADD(ValueUniProgressBar);
+                        await WinGlobal_UIService.Instance.Log_MensagemAsync($"Ponto de restauração [{description}] Criado com sucesso.", true);
                     }
                 }     
                 catch (Exception ex)
                 {
-                    WinGlobal_UIService2.Instance.Erro++;
-                    await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Erro ao criar ponto de restauração Código:" + ex.Message, true);
+                    WinGlobal_UIService.Instance.Erro++;
+                    await WinGlobal_UIService.Instance.Log_MensagemAsync($"Erro ao criar ponto de restauração Código:" + ex.Message, true);
                 }
             });
         }

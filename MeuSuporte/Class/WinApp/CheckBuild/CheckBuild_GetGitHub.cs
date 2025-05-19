@@ -4,8 +4,8 @@ namespace MeuSuporte
 {
     internal class CheckBuild_GetGitHub
     {
-        private CheckBuild_CheckNetwork CheckNetwork;
-        private CheckBuild_GetVersion GetVersion;
+        private readonly  CheckBuild_CheckNetwork CheckNetwork;
+        private readonly CheckBuild_GetVersion GetVersion;
 
         public CheckBuild_GetGitHub()
         {

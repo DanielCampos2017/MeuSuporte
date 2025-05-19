@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 using TaskScheduler;
 
@@ -7,9 +6,8 @@ namespace MeuSuporte
 {
     internal class WinTask_Mananger
     {
-     
-        private WinTask_Bin WinTask_Bin;
-        private WinTask_Connection WinTask_Connection;
+        private readonly WinTask_Bin WinTask_Bin;
+        private readonly WinTask_Connection WinTask_Connection;
 
         public WinTask_Mananger()
         {
@@ -17,34 +15,34 @@ namespace MeuSuporte
             WinTask_Connection = new WinTask_Connection();
         }
               
-        public async Task Mananger(CancellationToken token, int ValueUniProgressBar)
+        public async Task Mananger()
         {
             try
             {
-                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
                 await WinTask_Connection.Connect();
 
                 // verifica se existe tarefas
                 if (WinTask_Connection.tasks.Count == 0)
                 {
-                    await WinGlobal_UIService2.Instance.Log_MensagemAsync("Nenhuma Tarefa foi encontrada ", true);
-                    WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
+                    await WinGlobal_UIService.Instance.Log_MensagemAsync("Nenhuma Tarefa foi encontrada ", true);
+                    WinGlobal_UIService.Instance.ProgressBarADD(WinGlobal_UIService.Instance.ValueUniProgressBar);
                     return;
                 }
 
-                int valor = ValueUniProgressBar / WinTask_Connection.tasks.Count;
+                int ValueUniProgressBar = WinGlobal_UIService.Instance.ValueUniProgressBar / WinTask_Connection.tasks.Count;
 
                 foreach (IRegisteredTask task in WinTask_Connection.tasks) // Verifica a quantidade de tarefas no diretório
                 {
-                    await WinTask_Bin.Delete(WinTask_Connection.rootFolder, task, token, valor); // apaga a tarefa
+                    await WinTask_Bin.Delete(WinTask_Connection.rootFolder, task, ValueUniProgressBar); // apaga a tarefa
                 }
-                WinGlobal_UIService2.Instance.Sucesso++;
+                WinGlobal_UIService.Instance.Sucesso++;
             }
             catch (Exception ex)
             {
-                WinGlobal_UIService2.Instance.Erro++;
-                await WinGlobal_UIService2.Instance.Log_MensagemAsync($"Gerou um erro na execução Clean Task\r\n: {ex.Message}", true);
+                WinGlobal_UIService.Instance.Erro++;
+                await WinGlobal_UIService.Instance.Log_MensagemAsync($"Gerou um erro na execução Clean Task\r\n: {ex.Message}", true);
             }
         }
     }

@@ -5,7 +5,7 @@ namespace MeuSuporte
     class CheckBuild_Mananger
     {
         private string GitHubRepo = "DanielCampos2017/MeuSuporte";
-        private CheckBuild_BuildView BuildView;
+        private readonly CheckBuild_BuildView BuildView;
 
         public CheckBuild_Mananger()
         {

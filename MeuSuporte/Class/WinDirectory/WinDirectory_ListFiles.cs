@@ -8,17 +8,16 @@ namespace MeuSuporte
 {
     internal class WinDirectory_ListFiles
     {
-        private WinDirectory_File _WinDirectory_File;
-        private WinDirectory_Folder _WinDirectory_Folder;
-
-        public WinDirectory_ListFiles()
+        private  WinDirectory_File _WinDirectory_File;
+        private  WinDirectory_Folder _WinDirectory_Folder;
+        private int CountFileDeleted = 0;
+        private int CountFoldersDeleted = 0;
+                
+        public async Task Remove(int ValueUniProgressBar, string PathFolder, string _NameFolder )
         {
             _WinDirectory_File = new WinDirectory_File();
-            _WinDirectory_Folder = new WinDirectory_Folder();            
-        }
+            _WinDirectory_Folder = new WinDirectory_Folder();
 
-        public async Task Remove(int ValueUniProgressBar, string PathFolder, string _NameFolder, CancellationToken token)
-        {
             try
             {
                 DirectoryInfo directory = new DirectoryInfo(PathFolder);
@@ -33,44 +32,58 @@ namespace MeuSuporte
 
                 foreach (var file in files)
                 {
-                    token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                    WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
                     loop++;
                     valorAcumulado += valorUnidade;
                     if (valorAcumulado >= 1)
                     {
-                        WinGlobal_UIService2.Instance.ProgressBarADD(1);
+                        WinGlobal_UIService.Instance.ProgressBarADD(1);
                         valorAcumulado -= 1;
-                        await WinGlobal_UIService2.Instance.Log_MensagemAsyncSobrescrever($"Apagando arquivos {total} / {loop} da Pasta {{{_NameFolder}}}");
+                        await WinGlobal_UIService.Instance.Log_MensagemAsyncSobrescrever($"Apagando arquivos {total} / {loop} da Pasta: {_NameFolder}");
                         await Task.Delay(20);
-                    }
-                    await _WinDirectory_File.Delete(file.FullName, token); // deleta o arquivo
+                    }                    
+                    // apaga o arquivo, se retorna = true converta para 1 e false para 0
+                    CountFileDeleted += await _WinDirectory_File.Delete(file.FullName) ? 1 : 0;
                 }
 
 
                 foreach (var folder in folders)
                 {
-                    token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                    WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
                     loop++;
                     valorAcumulado += valorUnidade;
                     if (valorAcumulado >= 1)
                     {
-                        WinGlobal_UIService2.Instance.ProgressBarADD(1);
+                        WinGlobal_UIService.Instance.ProgressBarADD(1);
                         valorAcumulado -= 1;
-                        await WinGlobal_UIService2.Instance.Log_MensagemAsyncSobrescrever($"Apagando arquivos {total} / {loop} da Pasta {{{_NameFolder}}}");
+                        await WinGlobal_UIService.Instance.Log_MensagemAsyncSobrescrever($"Apagando arquivos {total} / {loop} da Pasta: {_NameFolder}");
                         await Task.Delay(20);
                     }
-                    await _WinDirectory_Folder.Delete(folder.FullName, token); // deleta a pasta
+                    // apaga o arquivo, se retorna = true converta para 1 e false para 0
+                    CountFoldersDeleted += await _WinDirectory_Folder.Delete(folder.FullName) ? 1 : 0;
                 }
                                 
-                WinGlobal_UIService2.Instance.Sucesso++;
+                WinGlobal_UIService.Instance.Sucesso++;
                 await Task.Delay(1000);
             }
             catch (Exception ex)
             {
-                WinGlobal_UIService2.Instance.Erro++;
+                WinGlobal_UIService.Instance.Erro++;
             }
         }
+
+
+        public int countFileDeleted
+        {
+            get { return CountFileDeleted; } // retorna o valor
+        }                
+
+        public int countFoldersDeleted
+        {
+            get { return CountFoldersDeleted; } // retorna o valor
+        }
+
     }
 }

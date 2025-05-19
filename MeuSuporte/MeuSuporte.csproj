@@ -160,6 +160,7 @@
     <Compile Include="Class\WinApp\CheckBuild\CheckBuild_GetGitHub.cs" />
     <Compile Include="Class\WinApp\CheckBuild\CheckBuild_GetVersion.cs" />
     <Compile Include="Class\WinApp\CheckBuild\CheckBuild_Process.cs" />
+    <Compile Include="Class\WinApp\Mananger\WinApp_Mananger.cs" />
     <Compile Include="Class\WinBackupBCD\WinBackupBCD_Mananger.cs" />
     <Compile Include="Class\WinApp\CheckBuild\CheckBuild_Mananger.cs" />
     <Compile Include="Class\WinBackupBCD\WinBackupBCD_ProcessController.cs" />
@@ -175,7 +176,6 @@
     <Compile Include="Class\WinBloatware\WinBloatware_RenoveAllUser.cs" />
     <Compile Include="Class\WinBloatware\WinBloatware_RenoveNewUser.cs" />
     <Compile Include="Class\WinBloatware\WinBloatware_SearchInstallation.cs" />
-    <Compile Include="Class\WinGlobal\WinGlobal_UIService.cs" />
     <Compile Include="Class\WinDirectory\WinDirectory_File.cs" />
     <Compile Include="Class\WinDirectory\WinDirectory_Folder.cs" />
     <Compile Include="Class\WinDirectory\WinDirectory_ListFiles.cs" />
@@ -183,7 +183,7 @@
     <Compile Include="Class\WinGlobal\WinGlobal_DirectoryCreate.cs" />
     <Compile Include="Class\WinGlobal\WinGlobal_DirectoryMananger.cs" />
     <Compile Include="Class\WinDirectory\WinDirectory_Security.cs" />
-    <Compile Include="Class\WinGlobal\WinGlobal_UIService2.cs" />
+    <Compile Include="Class\WinGlobal\WinGlobal_UIService.cs" />
     <Compile Include="Class\WinGlobal\WinGlobal_ValidNameFolde.cs" />
     <Compile Include="Class\WinPageFile\WinPageFile_KeyRegistry.cs" />
     <Compile Include="Class\WinRegistry\Backup\WinRegistryBackup_FormatRegister.cs" />

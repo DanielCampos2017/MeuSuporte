@@ -1,24 +1,20 @@
 ﻿using System.Linq;
 using System.ServiceProcess;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace MeuSuporte
 {
     internal class WinService_Mananger
     {
-        private WinService_Uninstall WinService_Uninstall;
-        private WinService_Disabled WinService_Disabled;
+        private  WinService_Uninstall WinService_Uninstall;
+        private  WinService_Disabled WinService_Disabled;
 
-        public WinService_Mananger()
+        public async Task Mananger(string[] ListService, int ValueUniProgressBar, bool isDisableService)
         {
             WinService_Uninstall = new WinService_Uninstall();
             WinService_Disabled = new WinService_Disabled();
-        }
 
-        public async Task Mananger(string[] ListService, int ValueUniProgressBar, bool isDisableService, CancellationToken token)
-        {    
-            token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+            WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
 
             int total = ListService.Length;
             float valorUnidade = (float)ValueUniProgressBar / total;
@@ -26,14 +22,14 @@ namespace MeuSuporte
 
             foreach (string serviceName in ListService)
             {
-                token.ThrowIfCancellationRequested();
+                WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested();
 
                 var service = ServiceController.GetServices().FirstOrDefault(s => s.ServiceName == serviceName);
 
                 int NewValor = await ValueUnit(valorUnidade);
                 if (NewValor >= 1)
                 {
-                    WinGlobal_UIService2.Instance.ProgressBarADD(NewValor);
+                    WinGlobal_UIService.Instance.ProgressBarADD(NewValor);
                     await Task.Delay(20);
                 }
 
@@ -52,8 +48,8 @@ namespace MeuSuporte
 
             if (!foundServices)
             {
-                WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
-                WinGlobal_UIService2.Instance.Log_MensagemAsync("Serviço: No listings found!", true);
+                WinGlobal_UIService.Instance.ProgressBarADD(ValueUniProgressBar);
+                WinGlobal_UIService.Instance.Log_MensagemAsync("Serviço: No listings found!", true);
                 await Task.Delay(500);
             }
         }

@@ -7,23 +7,31 @@ namespace MeuSuporte
 {
     internal class WinDirectory_File
     {
-        private FileSecurity _FileSecurity = new FileSecurity();
+        private readonly FileSecurity _FileSecurity = new FileSecurity();
         private FileInfo file;
 
-        public async Task Delete(string txt, CancellationToken token) // deleta o arquivo de forma assíncrona
+        public async Task<bool> Delete(string txt ) // deleta o arquivo de forma assíncrona
         {
             file = new FileInfo(txt); // atribui o arquivo
             file.SetAccessControl(_FileSecurity); // atribui o acesso
 
             try
             {
-                token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
-                file.Delete(); // deleta o arquivo               
+                var file = new FileInfo(txt);
+
+                if (file.Exists)
+                {
+                    WinGlobal_UIService.Instance.token.ThrowIfCancellationRequested(); // Checa se o cancelamento foi solicitado antes de começar
+                    file.Delete(); // deleta o arquivo
+                    return true;
+                }
             }
             catch
             {
-                // não vou querer mensagem de erro devido ser centenas de arquivos para apagar então não quero entopir o log com erro
+                // silenciar os erros
             }
+
+            return false;
         }
     }
 }

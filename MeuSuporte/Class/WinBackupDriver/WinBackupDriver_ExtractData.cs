@@ -6,11 +6,11 @@ namespace MeuSuporte
 {
     internal class WinBackupDriver_ExtractData
     {
-        private WinBackupDriver_ValueUnit WinBackupDriver_ValueUnit;   
+        private readonly WinBackupDriver_ValueUnit ValueUnit;
 
         public WinBackupDriver_ExtractData()
         {
-            WinBackupDriver_ValueUnit = new WinBackupDriver_ValueUnit();
+            ValueUnit = new WinBackupDriver_ValueUnit();
         }
 
         public async Task DriverBackup_ExtractProgress(string valor)
@@ -27,9 +27,9 @@ namespace MeuSuporte
             MatchCollection matches = Regex.Matches(valor, @"\d+");
 
             int valorMaximo = (matches.Count > 1) ? Convert.ToInt32(matches[1].Value) : 100;
-            float unidade = (float)WinGlobal_UIService2.Instance.ValueUniProgressBar / (float)valorMaximo;
+            float unidade = (float)WinGlobal_UIService.Instance.ValueUniProgressBar / (float)valorMaximo;
 
-            WinGlobal_UIService2.Instance.ProgressBarADD(await WinBackupDriver_ValueUnit.Value(unidade));
+            WinGlobal_UIService.Instance.ProgressBarADD(await ValueUnit.Value(unidade));
         }
 
     }

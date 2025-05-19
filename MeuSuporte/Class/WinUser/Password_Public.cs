@@ -1,18 +1,20 @@
-﻿namespace MeuSuporte
+﻿using Microsoft.VisualBasic.ApplicationServices;
+
+namespace MeuSuporte
 {
     internal class Password_Public
     {
-        private string User = "Suporte";
-        private string Password = "r46W6h8#";
+        private string user = "Suporte";
+        private string password = "r46W6h8#";
 
-        public string GetUser()
+        public string User // propriedade pública
         {
-            return User;
+            get { return user; } // retorna o valor            
         }
 
-        public string GetPassword()
+        public string Password // propriedade pública
         {
-            return Password;
+            get { return password; } // retorna o valor            
         }
     }
 }

@@ -16,14 +16,14 @@ namespace MeuSuporte
                 // Redimensiona o espaço de armazenamento da sombra para 10%
                 await RunCommandAsync("powershell", "-Command \"& 'C:\\Windows\\System32\\vssadmin.exe' resize shadowstorage /for=C: /on=C: /maxsize=10%\"");
                
-                await WinGlobal_UIService2.Instance.Log_MensagemAsync(@"Configuração de proteção do sistema foi ativado", true);
+                await WinGlobal_UIService.Instance.Log_MensagemAsync(@"Configuração de proteção do sistema foi ativado", true);
 
-                WinGlobal_UIService2.Instance.ProgressBarADD(ValueUniProgressBar);
+                WinGlobal_UIService.Instance.ProgressBarADD(ValueUniProgressBar);
             }      
             catch (Exception ex)
             {
-                WinGlobal_UIService2.Instance.Erro++;
-                await WinGlobal_UIService2.Instance.Log_MensagemAsync(@"Ocorreu um erro ao tentar ativar a configuração de Proteção do sistema", true);
+                WinGlobal_UIService.Instance.Erro++;
+                await WinGlobal_UIService.Instance.Log_MensagemAsync(@"Ocorreu um erro ao tentar ativar a configuração de Proteção do sistema", true);
             }
         }
 
