@@ -3,7 +3,8 @@
 #### O Assistente de Manutenção Preventiva é uma ferramenta desenvolvida para auxiliar na manutenção e otimização do Windows, permitindo realizar diversas tarefas automáticas, como limpeza de arquivos temporários, desativação de processos e backup de configurações importantes.
 
 #
-![capa](https://github.com/user-attachments/assets/138e4627-74e4-41d7-a6e4-4fa29ae53784)
+<img width="969" height="720" alt="image" src="https://github.com/user-attachments/assets/123cef07-d6ee-4841-bb52-a16aa739759c" />
+
 
 #
 
