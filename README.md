@@ -27,8 +27,8 @@
 - [x] Criar Ponto de Restauração
 - [ ] ~~Remover Bloatware~~
 - [x] Salva Log dos processos executados
-- [ ] Backup Relatorio de Erros do Windows
-- [ ] Limpar Relatorio de Erros do Windows
+- [x] Backup Relatorio de Erros do Windows
+- [x] Limpar Relatorio de Erros do Windows
 
 ### Requisitos
 - Windows 10 ou superior
@@ -213,6 +213,32 @@ Remove entradas desnecessárias ou obsoletas do Registro do Windows para melhora
 ● Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 ● Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 ● Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
+
+Remove todas as chaves com exceção das Chaves abaixo
+[Nome de Registros]
+● "AgenteExecucaoAssistente"
+● "ConsultaNF-e_SEFAZ_RS"
+● "WebServicePortalFederal"
+● "DANFEViewUniNFe"
+● "Lightshot"
+● "GestaoPlugin"
+● "GestaoPluginx64"
+● "DANFEViewMon"
+● "DANFEViewWatch"
+● "Tecnobyte Agenda"
+● "Agente de Execução do Assistente Virtual"
+● "CriptoCNS",
+● "Valid Agent Server"
+● "AgenteExecucaoAssistente"
+
+[Local de Registros]
+● "C:\Windows\System32\DriverStore"
+● "C:\Program Files\NVIDIA Corporation"
+● "C:\Program Files\Realtek"
+● "C:\Program Files\Waves"
+● "C:\Program Files\GO-Signer"
+● "C:\Program Files (x86)\GO-Signer"
+● "C:\Program Files (x86)\NVIDIA"
 ```
 </details>
 
