@@ -9,11 +9,12 @@
 #
 
 ### Funcionalidades
+- [x] Otimiza Barra de Tarefas
 - [x] Notificação UAC ao Usuário
 - [x] Limpar tarefas Agendadas
 - [x] Limpar Lixeira
 - [x] Desativar Processos
-- [ ] Limpar Pasta %Temp%
+- [x] Limpar Pasta %Temp%
 - [x] Desativar o Windows Update
 - [x] Limpar Google Update
 - [x] Backup Registro
@@ -45,7 +46,13 @@ git clone https://github.com/DanielCampos2017/MeuSuporte.git
 ### Documentação das funcionalidade do programa
 
 
-
+<details>
+ <summary>🔽 Otimiza Barra de Tarefas
+ 
+ ``` bash
+Ativa\Desativa Icones da Barra de Terefas.
+ ```
+</details>
 
 <details>
  <summary>🔽 Notificação UAC ao Usuário </summary>
