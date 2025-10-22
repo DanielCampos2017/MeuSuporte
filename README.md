@@ -176,6 +176,7 @@ Remove serviços e processos relacionados ao Google Update, evitando consumo exc
 
 <details>
   <summary>🔽 Backup Registro</summary>
+  
 Faz uma cópia de segurança do Registro do *Usuário** atual e tendo a opção de escolha de **Todos Usuário** garantindo a possibilidade de restauração em caso de problemas.
 
 ``` bash
@@ -334,6 +335,7 @@ bcdedit /enum all
 
 <details>
  <summary>🔽 Ponto de Restauração </summary>
+ 
 Cria um Ponto de Restauração do Sistema para reverter o estado do seu sistema operacional para um momento anterior, sem afetar seus arquivos pessoais,
 
 Finalidade:
@@ -345,6 +347,7 @@ Finalidade:
 
 <details>
  <summary>🔽 Acesso Remoto RDP </summary>
+ 
 Ativa\Desativa O Acesso Remoto RDP (Remote Desktop Protocol)
 
 - **Suporte técnico** = Equipes de suporte podem acessar o computador do usuário para diagnosticar e resolver problemas.
@@ -431,6 +434,7 @@ Remove os **Bloatware** pré-instalados no sistema que 90% não são úteis para
 
 <details>
  <summary>🔽 Backup Relatorio de Erros do Windows  </summary>
+ 
 Cria um arquivo compactado no formato .Zip de todos os Relatório Erros do Sistema e dos Aplicativos
 
 Descompacte os arquivos nos diretórios abaixo
@@ -444,6 +448,7 @@ Painel de Controle\Sistema e Segurança\Segurança e Manutenção\Relatórios de
 
 <details>
  <summary>🔽 Limpar Relatorio de Erros do Windows  </summary>
+ 
 Apagar todos os arquivo de Relatório Erros do Sistema e dos Aplicativos.
 ideal para manter um controle de erros recorrentes na maquina
 </details>
