@@ -1,12 +1,26 @@
 # Assistente de Manutenção Preventiva
 
-#### O Assistente de Manutenção Preventiva é uma ferramenta desenvolvida para auxiliar na manutenção e otimização do Windows, permitindo realizar diversas tarefas automáticas, como limpeza de arquivos temporários, desativação de processos e backup de configurações importantes.
+O Assistente de Manutenção Preventiva é uma ferramenta desenvolvida para auxiliar na manutenção e otimização do Windows, permitindo realizar diversas tarefas automáticas, como limpeza de arquivos temporários, desativação de processos e backup de configurações importantes.
 
 #
 <img width="969" height="720" alt="image" src="https://github.com/user-attachments/assets/123cef07-d6ee-4841-bb52-a16aa739759c" />
 
+### Clone este repositório:
+``` bash
+git clone https://github.com/DanielCampos2017/MeuSuporte.git
+```
 
-#
+### Contribuição
+Sinta-se à vontade para sugerir melhorias ou relatar problemas através do Email
+``` bash
+Daniel_cpd2017@HotMail.com
+```
+### Requisitos
+- Windows 10 ou superior
+- Permissões de administrador para executar
+- .NET Framework 4.8 ou superior
+
+# 
 
 ### Funcionalidades
 - [x] Otimiza Barra de Tarefas
@@ -32,24 +46,8 @@
 - [ ] ~~Exportar inventario~~
 - [x] Salva Log dos processos executados
 
-### Requisitos
-- Windows 10 ou superior
-- Permissões de administrador para executar
-
-### Clone este repositório:
-``` bash
-git clone https://github.com/DanielCampos2017/MeuSuporte.git
-```
-
-### Contribuição
-#### Sinta-se à vontade para sugerir melhorias ou relatar problemas através do Email
-``` bash
-Daniel_cpd2017@HotMail.com
-```
-# 
 
 ### Documentação das funcionalidade do programa
-
 
 <details>
  <summary>🔽 Otimiza Barra de Tarefas </summary>
@@ -221,6 +219,7 @@ Remove inicialiação de Serviço de armazenamento em Nuvem. Mantendo somente os
 - OneDrive
 - GoogleDrive
 
+### Lista de Registro que não ira **apaga** 
 Módulo de consulta de Notas Fiscais eletrônicas (NF-e) junto à SEFAZ do estado do Rio Grande do Sul.
 - ConsultaNF-e_SEFAZ_RS
 
