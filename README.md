@@ -44,6 +44,8 @@ Daniel_cpd2017@HotMail.com
 - [x] Backup Relatorio de Erros do Windows
 - [x] Limpar Relatorio de Erros do Windows
 - [ ] ~~Exportar inventario~~
+- [x] Perfil Graphic
+- [x] Perfil de Energia
 - [x] Salva Log dos processos executados
 
 
@@ -454,8 +456,55 @@ ideal para manter um controle de erros recorrentes na maquina
 </details>
 
 <details>
+ <summary>🔽 Perfil Graphic </summary>
+ 
+Permite altera o perfil de acordo com sua preferência.
+
+- Desempenho:
+   - Sistema rápido e leve
+- Aparência:
+   - Interface bonita e fluida 
+
+</details>
+
+<details>
+ <summary>🔽 Perfil de Energia </summary>
+ 
+### Permite altera o **Plano** de energia de acordo com sua preferência.
+#### ⚡ Plano de Desempenho
+- Foco: 
+	- máximo desempenho do sistema.
+- Características:
+	- Mantém o processador funcionando em frequências mais altas.
+	- Reduz o tempo que o sistema espera antes de desligar componentes (como tela e disco).
+	- O ventilador trabalha mais, e o notebook pode esquentar mais.
+- Vantagens: 
+	- ideal para tarefas pesadas como jogos, renderização, edição de vídeo, e softwares de engenharia.
+
+#### ⚙️ Plano Equilibrado
+- Foco: 
+	- equilíbrio entre desempenho e economia de energia.
+- Características:
+	- Ajusta dinamicamente a velocidade do processador conforme a carga de trabalho.
+	- Economiza energia quando o sistema está ocioso.
+- Vantagens: 
+	- bom desempenho na maioria das tarefas do dia a dia, sem gastar energia à toa.
+
+#### 🔋 Plano de Economia de Bateria
+- Foco: 
+	- prolongar a duração da bateria.
+- Características:
+	- Reduz o brilho da tela.
+	- Limita a frequência do processador.
+	- Desativa tarefas em segundo plano e notificações não essenciais.
+- Vantagens:
+	- ótimo para quando você precisa usar o notebook por mais tempo longe da tomada.
+</details>
+
+<details>
  <summary>🔽 Salva Log dos processos executados </summary>
  
 Após a finalização do Software o mesmo ira criar uma pasta com nomenclatura "**Preventiva Dia-Mês-Ano**" no mesmo diretório da execução do Software, com os os Logs de todo o processo realizado, para fim de auditoria.
 
 </details>
+
