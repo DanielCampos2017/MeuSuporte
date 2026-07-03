@@ -5,24 +5,24 @@ O Assistente de Manutenção Preventiva é uma ferramenta desenvolvida para auxi
 #
 <img width="969" height="720" alt="image" src="https://github.com/user-attachments/assets/123cef07-d6ee-4841-bb52-a16aa739759c" />
 
-### Clone este repositório:
+## Clone este repositório:
 ``` bash
 git clone https://github.com/DanielCampos2017/MeuSuporte.git
 ```
 
-### Contribuição
+## Contribuição
 Sinta-se à vontade para sugerir melhorias ou relatar problemas através do Email
 ``` bash
 Daniel_cpd2017@HotMail.com
 ```
-### Requisitos
+## Requisitos
 - Windows 10 ou superior
 - Permissões de administrador para executar
 - .NET Framework 4.8 ou superior
 
-# 
 
-### Funcionalidades
+
+## Funcionalidades Implementada
 - [x] Otimiza Barra de Tarefas
 - [x] Notificação UAC ao Usuário
 - [x] Limpar tarefas Agendadas
@@ -48,11 +48,12 @@ Daniel_cpd2017@HotMail.com
 - [x] Perfil de Energia
 - [x] Salva Log dos processos executados
 
+---
 
-### Documentação das funcionalidade do programa
+# Documentação das funcionalidade do programa
 
-<details>
- <summary>🔽 Otimiza Barra de Tarefas </summary>
+
+## Otimiza Barra de Tarefas 
  
 Remove os Icones da Barra de Terefas, Aumentando o espaço útil da Barra de Terefas do **Usuário** atual e tendo a opção de escolha de **Todos Usuário**
 
@@ -60,35 +61,35 @@ Remove os Icones da Barra de Terefas, Aumentando o espaço útil da Barra de Ter
 - Ocultar o icone de **Visão de Tarefas**
 - Ocultar o icone de **Saiba mais sobre esta imagem**
 
-</details>
 
-<details>
- <summary>🔽 Notificação UAC ao Usuário </summary>
+
+
+## Notificação UAC ao Usuário 
  
 Ativa\Desativa notificação **Pop-Up de Controle de Conta de Usuário (UAC)** para o **Usuário** atual e tendo a opção de escolha de **Todos Usuário**
 
 Esse é recurso de segurança do Windows. Que solicita permissão para que um aplicativo faça alterações no sistema
 Essa notificação aparece quando um programa precisa de privilégios administrativos, como ao instalar software ou modificar configurações
 
-</details>
 
 
-<details>
- <summary>🔽 Limpar tarefas Agendadas </summary>
+
+
+## Limpar tarefas Agendadas 
 
 Remove tarefas agendadas desnecessárias que podem estar consumindo recursos ou afetando o desempenho do sistema.
 
-</details>
 
-<details>
- <summary>🔽 Limpar Lixeira </summary>
+
+
+## Limpar Lixeira 
 
 Exclui permanentemente os arquivos armazenados na Lixeira do usuário atual para liberar espaço em disco.
 
-</details>
 
-<details>
-  <summary>🔽 Desativar Processos</summary>
+
+
+## Desativar Processos
 
 Remove os processos que roda em segundo plano que podem estar consumindo recursos Desnecessários.
 
@@ -126,20 +127,20 @@ Remove os processos que roda em segundo plano que podem estar consumindo recurso
 - **WpnService** = Serviço de Notificações Push do Windows
 - **XblAuthManager** = Serviço de Autenticação Xbox Live
 
-</details>
 
-<details>
- <summary>🔽 Limpar Pasta %Temp% </summary>
+
+
+## Limpar Pasta %Temp% 
 
 Remove arquivos temporários do **Usuário** atual e tendo a opção de escolha de **Todos** para liberar espaço e melhorar o desempenho.
 ``` bash
 %LOCALAPPDATA%\Temp
 
 ```
-</details>
 
-<details>
-  <summary>🔽 Desativar o Windows Update</summary>
+
+
+## Desativar o Windows Update
 
 Desativa serviço do Windows Update para evitar atualizações automáticas que podem impactar o desempenho ou causar reinicializações indesejadas para o **Usuario Atual**
 
@@ -154,10 +155,10 @@ Remove os arquivos de atualizações não realizada
 %WinDir%\SoftwareDistribution\Download
 ``` 
 
-</details>
 
-<details>
- <summary>🔽 Limpar Google Update</summary>
+
+
+## Limpar Google Update
 
 Remove serviços e processos relacionados ao Google Update, evitando consumo excessivo de recursos por atualizações automáticas do Google Chrome
 
@@ -174,10 +175,10 @@ Remove serviços e processos relacionados ao Google Update, evitando consumo exc
 - **GoogleChromeElevationService** = Serviço do google
 - **gusvc** = Serviço do google
 
-</details>
 
-<details>
-  <summary>🔽 Backup Registro</summary>
+
+
+## Backup Registro
   
 Faz uma cópia de segurança do Registro do *Usuário** atual e tendo a opção de escolha de **Todos Usuário** garantindo a possibilidade de restauração em caso de problemas.
 
@@ -186,17 +187,17 @@ Computador\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 Computador\HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run 
 ``` 
-</details>
 
-<details>
-  <summary>🔽 Otimizar Memória Virtual</summary>
+
+
+## Otimizar Memória Virtual
 
 Otimiza o arquivo de paginação do Windows (Pagefile.sys), ajustando seu tamanho ou desativando-o conforme a necessidade do usuário.
 
-</details>
 
-<details>
- <summary>🔽 Backup de Drivers </summary>
+
+
+## Backup de Drivers 
 
 Cria uma cópia de segurança dos drivers instalados no sistema, permitindo restaurá-los em caso de falha ou reinstalação do Windows.
 
@@ -205,10 +206,10 @@ Execute o comando no **CMD** como Administrador para restaura os **Driver** do w
 ``` bash
  pnputil /add-driver "C:\DriversBackup\*.inf" /subdirs /install
 ```
-</details>
 
-<details>
- <summary>🔽 Limpar Registros </summary>
+
+
+## Limpar Registros 
 
 Remove chaves de registros do desnecessárias ou obsoletas do Registro Windows no **Usuário** atual e tendo a opção de escolha de **Todos Usuário** para melhorar a estabilidade e o desempenho. 
 
@@ -222,7 +223,7 @@ Remove inicialiação de Serviço de armazenamento em Nuvem. Mantendo somente os
 - OneDrive
 - GoogleDrive
 
-### Lista de Registro que não ira **apaga** 
+#### Lista de Registro que não ira **apaga** 
 Módulo de consulta de Notas Fiscais eletrônicas (NF-e) junto à SEFAZ do estado do Rio Grande do Sul.
 - ConsultaNF-e_SEFAZ_RS
 
@@ -272,11 +273,11 @@ Drivers e utilitários de áudio ou rede desenvolvidos pela Realtek Semiconducto
 Drivers do sistema operacional Windows
 - DriverStore
 
-</details>
 
-<details>
 
- <summary>🔽 Usuário "Suporte"</summary>
+
+
+## Usuário "Suporte"
 
 Cria uma conta Local com privilégio administrador para facilitar a manutenção e resolução de problemas no sistema.
  
@@ -285,20 +286,20 @@ Nome: Suporte
 Senha: r46W6h8#
 ```
 
-</details>
 
-<details>
- <summary>🔽 Limpar Prefetch</summary>
+
+
+## Limpar Prefetch
  
 Remover Arquivos de Inicialização Lenta no (Prefetch) que podem estar desatualizados e impactar negativamente o desempenho do sistema.
 
 ``` bash
 %WinDir%\Prefetch
 ```
-</details>
 
-<details>
- <summary>🔽 Backup do BootBCD </summary>
+
+
+## Backup do BootBCD 
 
 Faz uma cópia de segurança do arquivo **BCD_Backup.zip** "Boot Configuration Data (BCD)", configurações de inicialização possam ser restauradas caso ocorram problemas.
 
@@ -333,10 +334,10 @@ Verifique se o BCD foi restaurado corretamente
 bcdedit /enum all
 ```
 
-</details>
 
-<details>
- <summary>🔽 Ponto de Restauração </summary>
+
+
+## Ponto de Restauração 
  
 Cria um Ponto de Restauração do Sistema para reverter o estado do seu sistema operacional para um momento anterior, sem afetar seus arquivos pessoais,
 
@@ -345,20 +346,20 @@ Finalidade:
 - **Desfazer alterações do sistema** = Ele desfaz modificações feitas em arquivos do sistema, configurações e no registro do Windows que possam ter causado instabilidade
 - **Recuperar de problemas** = É uma maneira rápida de solucionar problemas sem precisar reinstalar todo o sistema operacional
 
-</details>
 
-<details>
- <summary>🔽 Acesso Remoto RDP </summary>
+
+
+## Acesso Remoto RDP 
  
 Ativa\Desativa O Acesso Remoto RDP (Remote Desktop Protocol)
 
 - **Suporte técnico** = Equipes de suporte podem acessar o computador do usuário para diagnosticar e resolver problemas.
 - **Trabalho remoto** = Usuario conseguem se conectar ao computador do escritório para acessar arquivos e programas para trabalhar remotamente
 
-</details>
 
-<details>
-<summary>🔽 Limpar Bloatware pré instalados</summary>
+
+
+## Limpar Bloatware pré instalados
 
 Remove os **Bloatware** pré-instalados no sistema que 90% não são úteis para o usuário final, como alguns jogos ou versões de teste de programas pagos
 
@@ -432,10 +433,10 @@ Remove os **Bloatware** pré-instalados no sistema que 90% não são úteis para
 - XboxSpeechToTextOverlay  = Xbox Game Speech Window  
 - XboxIdentityProvider  = Xbox Identity Provider
 
-</details>
 
-<details>
- <summary>🔽 Backup Relatorio de Erros do Windows  </summary>
+
+
+## Backup Relatorio de Erros do Windows  
  
 Cria um arquivo compactado no formato .Zip de todos os Relatório Erros do Sistema e dos Aplicativos
 
@@ -446,17 +447,17 @@ C:\ProgramData\Microsoft\Windows\WER\ReportArchive\
 ```
 Para visualizar os Relatorios basta ir no Painel de controle do windows
 Painel de Controle\Sistema e Segurança\Segurança e Manutenção\Relatórios de Problemas
-</details>
 
-<details>
- <summary>🔽 Limpar Relatorio de Erros do Windows  </summary>
+
+
+## Limpar Relatorio de Erros do Windows  
  
 Apagar todos os arquivo de Relatório Erros do Sistema e dos Aplicativos.
 ideal para manter um controle de erros recorrentes na maquina
-</details>
 
-<details>
- <summary>🔽 Perfil Graphic </summary>
+
+
+## Perfil Graphic 
  
 Permite altera o perfil de acordo com sua preferência.
 
@@ -465,10 +466,10 @@ Permite altera o perfil de acordo com sua preferência.
 - Aparência:
    - Interface bonita e fluida 
 
-</details>
 
-<details>
- <summary>🔽 Perfil de Energia </summary>
+
+
+## Perfil de Energia 
  
 ### Permite altera o **Plano** de energia de acordo com sua preferência.
 #### ⚡ Plano de Desempenho
@@ -499,12 +500,12 @@ Permite altera o perfil de acordo com sua preferência.
 	- Desativa tarefas em segundo plano e notificações não essenciais.
 - Vantagens:
 	- ótimo para quando você precisa usar o notebook por mais tempo longe da tomada.
-</details>
 
-<details>
- <summary>🔽 Salva Log dos processos executados </summary>
+
+
+## Salva Log dos processos executados 
  
 Após a finalização do Software o mesmo ira criar uma pasta com nomenclatura "**Preventiva Dia-Mês-Ano**" no mesmo diretório da execução do Software, com os os Logs de todo o processo realizado, para fim de auditoria.
 
-</details>
+
 
